@@ -1,5 +1,9 @@
 doctype html
+<<<<<<< HEAD
 html
+=======
+html(lang="es")
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
     head 
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -12,6 +16,7 @@ html
             div.barraNavegacion                
                 img#logo(src="img/diresa.png", alt="")
                 div.buscador
+<<<<<<< HEAD
                     input.campoBuscar
                     button(type="submit").buscar Buscar 
             div.medio
@@ -24,18 +29,39 @@ html
                                 img#archivero(src="/img/archivero.svg")
                                 //- div
                                 //-     include ../public/img/archivero.svg                    
+=======
+                    input.campoBuscar(placeholder="Buscar")
+                    button(type="submit").buscar Buscar 
+            div.medio
+                div.lateral
+                    ul                           
+                        li                            
+                            a(href="/") Archivos
+                                img#archivero(src="/img/archivero.svg")
+                                //- div
+                                //-     include ../public/img/archivero.svg
+                        li 
+                            a(href="/agregar") Trámite
+                                img#papelera(src="/img/tramite2.png")                      
+
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
                         li                             
                             a(href="/papelera") Papelera
                                 img#papelera(src="/img/papelera.svg")                                
                                 
+<<<<<<< HEAD
                         li 
                             a(href="/agregar") Agregar
+=======
+                        
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
                         
             
                 div.central
                     block content
             
                     //- <!-- <script type="module" src="script.js"></script> -->
+<<<<<<< HEAD
         
                     //- <nav class="navbar bg-primary mb-0">
                     //-   <div class="container-fluid">
@@ -47,3 +73,5 @@ html
                     //-   </div>
                     //- </nav>                    
             
+=======
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271

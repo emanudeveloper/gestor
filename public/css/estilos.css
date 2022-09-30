@@ -85,13 +85,21 @@ body{
      /* box-sizing: content-box; */
     /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
     background-color: rgb(44, 52, 116);
+<<<<<<< HEAD
     width: 10%;    
+=======
+    width: 8%;    
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
     text-decoration: none;    
 }
 
 .central{
     background-color: rgba(255, 255, 255, 0.9);
+<<<<<<< HEAD
     width: 90%;
+=======
+    width: 92%;
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
 }
 
 ul{    
@@ -136,3 +144,23 @@ hr{
     object-fit: cover;
     height: 50px;    
 }
+<<<<<<< HEAD
+=======
+
+#archivo{
+    margin:5px;
+    background-image: url("../img/folderCerrado.png");
+    background-position: center;   
+    background-repeat: none;
+    width: 8%;
+    height: 18%;
+    cursor: pointer;
+}
+
+#archivo:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.80ms;
+    /* block-size: 120%; */
+    /* size: 120%; */
+}
+>>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
