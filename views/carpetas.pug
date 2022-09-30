@@ -1,0 +1,9 @@
+extends layout.pug
+include carpeta 
+block content
+    //- - var carpetas = [1,2,3,4,5,6];
+    ul
+        each val in [1, 2, 3, 4, 5, 6]        
+            li archivo #{val} 
+    
+    +archivo
