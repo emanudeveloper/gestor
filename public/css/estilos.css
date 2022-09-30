@@ -1,0 +1,155 @@
+
+body{
+    /* background-image: url('imagenes/background.jpg'); */
+    /* background-repeat: no-repeat;
+    background-position:center; */
+    box-sizing: border-box;    
+    margin: 0px;
+}
+
+.principal{
+
+    height: 100%;    
+    /* display: flex; */
+    /* flex-direction: column;     */
+}
+
+/* BARRA DE NAVEGACION */
+
+.barraNavegacion{
+    position: fixed;
+    height: 7vh;
+    width: 100%;
+    /* background-color: rgba(13,110,253,1);     */
+    background-color: rgb(44, 52, 116);
+
+    margin:0px;
+    display: flex;    
+    justify-content: space-between;   
+    z-index: 1;
+}
+
+#logo{    
+    display: flex;
+    justify-content: left;
+    object-fit: cover;
+    height: 100%;
+    background-image: url('../img/diresa.png');
+    margin-left: 10px;
+}
+
+.buscador{
+    width: 30%;
+    /* margin: 0;
+    padding: 0; */
+}
+
+.campoBuscar{
+    margin: 3px 1px 3px 1px;
+    border-radius: 8px;
+    border: none;
+    /* width: 80%; */
+    object-fit: cover;
+    height: 80%;
+    width: 70%;
+}
+
+.buscar{
+    background-color: rgba(13, 117, 29, 0.582);    
+    border: 2px solid rgba(35, 175, 35, 0.651);
+    color: white;    
+    margin: 4px;    
+    height: 80%;
+    width: 20%;
+}
+
+.buscar:hover{
+    background-color: rgb(5, 168, 5);
+    
+}
+
+/* despues de la barra de navegacion*/
+.medio{
+    position: absolute;
+    top: 7vh;
+    background-color: rgba(190, 101, 101, 0.6);
+    display: flex;
+    height: 93vh;   
+    width: 100%;  
+    overflow: auto;
+    /* z-index: -1;    */
+}
+
+.lateral{
+    
+     /* box-sizing: content-box; */
+    /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
+    background-color: rgb(44, 52, 116);
+    width: 8%;    
+    text-decoration: none;    
+}
+
+.central{
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 92%;
+}
+
+ul{    
+    /* background-color: aqua;     */
+    display: contents;         
+}
+
+li{
+    padding: 10px;
+    list-style: none;  
+    margin:0px;     
+}
+
+li a{    
+    display: block;
+    text-align: left;    
+    text-decoration: none;   
+    color: white;        
+}
+
+li:hover{
+    background-color: steelblue;
+    color: rgb(255, 255, 113);
+    font-size: 120%; 
+    cursor: pointer;
+}
+
+li a:hover{
+    color: rgb(255, 255, 113);
+}
+
+.icono-lateral{
+    /* vertical-align: bottom; */
+}
+
+hr{
+    margin: 0px;  
+}
+
+#archivero, #papelera{    
+    display: block;    
+    object-fit: cover;
+    height: 50px;    
+}
+
+#archivo{
+    margin:5px;
+    background-image: url("../img/folderCerrado.png");
+    background-position: center;   
+    background-repeat: none;
+    width: 8%;
+    height: 18%;
+    cursor: pointer;
+}
+
+#archivo:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.80ms;
+    /* block-size: 120%; */
+    /* size: 120%; */
+}

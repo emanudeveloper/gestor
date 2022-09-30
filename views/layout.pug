@@ -1,0 +1,39 @@
+doctype html
+html(lang="es")
+    head 
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title GESTOR
+        link(rel="stylesheet" type="text/css" href="css/estilos.css")
+        link(rel="icon" href="/img/archivero.svg")
+    body 
+        div.principal
+            div.barraNavegacion                
+                img#logo(src="img/diresa.png", alt="")
+                div.buscador
+                    input.campoBuscar(placeholder="Buscar")
+                    button(type="submit").buscar Buscar 
+            div.medio
+                div.lateral
+                    ul                           
+                        li                            
+                            a(href="/") Archivos
+                                img#archivero(src="/img/archivero.svg")
+                                //- div
+                                //-     include ../public/img/archivero.svg
+                        li 
+                            a(href="/agregar") Trámite
+                                img#papelera(src="/img/tramite2.png")                      
+
+                        li                             
+                            a(href="/papelera") Papelera
+                                img#papelera(src="/img/papelera.svg")                                
+                                
+                        
+                        
+            
+                div.central
+                    block content
+            
+                    //- <!-- <script type="module" src="script.js"></script> -->
