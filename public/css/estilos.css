@@ -209,7 +209,7 @@ div a:hover, #menuLateralItem:hover{
 
 .tarjeta:hover{
     background-image: url("../img/folderAbierto.png");
-    transition: 0.80ms;
+    transition: 1.2s;
     padding: 2px;
 } 
 
