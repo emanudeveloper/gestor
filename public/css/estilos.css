@@ -22,7 +22,9 @@
     width: 100%;
     /* background-color: rgba(13,110,253,1);     */
     background-color: rgb(44, 52, 116);
-
+    padding-top: 2px;
+    /* margin-left: auto;
+    margin-right:auto ; */
     margin:0px;
     display: flex;    
     justify-content: space-between;   
@@ -30,12 +32,14 @@
 }
 
 #logo{    
-    display: flex;
-    justify-content: left;
-    object-fit: cover;
-    height: 100%;
     background-image: url('../img/diresa.png');
+    display: flex;
+    /* justify-content: left; */
+    height: 80%;
+    /* margin: 8px; */
     margin-left: 10px;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .buscador{
@@ -209,7 +213,7 @@ div a:hover, #menuLateralItem:hover{
 
 .tarjeta:hover{
     background-image: url("../img/folderAbierto.png");
-    transition: 1.2s;
+    transition: 0.2s;
     padding: 2px;
 } 
 
