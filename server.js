@@ -15,6 +15,8 @@ app.set('view engine', 'pug');
 app.use(rutaPrincipal);
 app.use(papeleraRoute)
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(__dirname);
+app.use('/doc', express.static(path.join(__dirname, 'documentos')));
 
 app.listen(port, ()=>{
     console.log(`escuchando desde el puerto ${port}`);

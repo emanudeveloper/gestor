@@ -22,10 +22,6 @@
   "homepage": "https://github.com/emanudeveloper/gestor#readme",
   "dependencies": {
     "express": "^4.18.1",
-<<<<<<< HEAD
-=======
-    "mongoose": "^6.6.2",
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
     "pug": "^3.0.2"
   }
 }

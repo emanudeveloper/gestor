@@ -1,5 +1,5 @@
 
-body{
+*, body{
     /* background-image: url('imagenes/background.jpg'); */
     /* background-repeat: no-repeat;
     background-position:center; */
@@ -73,7 +73,7 @@ body{
     position: absolute;
     top: 7vh;
     background-color: rgba(190, 101, 101, 0.6);
-    display: flex;
+    /* display: flex; */
     height: 93vh;   
     width: 100%;  
     overflow: auto;
@@ -85,58 +85,75 @@ body{
      /* box-sizing: content-box; */
     /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
     background-color: rgb(44, 52, 116);
-<<<<<<< HEAD
-    width: 10%;    
-=======
     width: 8%;    
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
+    height: 100%;
     text-decoration: none;    
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    /* justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+    align-content: center; */
 }
 
 .central{
     background-color: rgba(255, 255, 255, 0.9);
-<<<<<<< HEAD
-    width: 90%;
-=======
     width: 92%;
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
+    float: left;
+    height: 100%;
 }
 
-ul{    
-    /* background-color: aqua;     */
-    display: contents;         
+#menuLateral {
+    /* justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center; */
+    /* background-color: aqua; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+
 }
 
-li{
-    padding: 10px;
-    list-style: none;  
-    margin:0px;     
+#menuLateralItem a{
+    /* justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center; */
+    /* background-color: aqua; */
+
+    /* margin: 0px; */
+    
+   
+}
+#menuLateralItem a:visited{
+    margin-right: 0px;
+    /* background-color: white; */
 }
 
-li a{    
-    display: block;
-    text-align: left;    
+
+/* li a,  */
+div a, div a img, #menuLateralItem{    
+
+    /* text-align: left;     */
     text-decoration: none;   
-    color: white;        
+    color: white;  
+    padding: 5px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+          
 }
 
-li:hover{
+/* li:hover,  */
+div a:hover, #menuLateralItem:hover{
     background-color: steelblue;
+    /* background-color: white; */
     color: rgb(255, 255, 113);
     font-size: 120%; 
     cursor: pointer;
-}
-
-li a:hover{
-    color: rgb(255, 255, 113);
-}
-
-.icono-lateral{
-    /* vertical-align: bottom; */
-}
-
-hr{
-    margin: 0px;  
 }
 
 #archivero, #papelera{    
@@ -144,23 +161,84 @@ hr{
     object-fit: cover;
     height: 50px;    
 }
-<<<<<<< HEAD
-=======
 
-#archivo{
-    margin:5px;
+.tarjetas{
+    /* background-color: brown; */
+    display: grid;
+    grid-template-columns: repeat(5, 65px);
+    box-sizing: border-box;
+    padding: 10px;    
+    
+    /* width: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;    
+    /* margin: 0 auto;     */
+    gap:15%;
+    /* gap: 110px;    */
+    /* gap: 100px;     */
+    /* background-color: aqua; */
+}
+
+.tarjeta{
+    padding: 5px;
+    background-image: url("../img/folderCerrado.png");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    /* background-color: yellow; */
+
+    /* width: auto;
+    height: auto; */
+    /* width: 10%;
+    height: 50%; */
+    /* grid-column: auto;
+    grid-column: auto; */
+    cursor: pointer;
+    /* padding: 5px; */
+    /* background-color: aqua; */
+
+    height: auto;
+    width: auto;
+    /* height: 100%;*/
+    margin:2px 3px 2px 3px;
+    width: 200px; 
+}
+
+.tarjeta:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.80ms;
+    padding: 2px;
+} 
+
+/* #archivo, .tarjeta{
+    
     background-image: url("../img/folderCerrado.png");
     background-position: center;   
     background-repeat: none;
     width: 8%;
     height: 18%;
     cursor: pointer;
-}
+}  */
 
-#archivo:hover{
+/* #archivo:hover, .tarjeta:hover{
     background-image: url("../img/folderAbierto.png");
     transition: 0.80ms;
-    /* block-size: 120%; */
-    /* size: 120%; */
-}
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
+} */
+
+/* #archivo, #archivo:hover{
+    float:left;
+    margin:5px;
+} */
+/* 
+#files{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: 80px auto auto 80px;
+    grid-gap:10px;
+} */

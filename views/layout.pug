@@ -1,77 +1,37 @@
 doctype html
-<<<<<<< HEAD
-html
-=======
 html(lang="es")
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
     head 
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title GESTOR
         link(rel="stylesheet" type="text/css" href="css/estilos.css")
-        link(rel="icon" href="/img/archivero.svg")
+        link(rel="icon" href="img/archivero.svg")
     body 
         div.principal
             div.barraNavegacion                
                 img#logo(src="img/diresa.png", alt="")
                 div.buscador
-<<<<<<< HEAD
-                    input.campoBuscar
-                    button(type="submit").buscar Buscar 
-            div.medio
-                div.lateral
-                    ul
-                           
-                        li
-                            
-                            a(href="/") Archivos
-                                img#archivero(src="/img/archivero.svg")
-                                //- div
-                                //-     include ../public/img/archivero.svg                    
-=======
                     input.campoBuscar(placeholder="Buscar")
                     button(type="submit").buscar Buscar 
             div.medio
                 div.lateral
-                    ul                           
-                        li                            
+                    div#menuLateral                           
+                        div#menuLateralItem                            
                             a(href="/") Archivos
                                 img#archivero(src="/img/archivero.svg")
                                 //- div
                                 //-     include ../public/img/archivero.svg
-                        li 
-                            a(href="/agregar") Trámite
+                        div#menuLateralItem
+                            a(href="/agregar") Registrar
                                 img#papelera(src="/img/tramite2.png")                      
 
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
-                        li                             
+                        div#menuLateralItem                             
                             a(href="/papelera") Papelera
                                 img#papelera(src="/img/papelera.svg")                                
-                                
-<<<<<<< HEAD
-                        li 
-                            a(href="/agregar") Agregar
-=======
-                        
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271
-                        
+                    
             
                 div.central
                     block content
-            
+        script(src="js/script.js")     
                     //- <!-- <script type="module" src="script.js"></script> -->
-<<<<<<< HEAD
-        
-                    //- <nav class="navbar bg-primary mb-0">
-                    //-   <div class="container-fluid">
-                    //-     <a class="navbar-brand text-danger">GESTORA: GESTOR DE ARCHIVOS</a>              
-                    //-     <form class="d-flex" role="search">
-                    //-       <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    //-       <button class="btn btn-success" type="submit">Buscar</button>                  
-                    //-     </form> 
-                    //-   </div>
-                    //- </nav>                    
-            
-=======
->>>>>>> add22cb3ac3f3bf4fa4fc07293a785c8ed2eb271

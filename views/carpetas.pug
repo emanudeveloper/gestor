@@ -2,8 +2,19 @@ extends layout.pug
 include carpeta 
 block content
     //- - var carpetas = [1,2,3,4,5,6];
-    ul
-        each val in [1, 2, 3, 4, 5, 6]        
-            li archivo #{val} 
-    
-    +archivo
+    //- ul
+          
+            //- li archivo #{val} 
+    - var num = 1; 
+    div#tarjetas(class="tarjetas") 
+        //- each val in [1, 2, 3, 4, 5, 6]  
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num++}
+        //- div(class="tarjeta") #{num}
+            //- h3 #{val}
+    //- +archivo
