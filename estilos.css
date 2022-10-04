@@ -1,0 +1,254 @@
+
+*, body{
+    /* background-image: url('imagenes/background.jpg'); */
+    /* background-repeat: no-repeat;
+    background-position:center; */
+    box-sizing: border-box;    
+    margin: 0px;
+
+}
+
+.principal{
+
+    height: 100%;    
+    background-color: white;
+    /* display: flex; */
+    /* flex-direction: column;     */
+}
+
+/* BARRA DE NAVEGACION */
+
+.barraNavegacion{
+    position: fixed;
+    height: 7vh;
+    width: 100%;
+    /* background-color: rgba(13,110,253,1);     */
+    background-color: rgb(44, 52, 116);
+    padding-top: 2px;
+    /* margin-left: auto;
+    margin-right:auto ; */
+    margin:0px;
+    display: flex;    
+    justify-content: space-between;   
+    z-index: 1;
+}
+
+#logo{    
+    background-image: url('../img/diresa.png');
+    display: flex;
+    /* justify-content: left; */
+    height: 80%;
+    /* margin: 8px; */
+    margin-left: 10px;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.buscador{
+    width: 30%;
+    /* margin: 0;
+    padding: 0; */
+}
+
+.campoBuscar{
+    margin: auto 1px auto 1px;
+    border-radius: 8px;
+    border: none;
+    /* width: 80%; */
+    object-fit: cover;
+    height: 80%;
+    width: 70%;
+}
+
+.buscar{
+    background-color: rgba(13, 117, 29, 0.582);    
+    border: 2px solid rgba(35, 175, 35, 0.651);
+    color: white;    
+    margin: 4px;    
+    height: 80%;
+    width: 20%;
+}
+
+.buscar:hover{
+    background-color: rgb(5, 168, 5);
+    
+}
+
+/* despues de la barra de navegacion*/
+.medio{
+    position: absolute;
+    top: 7vh;
+    background-color: rgba(190, 101, 101, 0.6);
+    /* display: flex; */
+    height: 93vh;   
+    width: 100%;  
+    overflow: auto;
+    /* z-index: -1;    */
+}
+
+.lateral{
+    
+     /* box-sizing: content-box; */
+    /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
+    background-color: rgb(44, 52, 116);
+    width: 8%;    
+    height: 100%;
+    text-decoration: none;    
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    /* justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+    align-content: center; */
+}
+
+.central{
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 92%;
+    float: left;
+    height: 100%;
+}
+
+#menuLateral {
+    /* justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center; */
+    /* background-color: aqua; */
+    /* margin: 0px; */
+    /* padding: 0px; */
+
+}
+
+.menuLateralItem a{
+    /* justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center; */
+    /* background-color: aqua; */
+
+    /* margin: 0px; */
+    
+   
+}
+.menuLateralItem a:visited{
+    margin-right: 0px;
+    /* background-color: white; */
+}
+
+
+/* li a,  */
+div a, div a img, .menuLateralItem{    
+
+    /* text-align: left;     */
+    text-decoration: none;   
+    color: white;  
+    padding: 5px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+          
+}
+
+/* li:hover,  */
+div a:hover, .menuLateralItem:hover{
+    background-color: rgb(31, 137, 223);
+    /* background-color: white; */
+    color: rgb(255, 255, 113);
+    font-size: 120%; 
+    cursor: pointer;
+}
+
+div a:active, .menuLateralItem:active{
+    background-color: rgb(108, 153, 236);
+}
+
+#archivero, #papelera{    
+    display: block;    
+    object-fit: cover;
+    height: 50px;    
+}
+
+.tarjetas{
+    /* background-color: brown; */
+    display: grid;
+    grid-template-columns: repeat(5, 65px);
+    box-sizing: border-box;
+    padding: 10px;    
+    
+    /* width: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;    
+    /* margin: 0 auto;     */
+    gap:15%;
+    /* gap: 110px;    */
+    /* gap: 100px;     */
+    /* background-color: aqua; */
+}
+
+.tarjeta{
+    padding: 5px;
+    background-image: url("../img/folderCerrado.png");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    /* background-color: yellow; */
+
+    /* width: auto;
+    height: auto; */
+    /* width: 10%;
+    height: 50%; */
+    /* grid-column: auto;
+    grid-column: auto; */
+    cursor: pointer;
+    /* padding: 5px; */
+    /* background-color: aqua; */
+
+    height: auto;
+    width: auto;
+    /* height: 100%;*/
+    margin:2px 3px 2px 3px;
+    width: 200px; 
+}
+
+.tarjeta:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.2s;
+    padding: 2px;
+} 
+
+/* #archivo, .tarjeta{
+    
+    background-image: url("../img/folderCerrado.png");
+    background-position: center;   
+    background-repeat: none;
+    width: 8%;
+    height: 18%;
+    cursor: pointer;
+}  */
+
+/* #archivo:hover, .tarjeta:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.80ms;
+} */
+
+/* #archivo, #archivo:hover{
+    float:left;
+    margin:5px;
+} */
+/* 
+#files{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: 80px auto auto 80px;
+    grid-gap:10px;
+} */

@@ -17,16 +17,16 @@ html(lang="es")
             div.medio
                 div.lateral
                     div#menuLateral                           
-                        div#menuLateralItem                            
-                            a(href="/archivos") Archivos
+                        div(id="menuArchivos" class="menuLateralItem")
+                            a(id = "archivos" href="/archivos") Archivos
                                 img#archivero(src="/img/archivero.svg")
                                 //- div
                                 //-     include ../public/img/archivero.svg
-                        div#menuLateralItem
+                        div(id="menuInsertar" class="menuLateralItem")
                             a(href="/agregar") Registrar
                                 img#papelera(src="/img/tramite2.png")                      
 
-                        div#menuLateralItem                             
+                        div(id="menuPapelera" class="menuLateralItem")
                             a(href="/papelera") Papelera
                                 img#papelera(src="/img/papelera.svg")                                
                     
