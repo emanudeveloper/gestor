@@ -13,6 +13,7 @@ const conexion = MongoClient.connect(url, function(err, db) {
                 f_remision:new Date("29/03/2022"),
                 destino:"Desp",
                 url:"",
+                estado:"finalizado",// recibido tramite finalizado
                 modificacion:new Date(Date.now())
                  };
   dbo.collection("documento").insertOne(myobj, function(err, res) {
