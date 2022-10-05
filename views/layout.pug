@@ -9,8 +9,9 @@ html(lang="es")
         link(rel="icon" href="img/archivero.svg")
     body 
         div.principal
-            div.barraNavegacion                
-                img#logo(src="img/diresa.png", alt="")
+            div.barraNavegacion 
+                a(id="alogo" href="/")               
+                    img#logo(src="img/diresa3.png", alt="")
                 div.buscador
                     input.campoBuscar(placeholder="Buscar")
                     button(type="submit").buscar Buscar 
@@ -29,7 +30,6 @@ html(lang="es")
                         div(id="menuPapelera" class="menuLateralItem")
                             a(href="/papelera") Papelera
                                 img#papelera(src="/img/papelera.svg")                                
-                    
             
                 div.central
                     block content

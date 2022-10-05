@@ -1,0 +1,20 @@
+extends layout.pug
+block content 
+    
+    each doc, index in documentos        
+        div
+            p=index+1     
+            img(src="/img/diresa.png", alt="")
+            div 
+                h3= "Titulo: " + doc.titulo
+                h4= "Autor: " +doc.autor
+                p= "Fecha de recepción: " + doc.f_recepcion
+                p= "Fecha en el documento: " + doc.f_doc
+                p= "Fecha en el remisión: " + doc.f_remision
+                p= "Numero de hojas: " +doc.hojas
+                p= "Descripcion: " + doc.descripcion
+                p= "Destino: " + doc.destino
+                p= "Estado: " + doc.estado
+                p= "Ultima modificicación: " + doc.modificacion
+
+    //- p recientes #{documentos}
