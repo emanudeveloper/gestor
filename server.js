@@ -17,7 +17,8 @@ app.use(rutaPrincipal);
 app.use(papeleraRoute)
 app.use(recientesRoute);
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static( path.join(__dirname, 'public')));
+app.use('/documentos', express.static( path.join(__dirname, 'documentos')));
 console.log(__dirname);
 app.use('/doc', express.static(path.join(__dirname, 'documentos')));
 

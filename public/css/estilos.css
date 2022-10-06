@@ -5,13 +5,17 @@
     background-position:center; */
     box-sizing: border-box;    
     margin: 0px;
+
     /* background-attachment: fixed; */
 }
 
 .principal{
-
-    height: 100%;    
-    /* display: flex; */
+;
+    /* width:100%;
+    height:100%;    */
+    /* position: static; */
+    /* display: block; */
+    /* overflow: hidden; */
     /* flex-direction: column;     */
 }
 
@@ -88,14 +92,17 @@
 .medio{
     position: absolute;
     top: 8vh;
-    background-color: white;
+    /* background-color: rgb(44, 52, 116); */
+    /* background-color: red; */
     /* background-color: rgba(190, 101, 101, 0.6); */
     /* background-attachment: fixed; */
     /* display: flex; */
     /* height: 92vh;    */
-    height: 100%;
+    /* height: 100%; */
     width: 100%;  
-    overflow: auto;
+    /* height: 100vh; */
+    height: 100%;
+    /* overflow: auto; */
     /* z-index: -1;    */
 }
 
@@ -103,10 +110,11 @@
     
      /* box-sizing: content-box; */
     /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
+    
     background-color: rgb(44, 52, 116);
-    width: 8%;    
-    /* height: 100%; */
-    height: 100vh;
+    width: 8%;  
+    height: 100%;
+    /* height: 100vh; */
     text-decoration: none;    
     float: left;
     padding: 0px;
@@ -119,34 +127,25 @@
 }
 
 .central{
-    background-color: rgba(255, 255, 255, 0.9);
+    overflow-y:scroll;
+    background-color: white;
     width: 92%;
-    float: left;
+    /* height: 100vh; */
     height: 100%;
-}
-
-#menuLateral {
-    /* justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center; */
-    /* background-color: aqua; */
-    /* margin: 0px; */
-    /* padding: 0px; */
-
-}
-
-#menuLateralItem a{
-    /* justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center; */
-    /* background-color: aqua; */
-
-    /* margin: 0px; */
+    float: left;
     
-   
+    
+    /*Ocultamos las barras del overflow  */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
 }
+
+.central::-webkit-scrollbar {
+    display: none;
+}
+
+
+
 #menuLateralItem a:visited{
     margin-right: 0px;
     /* background-color: white; */
@@ -233,87 +232,143 @@ div a:hover, #menuLateralItem:hover{
     padding: 2px;
 } 
 
-.tarjetas2{
-    
-    /* background-attachment: scroll; */
-    /* padding: 5px; */
-    /* background-color: red; */
-    display: grid;
-    /* grid-template-columns: repeat(2, 650px); */
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 
-    /* grid-template-columns: repeat(5, 65px); */    
-    /* grid-template-rows: repeat(3, 200px); */
+
+/* .tarjetas2{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     box-sizing: border-box;
-    padding: 5px;        
+    padding: 3px;        
     width: 100%;
     height: 100%;
-    /* width: 100%;
-    height: 92vh; */
-    /* align-items: center;
-    align-content: center; */
     justify-content: center;
-    /* justify-items: center; */
-    /* margin-left: auto;
-    margin-right: auto;     */
-    /* margin: 0 auto;     */
     gap:20px;
-    /* gap: 110px;    */
-    /* gap: 100px;     */
-    /* background-color: aqua; */
+    
+} */
+
+.tarjetas2{
+    box-sizing: border-box;
+    /* overflow-y: scroll; */
+    /* background-color: green; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    padding: 10px;
+    margin: 0px;        
+    width: 100%;
+    height: 100%;
+    /* justify-content: center; */
+    /* margin-left: auto;
+    margin-right: auto; */
+    gap:15px;
+    
 }
 
-.tarjeta2{
-    /* padding-left: 0px; */
-    overflow: auto;
-    display: flex;
-    background-color: rgb(159, 191, 240);   
-    border: solid 1px blue;  
-    border-radius: 25px;
-    /* background-position: center;   
-    background-repeat: no-repeat; 
-    background-size: contain;  */
-    /* background-color: yellow; */
-    
-    /* width: auto;
-    height: auto; */
-    /* width: 10%;
-    height: 50%; */
-    /* grid-column: auto;
-    grid-column: auto; */
-    cursor: pointer;
-    /* padding: 5px; */
-    /* background-color: aqua; */
+.tarjeta2Box{
+  /* overflow-y: hidden; */
+  /* justify-content: center;
+  justify-items: center; */
+  /* background-color: yellow; */
+  margin: 30px;
+  width: auto;
+  height: 250px;
+  position: relative;
+  perspective: 1000px;
+}
 
-    height: 200px; 
-    /* width: auto;  */
-    /* height: 200px; */
-     /* width: auto;  */
-    /* margin:2px 3px 2px 3px; */
+.tarjeta2Box:hover .tarjeta2{
+    transform: rotateY(180deg);
     
 }
 
 .tarjeta2:hover{
+    cursor: pointer;
+}
+
+
+/* .cara:hover, .detras:hover, .tarjeta2Box:hover, .tarjeta2:hover{
+    cursor: pointer;
+} */
+/* .tarjeta2{
+   
+    display: flex;
+    background-color: rgb(159, 191, 240);   
+    border-radius: 25px;
+    overflow-y: scroll;   
+    cursor: default;
+    height: 40%;  
+
+} */
+
+.tarjeta2{
+    /* background-color: blue; */
+    /* overflow: hidden; */
+   /* display: flex; */
+   /* width: 100%; */
+   padding: 4px;
+   width: 96%;
+     transform-style: preserve-3d;
+    transition: all 0.5s linear;
+
+}
+
+.cara{
+   
+    /* width: 100%; */
+    width: auto;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 10px;
+    /* padding-left: auto;
+    padding-right: auto; */
+    
+    border-radius: 25px 0px 45px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cara.detras{
+    transform: rotateY(180deg);
+    border-radius: 0px;
+    padding: 0px;
+}
+
+embed{
+    width: 550px;
+    height: 280px;
+}
+
+/* .datos{
+    margin-left: 4px;
+    height: 100%;
+    width: 100%;
+} */
+
+
+/* .tarjeta2:hover{
     /* background-image: url("../img/folderAbierto.png"); */
     /* background-color: red; */
-    transition: 0.2s;
-    padding: 2px;
-} 
-
+    /* transition: 0.2s;
+    padding: 2px; */
+/* }  */
+/* 
 .tarjeta2 img{
     padding-left: 0px;
-    margin-left: 0px;
+    margin-left: 0px;    
     height: 100%;
-}
+} */
 
-.datos{
+/* .datos{
     margin-left: 10px;
-}
+    height: 100vh;
+    width: 35%;
+} */
 
-.pdf{
-    height: 100%;
-    background-color: white;
-}
+
+
+/* .pdf{
+    width: 70%;
+    background-color: red;
+} */
 /* #archivo, .tarjeta{
     
     background-image: url("../img/folderCerrado.png");

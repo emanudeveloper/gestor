@@ -21,13 +21,17 @@ function insertarDirectorio(){
     directorios.forEach(function callback(directorio, index, array) {
         // tu iterador
     
-        html += `<div class="tarjeta">${index+1} ${directorio}</div>`
+        html += `<div class="tarjeta" onclick=abrirCarpeta()>${index+1} ${directorio}</div>`
     });
     // directorio.appendChild(`<div class="tarjeta">${directorio}</div>`;    
     directorio.innerHTML = html;
     // console.log("directorio: ", directorio.firstChild.nodeName);
     // console.log("directorio2: ", directorio.children.length);
     // obtenerDirectorios();        
+}
+
+function abrirCarpeta(){
+    alert('abriendo');
 }
 
 insertarDirectorio();
