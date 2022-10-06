@@ -25,12 +25,12 @@ function insertarDirectorio(){
     });
     // directorio.appendChild(`<div class="tarjeta">${directorio}</div>`;    
     directorio.innerHTML = html;
-    console.log("directorio: ", directorio.firstChild.nodeName);
-    console.log("directorio2: ", directorio.children.length);
+    // console.log("directorio: ", directorio.firstChild.nodeName);
+    // console.log("directorio2: ", directorio.children.length);
     // obtenerDirectorios();        
 }
 
-
+insertarDirectorio();
 
 // async function obtenerDirectorios(){
 
@@ -38,4 +38,3 @@ function insertarDirectorio(){
 //     console.log(archivo);
 // }
 
-insertarDirectorio();

@@ -1,6 +1,17 @@
 const mongoose = require("mongoose");
 // const conexion = require('../conexiondb.js');
-const esquema = mongoose.Schema({ f_recepcion: Date, titulo: String, f_doc: Date, hojas:Number, descripcion: String, autor:String, f_remision:Date, destino:String, url:String, estado:String, modificacion:Date});
+const esquema = mongoose.Schema({ 
+    f_recepcion: Date, 
+    titulo: String, 
+    f_doc: Date, 
+    hojas:Number, 
+    descripcion: String, 
+    autor:String, 
+    f_remision:Date, 
+    destino:String, 
+    url:String, 
+    estado:String, 
+    modificacion:Date});
 const documentoModel = mongoose.model('Documento', esquema);
 
 module.exports = documentoModel;

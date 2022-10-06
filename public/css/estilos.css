@@ -5,6 +5,7 @@
     background-position:center; */
     box-sizing: border-box;    
     margin: 0px;
+    /* background-attachment: fixed; */
 }
 
 .principal{
@@ -86,10 +87,13 @@
 /* despues de la barra de navegacion*/
 .medio{
     position: absolute;
-    top: 7vh;
-    background-color: rgba(190, 101, 101, 0.6);
+    top: 8vh;
+    background-color: white;
+    /* background-color: rgba(190, 101, 101, 0.6); */
+    /* background-attachment: fixed; */
     /* display: flex; */
-    height: 92vh;   
+    /* height: 92vh;    */
+    height: 100%;
     width: 100%;  
     overflow: auto;
     /* z-index: -1;    */
@@ -101,7 +105,8 @@
     /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
     background-color: rgb(44, 52, 116);
     width: 8%;    
-    height: 100%;
+    /* height: 100%; */
+    height: 100vh;
     text-decoration: none;    
     float: left;
     padding: 0px;
@@ -228,6 +233,87 @@ div a:hover, #menuLateralItem:hover{
     padding: 2px;
 } 
 
+.tarjetas2{
+    
+    /* background-attachment: scroll; */
+    /* padding: 5px; */
+    /* background-color: red; */
+    display: grid;
+    /* grid-template-columns: repeat(2, 650px); */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+    /* grid-template-columns: repeat(5, 65px); */    
+    /* grid-template-rows: repeat(3, 200px); */
+    box-sizing: border-box;
+    padding: 5px;        
+    width: 100%;
+    height: 100%;
+    /* width: 100%;
+    height: 92vh; */
+    /* align-items: center;
+    align-content: center; */
+    justify-content: center;
+    /* justify-items: center; */
+    /* margin-left: auto;
+    margin-right: auto;     */
+    /* margin: 0 auto;     */
+    gap:20px;
+    /* gap: 110px;    */
+    /* gap: 100px;     */
+    /* background-color: aqua; */
+}
+
+.tarjeta2{
+    /* padding-left: 0px; */
+    overflow: auto;
+    display: flex;
+    background-color: rgb(159, 191, 240);   
+    border: solid 1px blue;  
+    border-radius: 25px;
+    /* background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;  */
+    /* background-color: yellow; */
+    
+    /* width: auto;
+    height: auto; */
+    /* width: 10%;
+    height: 50%; */
+    /* grid-column: auto;
+    grid-column: auto; */
+    cursor: pointer;
+    /* padding: 5px; */
+    /* background-color: aqua; */
+
+    height: 200px; 
+    /* width: auto;  */
+    /* height: 200px; */
+     /* width: auto;  */
+    /* margin:2px 3px 2px 3px; */
+    
+}
+
+.tarjeta2:hover{
+    /* background-image: url("../img/folderAbierto.png"); */
+    /* background-color: red; */
+    transition: 0.2s;
+    padding: 2px;
+} 
+
+.tarjeta2 img{
+    padding-left: 0px;
+    margin-left: 0px;
+    height: 100%;
+}
+
+.datos{
+    margin-left: 10px;
+}
+
+.pdf{
+    height: 100%;
+    background-color: white;
+}
 /* #archivo, .tarjeta{
     
     background-image: url("../img/folderCerrado.png");
