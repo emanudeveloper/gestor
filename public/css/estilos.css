@@ -10,7 +10,7 @@
 }
 
 .principal{
-;
+
     /* width:100%;
     height:100%;    */
     /* position: static; */
@@ -167,13 +167,21 @@ div a, div a img, #menuLateralItem{
 }
 
 /* li:hover,  */
-div a:hover, #menuLateralItem:hover{
+/* div a:hover, #menuLateralItem:hover{
     background-color: steelblue;
-    /* background-color: white; */
+    color: rgb(255, 255, 113);
+    font-size: 120%; 
+    cursor: pointer;
+} */
+
+.lateral a:hover, #menuLateralItem:hover{
+    background-color: steelblue;
     color: rgb(255, 255, 113);
     font-size: 120%; 
     cursor: pointer;
 }
+
+
 
 #archivero, #papelera{    
     display: block;    
@@ -207,6 +215,7 @@ div a:hover, #menuLateralItem:hover{
     background-position: center;   
     background-repeat: no-repeat; 
     background-size: contain;
+    color: black;
     /* background-color: yellow; */
 
     /* width: auto;
