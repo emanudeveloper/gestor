@@ -12,7 +12,34 @@ const esquema = mongoose.Schema({
     url:String, 
     estado:String, 
     modificacion:Date});
-const documentoModel = mongoose.model('Documento', esquema);
+    
+    var documentoModel = mongoose.model('Documento', esquema);
+
+    // async function insertar(){
+    //     documentoModel = await mongoose.model('Documento', esquema);
+        
+    //     var modelo = new documentoModel({});
+        //modelo.save(function(err, data) {
+            // if(err) {
+            //     console.log(error);
+            // }
+            // else {
+            //     res.send("Data inserted");
+            // }
+        //});
+        // await documentoModel.insertMany([{
+        //     "f_recepcion":{"$date":{"$numberLong":"1664968830000"}},
+        //     "titulo":"OFICIO Nº 060-2022-CS LA JOYA",
+        //     "hojas":17, 
+        //     "descripcion":"Solicito pago de prestación económico de sepelio",
+        //     "autor":"Zenaida Huaman","f_remision":{"$date":{"$numberLong":"1664968830000"}},
+        //     "destino":"Desp",
+        //     "url":"",
+        //     "estado":"",
+        //     "modificacion":{"$date":{"$numberLong":"1664986949952"}}}]);    }
+
+    // insertar();
+
 
 module.exports = documentoModel;
 
