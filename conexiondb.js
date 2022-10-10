@@ -3,7 +3,7 @@ var url = "mongodb://localhost:27017/mesapartes"; //var url = "mongodb://localho
 
 // mongoose.pluralize(null);
 
-module.exports = mongoose.connect(url, {
+module.exports = mongoose.connect((process.env.MONGODB_URI || url), {
   useNewUrlParser: true,
   useUnifiedTopology: true}).then((ans)=>{
   console.log(`Conectado`);
