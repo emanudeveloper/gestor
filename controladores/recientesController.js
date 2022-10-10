@@ -9,5 +9,4 @@ reciente.mostrarVista =  async (req, res)=>{
     // console.log("mostrando: ", documentos[0].estado)
     // res.render('recientes.pug', {documento:new Date(Date.now())});
 }
-//consol
 module.exports = reciente;
