@@ -224,11 +224,16 @@ div a, div a img, #menuLateralItem{
     height: 100%;
     width: 100%;
     margin:5px 5px 0px 5px;
+    /* scale: (1.5); */
+    /* transition: 0.2s; */
     
 }
 .tarjeta:hover{
     background-image: url("../img/folderAbierto.png"); 
-    transition: 0.2s;
+    
+    transform: scale(1.3);
+    /* transition: 0.1s; */
+    scale: (1.5);
     padding: 2px;
 } 
 
