@@ -1,4 +1,17 @@
+var carpetas={};
 
+const user = {
+    name: "Manz",
+    role: "streamer",
+    life: 99
+  }
+  
+  function show(data) {
+    const stars = "⭐".repeat(data.life / 20);
+    return `Nombre: ${data.name} (${data.role}) ${stars}`;
+  }
+  console.log(user);
+  show(user);
 
 // function agregar(){
 //     var padre = document.getElementById('tarjetas');
