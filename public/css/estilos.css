@@ -380,6 +380,105 @@ embed{
     transform: scale(1.2);
 }
 
+
+
+
+/* IMPLEMENTAMOS EL FORMULARIO DE REGISTRO */
+
+.contenedorForm{
+
+    /* background-color: tomato; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+.contenedorForm  h1{
+    margin-bottom: 10px;
+}
+
+.formulario{
+
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 60%;
+    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+.cuerpoFormulario{
+
+    /* align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+}
+
+.pdf{
+    background-color: yellow;
+    width: 33%;
+    height: 100%;
+}
+
+.datos{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    
+    
+    justify-content: center;
+    /* justify-items: center; */
+    align-items: center;
+    /* align-content: center */
+
+    height: 100%;
+    width: 65%;
+    padding: 5px;
+}
+
+.datos h2{
+    margin-bottom: 15px;
+}
+
+.botonesRegistro{
+    /* background-color: blue; */
+    margin:10px 5px;
+/*     
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center; */
+}
+
+.botonesRegistro button{
+    /* background-color: rgba(13, 117, 29, 0.9);    
+    border: 2px solid rgba(35, 175, 35, 0.651); */
+}
+
+.datos input{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+    width: 90%;
+}
+
+
 /* .datos{
     margin-left: 4px;
     height: 100%;

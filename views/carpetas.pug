@@ -4,19 +4,21 @@ block content
     //- - var carpetas = [1,2,3,4,5,6];
     //- ul          
             //- li archivo #{val} 
-    
-    div#tarjetas(class="tarjetas")    
-        each val, index in carpetas  
-            if index == 8
-                //- p indice 2
-                div
-                    p#agregar(class="tarjeta" onclick='agregar(this.id)')
-            else                                       
-                a(class="tarjeta" href="archivos"+enlaces[index]) 
-                    div(contenteditable="true") #{index+1} #{val}
-                    //- a(class="tarjeta" href="archivos"+enlaces[index])  #{index+1} #{val}
-                //- p otro indice
-        
+    form(action="/archivos", method="post") 
+        div#tarjetas(class="tarjetas")    
+            each val, index in carpetas  
+                if index == 8
+                    //- p indice 2
+                    div
+                        p#agregar(class="tarjeta" onclick='agregar(this.id)')
+                else                                       
+                    a(class="tarjeta" href="archivos"+enlaces[index]) 
+                        div(contenteditable="true") #{index+1} #{val}
+                        //- a(class="tarjeta" href="archivos"+enlaces[index])  #{index+1} #{val}
+
+
+
+
     
     //- script.        
     //-     function agregar(id){

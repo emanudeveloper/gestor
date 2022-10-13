@@ -1,0 +1,33 @@
+extends layout.pug
+block content
+
+    
+    div(class="contenedorForm") 
+        h1 REGISTRAR
+        form(action="", method="post" class="formulario") 
+            div(class="cuerpoFormulario")
+                div(class="pdf") 
+                    h2 ARCHIVO
+                    img(src="", alt="", srcset="")
+                div(class="datos") 
+                    //- div                
+                    //-     label(for="") F. RECEPCIÓN                
+                    //-     label(for="") TITULO                
+                    //-     label(for="") F. DOCUMENTO                         
+                    //-     label(for="") Hojas                         
+                    //-     label(for="") DESCRIPCIÓN                
+                    //-     label(for="") AUTOR                
+                    //-     label(for="") F. REMISIÓN                   
+                    //-     label(for="") OFICINA/AREA                
+                    //- div#datosRegistro 
+                    h2 DATOS
+                    input(type="text", name="", placeholder="Nombre")            
+                    input(type="text", name="", placeholder="Titulo")            
+                    input(type="text", name="", placeholder="Fecha documento")   
+                    input(type="text", name="", placeholder="Número de hojas")   
+                    input(type="text", name="", placeholder="Descripción")            
+                    input(type="text", name="", placeholder="Autor")            
+                    input(type="text", name="", placeholder="Remisión")         
+                    input(type="text", name="", placeholder="Oficina/área")
+            div(class="botonesRegistro")
+                button(type="submit") ENVIAR
