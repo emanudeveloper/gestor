@@ -1,66 +1,78 @@
-var arbolCarpeta={};
-
 
 const fs = require('fs');
 const path = require('path');
 
-// Function to get current filenames
-// in directory
 const rutaArchivo =path.join(__dirname,"../","documentos");
 
-const cbDirectorios = (err, files) => { //, { withFileTypes: true } 
-    if (err){
-      console.log(err);
-      return;
-    }
-    else {
-      console.log("\nCurrent directory filenames:");
+var arbolCarpeta={
+  archivos:[]
+};
+
+// const cbDirectorios="";
+
+async function crearArbol(ruta) {
+    await fs.readdir(ruta, (err, files) => { //, { withFileTypes: true } 
   
-      files.forEach((file, index) => {
-          // console.log(index, file);
-          
-          // if(file.includes('.pdf')){                
-          //     files.splice(index,1);
-          // } else {    //     // console.log(`FILE: ${file}`)
-          //     console.log(`DIR: ${file}`);
-          // }
-          try {
-                if (fs.statSync(path.join(rutaArchivo, file)).isDirectory()) {
-
-                  console.log(`DIR: ${file}`);
-                    // let llave = file;
-                    arbolCarpeta[file]="carpeta";  
-                    crearArbol(path.join(rutaArchivo, file));
-
-                } else {
-                  console.log(`FILE: ${file}`)
-                  arbolCarpeta['archivos'].push(file);
-                    //   files.splice(index,1);
-                }
-                // arbolCarpeta.push(file); 
-          }
-          catch(err) {
-              console.log('it does not exist');
-          }
-          
-  
-            
-          // console.log(index, file['Symbol']);
-          
-          // for(ext in JSON.parse(file)){
-          //     console.log(file[ext]);    
-          // }
-          
-      }       
-      )
-    }
-    console.log(arbolCarpeta);
-  }
-
-
-
-function crearArbol(ruta) {
-    fs.readdir(ruta, cbDirectorios);
+      // console.log(rutaArchivo);
+        if (err){
+          // console.log(err);
+          return;
+        }
+        else {     
+      
+           files.forEach((file, index) => {
+              
+              
+              // if(file.includes('.pdf')){                
+              //     files.splice(index,1);
+              // } else {    //     // console.log(`FILE: ${file}`)
+              //     console.log(`DIR: ${file}`);
+              // }
+              try {
+                    
+                    let nuevaRuta= path.join(rutaArchivo, file);//rutaArchivo
+                    if ( fs.statSync(nuevaRuta).isDirectory()) {
+                      console.log(true)
+                      // console.log(`DIR: ${file}`);
+                      // console.log('Ruta', nuevaRuta);
+                        // let llave = file;
+                        // arbolCarpeta.carpeta={'tipo':"carpeta"};  
+                        var nuevaCarpeta = {};
+                        nuevaCarpeta[file] = {};
+                        arbolCarpeta['carpetas']={...arbolCarpeta['carpetas'], ...nuevaCarpeta};
+                        console.log("RutaCarpeta: ", nuevaRuta);
+                        console.log("Carpeta: ", file);
+                        // return  crearArbol(nuevaRuta);
+    
+                    } else {
+                      console.log(false)
+                      // console.log(`FILE: ${file}`)
+                      // arbolCarpeta['archivos'] = [];
+                      arbolCarpeta['archivos'].push(file);
+                      console.log("RutaArchivo: ", nuevaRuta);
+                      console.log("Archivo: ", file);
+                        //   files.splice(index,1);
+                    }
+                    // arbolCarpeta.push(file); 
+              }
+              catch(err) {
+                  // console.log('it does not exist');
+              }
+              
+      
+                
+              // console.log(index, file['Symbol']);
+              
+              // for(ext in JSON.parse(file)){
+              //     console.log(file[ext]);    
+              // }
+              
+          })
+        }
+        console.log(arbolCarpeta);
+        return arbolCarpeta;
+        
+      });
 }
 
 crearArbol(rutaArchivo);
