@@ -1,0 +1,30 @@
+extends layout.pug
+block content
+
+    
+    div(class="contenedorForm") 
+        h1 REGISTRAR
+        form(action="", method="post" class="formulario") 
+            div(class="cuerpoFormulario")
+                div(class="pdf") 
+                    h2 ARCHIVO
+                    img(src="", alt="", srcset="")
+                div(class="datos")                     
+                    h2 DATOS
+                    label(for="") Fecha de Recepción 
+                    input(type="date", name="")            
+                    input(type="text", name="", placeholder="Titulo documento")            
+                    label(for="") Fecha del documento
+                    input(type="date", name="", placeholder="Fecha en el documento")   
+                    input(type="text", name="", placeholder="Número de hojas")   
+                    //- input(type="text", name="", placeholder="Descripción")            
+                    
+                    input(type="text", name="", placeholder="Autor")            
+
+                    label(for="") Fecha de Remisión
+                    input(type="text", name="", placeholder="Fecha de Remisión")         
+                    input(type="text", name="", placeholder="Oficina/área")
+                    textarea(name="Text1" cols="auto" rows="3" placeholder="Descripción")
+                    div(class="botonesRegistro")
+                        button(type="submit") ENVIAR
+            

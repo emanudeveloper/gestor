@@ -8,6 +8,8 @@ const port = process.env.PORT || 3000;
 const rutaPrincipal = require('./rutas/principalRoute');
 const papeleraRoute = require('./rutas/papeleraRoute');
 const recientesRoute = require('./rutas/recientesRoute');
+const registrarRoute = require('./rutas/registrarRoute');
+
 const exp = require('constants');
 //setters
 app.set('vistas', path.join(__dirname, 'views'))
@@ -17,6 +19,8 @@ app.set('view engine', 'pug');
 app.use(rutaPrincipal);
 app.use(papeleraRoute)
 app.use(recientesRoute);
+app.use(registrarRoute);
+
 app.use(express.json());
 app.use(express.static( path.join(__dirname, 'public')));
 app.use('/documentos', express.static( path.join(__dirname, 'documentos')));
