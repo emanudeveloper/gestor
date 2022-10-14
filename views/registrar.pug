@@ -3,25 +3,26 @@ block content
 
     
     div(class="contenedorForm") 
-        h1 REGISTRAR
-        form(action="", method="post" class="formulario") 
+        //- h1 REGISTRAR
+        form(action="/registrar", method="POST" class="formulario") 
             div(class="cuerpoFormulario")
                 div(class="pdf") 
-                    h2 SUBIR ARCHIVO
-                    img(src="/img/pdf.svg", alt="", srcset="")
+                    h2 SELECCIONAR ARCHIVO
+                    //- img(src="/img/pdf.svg", alt="", srcset="")
+                    input(type= "file" name="pdf" accept="application/pdf")
                 div(class="datos")                     
                     h2 DATOS
-                    input(type="text", name="", placeholder="Titulo documento")            
                     label(for="") Fecha de Recepción 
-                    input(type="date", name="")                                
+                    input(type="date", name="f_recepcion")                                
+                    input#titulo( type="text", name='titulo', value='', placeholder="Titulo documento")  
                     label(for="") Fecha del documento
-                    input(type="date", name="")   
-                    input(type="number", name="", placeholder="Número de hojas")                      
-                    input(type="text", name="", placeholder="Autor")            
-                    textarea(name="Text1" cols="auto" rows="3" placeholder="Descripción")
+                    input(type="date", name="f_doc")   
+                    input(type="number", name="hojas", placeholder="Número de hojas")                      
+                    input(type="text", name="autor", placeholder="Autor")            
+                    textarea(name="descripcion" cols="auto" rows="3" placeholder="Descripción")
                     label(for="") Fecha de Remisión
-                    input(type="date", name="")        
-                    input(type="text", name="", placeholder="Oficina/área")                    
-                    div(class="botonesRegistro")
-                        button(type="submit") ENVIAR
+                    input(type="date", name="f_remision")        
+                    input(type="text", name="oficina", placeholder="Oficina/área")                    
+                    //- div(class="botonesRegistro")
+                    input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")
             

@@ -12,21 +12,23 @@ html(lang="es")
             div.barraNavegacion 
                 a(id="alogo" href="/")               
                     img#logo(src="img/diresa3.png", alt="")
-                    h1 DIRESA - MDD
+                    h1 MESA DE PARTES - DIRESA MADRE DE DIOS
                 div.buscador
-                    input.campoBuscar(placeholder="Buscar")
+                    input.campoBuscar(placeholder=" Escriba algo...")
                     button(type="submit").buscar Buscar 
             div.medio
                 div.lateral
-                    div#menuLateral                           
+                    div#menuLateral   
+                        div(id="menuInsertar" class="menuLateralItem")
+                            a(href="/registrar") Registrar
+                                img#papelera(src="/img/tramite2.png")  
+
                         div(id="menuArchivos" class="menuLateralItem")
                             a(id = "archivos" href="/archivos") Archivos
                                 img#archivero(src="/img/archivero.svg")
                                 //- div
                                 //-     include ../public/img/archivero.svg
-                        div(id="menuInsertar" class="menuLateralItem")
-                            a(href="/agregar") Registrar
-                                img#papelera(src="/img/tramite2.png")                      
+                                            
 
                         div(id="menuPapelera" class="menuLateralItem")
                             a(href="/papelera") Papelera
