@@ -439,6 +439,7 @@ embed{
     /* background: rgb(66,134,245); */
     background-color: rgb(44, 52, 116);
     display: flex;
+    flex-direction: column;
     /* background: radial-gradient(ellipse, rgba(156, 169, 241, 0.966) 10%, rgba(3, 3, 180, 0.8) 95%); */
     width: 35%;
     height: 100%;
@@ -447,8 +448,49 @@ embed{
 .pdf h2{
     
     color: white;
+    /* margin: 25px; */
+    padding-bottom: 20px;
     /* size: 2rem; */
 }
+
+.pdf img{
+    margin: 30px 0;
+    width: 30%;
+    /* animation-name: floating;    
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration:4S;     */
+    /* box-shadow: 0 1px 1px 0px rgba(0,0,0,0.6);
+    transform: translatey(4px);
+	animation: float 6s ease-in-out infinite; */
+}
+/* 
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 10px 5px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+} */
+/* @keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+} */
+
+.pdf img:hover{
+    transform: scale(1.3);
+    transition: 1.2S;
+    cursor: pointer;
+}
+
 
 .datos{
     /* background: rgba(68, 92, 226, 0.897); */
@@ -493,8 +535,9 @@ embed{
     
     display: flex;
     flex-direction: column;
-    margin: 4px 0px;
+    margin: 2px 0px;
     width: 85%;
+    /* background-size: contain; */
     /* border: solid 0.5px; */
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.22) 0px 2px 2px; */
 }
