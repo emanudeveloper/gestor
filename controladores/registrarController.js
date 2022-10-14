@@ -7,9 +7,9 @@ registrarController.mostrarVista = (req, res)=>{
 }
 
 registrarController.registrarDocumento = (req, res)=>{
-    const {titulo, autor, f_doc} =  req.body;
+    const {titulo, autor, f_doc, pdf} =  req.body;
    
-    console.log(titulo, autor, f_doc);
+    console.log(titulo, autor, f_doc, pdf);
     res.status(200);
     res.render('registrar.pug');
 }

@@ -401,36 +401,45 @@ embed{
 .pdf{
     
     background:linear-gradient(-45deg, rgb(44, 52, 116) 50%, rgb(109, 126, 236) 95%);    
-    display: flex;
-    
+    display: flex;    
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 35%;
     height: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.pdf label{
+    cursor: pointer;
+    width: 60%;
+}
+
 .pdf h2{
     
     color: white;
+    /* margin-right: auto;
+    margin-left: auto; */
     /* margin: 25px; */
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     /* size: 2rem; */
 }
 
+
 .pdf input{
-    background-color: transparent;
+    display: none;
+    /* background-color: transparent; */
     /* display: flex; */
-    margin: 5px 0;
+    /* margin: 5px 0;
     border: none;
-    width: 60%;
+     */
     /* backgro */
     /* height: auto; */
-    background-image: url('/img/pdf.svg'); 
+    /* background-image: url('/img/pdf.svg'); 
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .pdf input:hover{

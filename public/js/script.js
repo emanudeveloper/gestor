@@ -13,6 +13,21 @@ const user = {
   console.log(user);
   show(user);
 
+
+
+
+
+        let input = document.getElementById("abrirArchivo");
+        let imageName = document.getElementById("nombreArchivo")
+
+        input.addEventListener("change", ()=>{
+            let inputImage = document.querySelector("input[type=file]").files[0];
+
+            imageName.innerText = inputImage.name;
+            imageName.style="color:white; width:90%"
+        })
+
+
 // function agregar(){
 //     var padre = document.getElementById('tarjetas');
 //     var tamanio = padre.childNodes.length-1;
