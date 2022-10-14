@@ -20,8 +20,7 @@ async function crearArbol(ruta) {
         }
         else {     
       
-           files.forEach((file, index) => {
-              
+           files.forEach((file, index) => {             
               
               // if(file.includes('.pdf')){                
               //     files.splice(index,1);
