@@ -1,12 +1,7 @@
 
-*, body{
-    /* background-image: url('imagenes/background.jpg'); */
-    /* background-repeat: no-repeat;
-    background-position:center; */
+*, body{    
     box-sizing: border-box;    
     margin: 0px;
-
-    /* background-attachment: fixed; */
 }
 
 .principal{
@@ -92,38 +87,19 @@
 .medio{
     position: absolute;
     top: 8vh;
-    /* background-color: rgb(44, 52, 116); */
-    /* background-color: red; */
-    /* background-color: rgba(190, 101, 101, 0.6); */
-    /* background-attachment: fixed; */
-    /* display: flex; */
-    /* height: 92vh;    */
-    /* height: 100%; */
     width: 100%;  
-    /* height: 100vh; */
     height: 100%;
-    /* overflow: auto; */
-    /* z-index: -1;    */
 }
 
 .lateral{
     
-     /* box-sizing: content-box; */
-    /* background: linear-gradient(20deg, rgba(19,152,250,1) 29%, rgba(13,110,253,1) 83%);  */
-    
     background-color: rgb(44, 52, 116);
     width: 8%;  
     height: 100%;
-    /* height: 100vh; */
     text-decoration: none;    
     float: left;
     padding: 0px;
     margin: 0px;
-    /* justify-content: center;
-    justify-items: center;
-    text-align: center;
-    align-items: center;
-    align-content: center; */
 }
 
 .central{
@@ -155,24 +131,14 @@
 /* li a,  */
 div a, div a img, #menuLateralItem{    
 
-    /* text-align: left;     */
     text-decoration: none;   
     color: white;  
     padding: 5px;
     text-align: center;
     display: block;
     margin-left: auto;
-    margin-right: auto;
-          
+    margin-right: auto;          
 }
-
-/* li:hover,  */
-/* div a:hover, #menuLateralItem:hover{
-    background-color: steelblue;
-    color: rgb(255, 255, 113);
-    font-size: 120%; 
-    cursor: pointer;
-} */
 
 .lateral a:hover, #menuLateralItem:hover{
     background-color: steelblue;
@@ -181,13 +147,21 @@ div a, div a img, #menuLateralItem{
     cursor: pointer;
 }
 
-
-
 #archivero, #papelera{    
     display: block;    
     object-fit: cover;
     height: 50px;    
 }
+
+
+
+/* vista carpetas */
+
+form#carpetas{
+    /* background-color: red; */
+    height: 100%;
+}
+
 
 .tarjetas{
     /* background-color: brown; */
@@ -213,7 +187,8 @@ div a, div a img, #menuLateralItem{
 }
 
 .tarjeta{
-    padding: 10px;
+    /* margin-left: 70px; */
+    box-sizing: border-box;
     background-image: url("../img/folderCerrado.png");    
     background-position: center;   
     background-repeat: no-repeat; 
@@ -233,8 +208,8 @@ div a, div a img, #menuLateralItem{
     
     transform: scale(1.3);
     /* transition: 0.1s; */
-    scale: (1.5);
-    padding: 2px;
+    /* scale: (1.4); */
+    /* padding: 20px; */
 } 
 
 
@@ -361,10 +336,12 @@ embed{
 
 #agregar{
     /* background-color: yellow; */
+    box-sizing: border-box;
+    
     background-image: url("../img/agregar.svg");
     background-position: center;
     background-repeat: no-repeat;
-    /* background-size: contain; */
+    background-size: contain;
     width: 100%;
     height: 100%;
     /* margin-left: 100%; */
@@ -374,67 +351,184 @@ embed{
 
 #agregar:hover{
     cursor: pointer;
-    transform: scale(1.8);
+    transform: scale(1.2);
 }
 
-/* .datos{
-    margin-left: 4px;
-    height: 100%;
+
+
+
+/* IMPLEMENTAMOS EL FORMULARIO DE REGISTRO */
+
+.contenedorForm{
+
+    /* background-color: tomato; */
     width: 100%;
-} */
-
-
-/* .tarjeta2:hover{
-    /* background-image: url("../img/folderAbierto.png"); */
-    /* background-color: red; */
-    /* transition: 0.2s;
-    padding: 2px; */
-/* }  */
-/* 
-.tarjeta2 img{
-    padding-left: 0px;
-    margin-left: 0px;    
     height: 100%;
-} */
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
 
-/* .datos{
-    margin-left: 10px;
-    height: 100vh;
-    width: 35%;
-} */
+}
 
-
-
-/* .pdf{
-    width: 70%;
-    background-color: red;
-} */
-/* #archivo, .tarjeta{
+/* .contenedorForm  h1{
+    margin-bottom: 1rem;
     
-    background-image: url("../img/folderCerrado.png");
-    background-position: center;   
-    background-repeat: none;
-    width: 8%;
-    height: 18%;
-    cursor: pointer;
-}  */
-
-/* #archivo:hover, .tarjeta:hover{
-    background-image: url("../img/folderAbierto.png");
-    transition: 0.80ms;
 } */
 
-/* #archivo, #archivo:hover{
-    float:left;
-    margin:5px;
-} */
-/* 
-#files{
-    display: grid;
+.formulario{
+
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;    
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+.cuerpoFormulario{
+
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
-    grid-template-columns: repeat(2, 2fr);
-    grid-template-rows: 80px auto auto 80px;
-    grid-gap:10px;
+
+}
+
+.pdf{
+    
+    background:linear-gradient(-45deg, rgb(44, 52, 116) 50%, rgb(109, 126, 236) 95%);    
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.pdf label{
+    cursor: pointer;
+    width: 60%;
+}
+
+.pdf h2{
+    
+    color: white;
+    /* margin-right: auto;
+    margin-left: auto; */
+    /* margin: 25px; */
+    padding-bottom: 10px;
+    /* size: 2rem; */
+}
+
+
+.pdf input{
+    display: none;
+    /* background-color: transparent; */
+    /* display: flex; */
+    /* margin: 5px 0;
+    border: none;
+     */
+    /* backgro */
+    /* height: auto; */
+    /* background-image: url('/img/pdf.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+.pdf input:hover{
+    transform: scale(1.2);
+    transition: 1.2S;
+    /* cursor: pointer; */
+    /* border: 0px; */
+}
+
+.pdf input:active{
+    border: 0px;
+}
+
+/* .pdf img{
+    margin: 30px 0;
+    width: 30%;
+}
+
+.pdf img:hover{
+    transform: scale(1.3);
+    transition: 1.2S;
+    cursor: pointer;
 } */
+
+.datos{
+    /* background: rgba(68, 92, 226, 0.897); */
+    /* background: linear-gradient(135deg, rgb(199, 199, 248) 20%,rgba(101, 101, 219, 0.938) 95%); */
+    display: flex;
+    flex-direction: column;
+    color: rgb(44, 52, 116);
+    
+    justify-content: center;
+    /* justify-items: center; */
+    align-items: center;
+    /* align-content: center */ 
+    margin:0px;
+    height: 100%;
+    width: 65%;
+    /* padding: 2px 0px; */
+}
+
+.datos h2{
+
+    margin-top: 8px;
+}
+
+
+.botonesRegistro{  /* .botonesRegistro button{ */
+    /* background-color: rgb(66,134,245);     */
+    background:linear-gradient(-4deg, rgb(44, 52, 116) 20%, rgb(126, 140, 235) 95%);    
+    align-items: center;
+    color: white;
+    padding: 8px 20px;
+    border: 0px solid;
+    /* margin-bottom: 4px; */
+    /* transition: 0.2S; */
+}
+
+.botonesRegistro:hover{
+    cursor: pointer;
+}
+
+.botonesRegistro:active{   /* .botonesRegistro button:hover{ */
+    background: rgb(44, 52, 116); 
+    /* transition: 1S; */
+    cursor: pointer;
+}
+
+.datos input, textarea{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0px;
+    width: 85%;
+    /* background-size: contain; */
+    /* border: solid 0.5px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.22) 0px 2px 2px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

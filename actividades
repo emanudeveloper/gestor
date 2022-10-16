@@ -1,0 +1,22 @@
+
+
+viernes 14/10/2022
+
+- ventana emergente  de seleccion de archivo
+- validar campos
+- enviar datos del registro
+- guardar datos de documento en la base de datos,
+- si paso anterior OK, crear carpeta si no existe
+- si paso anterior ok, devolver mensaje de exito caso contrario enviar -m error
+
+https://www.educative.io/answers/how-you-can-style-the-input-file-type-in-forms-using-css
+
+
+
+
+miercoles 12/10/2022
+- crear, editar, eliminar carpetas
+- persistir la estructura de carpetas creada por el usuario
+- arrrastrar archivos dentro de las carpetas, 
+- ventana emergente para registrar datos de archivo
+- 

@@ -4,4 +4,5 @@ const controladorPrincipal = require('../controladores/principalControlador');
 
 route.get('/archivos', controladorPrincipal.mostrarVista);
 
+
 module.exports = route;

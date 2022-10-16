@@ -1,0 +1,41 @@
+extends layout.pug
+block content
+
+    
+    div(class="contenedorForm") 
+        //- h1 REGISTRAR
+        form(action="/registrar", method="POST" class="formulario") 
+            div(class="cuerpoFormulario")
+                div(class="pdf") 
+                     
+                    label(for="abrirArchivo")
+                        h2 SELECCIONAR ARCHIVO
+                        br 
+                        img(src="/img/pdf.svg", alt="")
+                        input(id="abrirArchivo" type="file" name="pdf" accept="application/pdf") 
+                        <span id="nombreArchivo"></span>
+                        //- script
+                        //-     let input = document.getElementById("inputTag");
+                        //-     let imageName = document.getElementById("imageName");
+                        //-     input.addEventListener("change", ()=>{
+                        //-     let inputImage = document.querySelector("input[type=file]").files[0];
+                        //-     imageName.innerText = inputImage.name;});
+
+                    //- img(src="/img/pdf.svg", alt="", srcset="")
+                    //- input(type= "file" name="pdf" accept="application/pdf")
+                div(class="datos")                     
+                    h2 DATOS
+                    label(for="") Fecha de Recepción 
+                    input(type="date", name="f_recepcion")                                
+                    input#titulo( type="text", name='titulo', value='', placeholder="Titulo documento")  
+                    label(for="") Fecha del documento
+                    input(type="date", name="f_doc")   
+                    input(type="number", name="hojas", placeholder="Número de hojas")                      
+                    input(type="text", name="autor", placeholder="Autor")            
+                    textarea(name="descripcion" cols="auto" rows="3" placeholder="Descripción")
+                    label(for="") Fecha de Remisión
+                    input(type="date", name="f_remision")        
+                    input(type="text", name="oficina", placeholder="Oficina/área")                    
+                    //- div(class="botonesRegistro")
+                    input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")
+            
