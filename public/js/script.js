@@ -19,7 +19,7 @@
 
 
 function agregar(id){
-
+ 
     //- var tarjeta = '<a class="tarjeta"> Carpeta Nueva </a>';
     //- var arrayTitulos = "#{carpetas.push('Nueva carpeta')}";
     //- arrayTitulos.push("Nueva carpeta");
@@ -27,21 +27,19 @@ function agregar(id){
     var padre = document.getElementById("tarjetas");
     var tamanio = padre.childNodes.length-1;
     //- div.innerHMTL = div.innerHMTL + div.childNodes[div.childNodes.length-2];
-
     //- document.getElementById('tarjetas').insertBefore(tarjeta, div.childNodes.length-2);
     //- var parrafo = document.createElement('a').appendChild(document.createTextNode('Nuevo párrafo.'));
     
-    var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta' });
+    // var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta' });
+    var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta'});
+    nuevaCarpeta.setAttribute("contenteditable","true");
     nuevaCarpeta.appendChild(document.createTextNode('Nueva carpeta.'));
-    //- parrafo.setAttribute("class","tarjeta");
-    //- parrafo.class="tarjeta";
-    //- parrafo(class="tarjeta")
+
     //- document.getElementById('tarjetas').appendChild(parrafo);//document.getElementById('tarjetas')
     padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
     
     //- alert(nuevaCarpeta.getAttribute('class'));
-    //- padre.childNodes.length-2
-    
+    //- padre.childNodes.length-2    
 };
 
 
