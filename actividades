@@ -1,4 +1,9 @@
+DIRESA Lunes 17/10/2022
 
+- Guardar nuevo documento en la BD
+- Recuperar documento
+- enviar y guardar pdf con MULTER
+- 
 
 viernes 14/10/2022
 
@@ -10,9 +15,6 @@ viernes 14/10/2022
 - si paso anterior ok, devolver mensaje de exito caso contrario enviar -m error
 
 https://www.educative.io/answers/how-you-can-style-the-input-file-type-in-forms-using-css
-
-
-
 
 miercoles 12/10/2022
 - crear, editar, eliminar carpetas

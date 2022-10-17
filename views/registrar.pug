@@ -4,7 +4,7 @@ block content
     
     div(class="contenedorForm") 
         //- h1 REGISTRAR
-        form(action="/registrar", method="POST" class="formulario") 
+        form(action="/registrar", method="POST" class="formulario" enctype="multipart/form-data") 
             div(class="cuerpoFormulario")
                 div(class="pdf") 
                      
@@ -13,7 +13,7 @@ block content
                         br 
                         img(src="/img/pdf.svg", alt="")
                         input(id="abrirArchivo" type="file" name="pdf" accept="application/pdf") 
-                        <span id="nombreArchivo"></span>
+                        span(id="nombreArchivo")
                         //- script
                         //-     let input = document.getElementById("inputTag");
                         //-     let imageName = document.getElementById("imageName");

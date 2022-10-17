@@ -7,28 +7,43 @@ registrarController.mostrarVista = (req, res)=>{
     res.render("registrar.pug");
 }
 
-registrarController.registrarDocumento = async (req, res)=>{
+registrarController.registrarDocumento = (req, res)=>{
+    // let nuevoDocumentoModel = new documento({
+    //     pdf : req.body.pdf,
+    // f_recepcion : req.body.f_recepcion,
+    // titulo : req.body.titulo,
+    // f_doc : req.body.f_doc,
+    // hojas : req.body.hojas,
+    // autor : req.body.autor,
+    // descripcion : req.body.descripcion,
+    // f_remision : req.body.f_remision,
+    // oficina : req.body.oficina
     
-    const nuevoDocumento =  req.body;
+    // });
+    // url : ruta
+
+    let nuevoDocumentoModel = new documento(req.body);
+    
     const {oficina, f_doc, pdf} = req.body;
     const anio=f_doc.substring(0,4);
     const mes = f_doc.substring(5,7);
-    // console.log(oficina, f_doc, pdf);
     const ruta = path.join(oficina, anio, mes, pdf);
-    console.log(ruta);
-    nuevoDocumento.url = ruta;
-    // console.log(oficina, anio, mes, pdf);
-    // console.log(nuevoDocumento);
+
+    nuevoDocumentoModel.url = ruta;
+    nuevoDocumentoModel
+        .save(nuevoDocumentoModel)
+        .then(data=>{
+            res.render('registrar.pug');
+        })
+        // .catch(err=>{
+        //     res.status(500).send({
+        //         message:
+        //           err.message || "No se pudo registrar el documento"
+        // })});
+
+
+    const nuevoDocumento={};
     
-    try{
-        const nuevoDocumentoModel = new documento();
-        console.log(nuevoDocumento);    
-        await nuevoDocumentoModel.save(nuevoDocumento);
-        res.render('registrar.pug');
-        // res.status(200);
-    }catch(e){
-        console.log("Error:  ", e);
-    }
 }
 
 module.exports = registrarController;

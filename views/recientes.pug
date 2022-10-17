@@ -4,36 +4,20 @@ block content
     div.tarjetas2
         each doc, index in documentos        
             div.tarjeta2Box                
-                //- p=index+1 
                 div.tarjeta2  
                     div(class="cara detras")
-                        <embed name="plugin" src="/documentos/logistica/2022/octubre/SistemaGestionCalidadSalud.pdf" type="application/pdf">
-                        //- img(src="/img/diresa.png", alt="")
-                    div(class="cara")
-                        
-                        h3= "Titulo: " + doc.titulo
-                        h4= "Autor: " +doc.autor
+                        embed(name="plugin", src="documentos/" +doc.url, type="application/pdf")                        
+                    div(class="cara")                        
+                        h3= "Titulo: " +doc.titulo
+                        h4= "Autor: " +doc.autor                        
+                        p= "Numero de hojas: " +doc.hojas
+                        p= "Descripcion: " + doc.descripcion                        
+                        p= "Oficina Destino: " + doc.oficina
                         p= "Fecha de recepción: " + doc.f_recepcion
                         p= "Fecha en el documento: " + doc.f_doc
-                        p= "Fecha en el remisión: " + doc.f_remision
-                        p= "Numero de hojas: " +doc.hojas
-                        p= "Descripcion: " + doc.descripcion
-                        p= "Destino: " + doc.destino
-                        p= "Estado: " + doc.estado
-                        p= "Ultima modificicación: " + doc.modificacion 
+                        p= "Fecha en el remisión: " + doc.f_remision                        
+                        //- p= "Estado: " + doc.estado
+                        p= "Ultima modificicación: " + doc.createdAt 
 
-
-
-                    //- div(class="cara")
-                        
-                    //-     h3= "Titulo: " + doc.titulo
-                    //-     h4= "Autor: " +doc.autor
-                    //-     p= "Fecha de recepción: " + doc.f_recepcion
-                    //-     p= "Fecha en el documento: " + doc.f_doc.toLocaleDateString()
-                    //-     p= "Fecha en el remisión: " + doc.f_remision.toLocaleDateString()
-                    //-     p= "Numero de hojas: " +doc.hojas
-                    //-     p= "Descripcion: " + doc.descripcion
-                    //-     p= "Destino: " + doc.destino
-                    //-     p= "Estado: " + doc.estado
-                    //-     p= "Ultima modificicación: " + doc.modificacion   
-  
+                        //- src="/documentos/logistica/2022/octubre/SistemaGestionCalidadSalud.pdf"
+                        //- img(src="/img/diresa.png", alt="")
