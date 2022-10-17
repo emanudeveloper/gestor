@@ -1,17 +1,19 @@
 const mongoose = require("mongoose");
 // const conexion = require('../conexiondb.js');
 const esquema = mongoose.Schema({ 
+    pdf:String,
     f_recepcion: Date, 
     titulo: String, 
     f_doc: Date, 
-    hojas:Number, 
-    descripcion: String, 
+    hojas:Number,     
     autor:String, 
+    descripcion: String, 
     f_remision:Date, 
-    destino:String, 
-    url:String, 
-    estado:String, 
-    modificacion:Date});
+    oficina:String,     
+    url:String         
+    });
+    // estado:String, 
+    //modificacion:Date
     
     var documentoModel = mongoose.model('Documento', esquema);
 
