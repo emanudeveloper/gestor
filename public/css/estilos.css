@@ -382,7 +382,7 @@ embed{
     /* background-color: green; */
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     height: 70%;    
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -412,8 +412,11 @@ embed{
 }
 
 .pdf label{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;     */
     cursor: pointer;
-    width: 60%;
+    width:35%;
 }
 
 .pdf h2{
@@ -448,10 +451,7 @@ embed{
     /* cursor: pointer; */
     /* border: 0px; */
 }
-
-.pdf input:active{
-    border: 0px;
-}
+/*  */
 
 /* .pdf img{
     margin: 30px 0;

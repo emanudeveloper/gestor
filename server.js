@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bParser = require('body-parser');
+
 const port = process.env.PORT || 3000;
+
 
 //referenciamos a las rutas
 const rutaPrincipal = require('./rutas/principalRoute');
