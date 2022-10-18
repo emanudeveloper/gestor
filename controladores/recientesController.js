@@ -12,4 +12,12 @@ reciente.mostrarVista =  async (req, res)=>{
     // console.log("mostrando: ", documentos[0].estado)
     // res.render('recientes.pug', {documento:new Date(Date.now())});
 }
+
+reciente.buscarDocumentos = async (req, res)=>{
+    console.log(req.params);
+    console.log(req.body);
+    const documentos = await documentoModel.find(req.params.buscarPalabra);
+    res.render('recientes.pug', {documentos, tamanio: documentos.length});
+}
+
 module.exports = reciente;

@@ -13,9 +13,14 @@ html(lang="es")
                 a(id="alogo" href="/")               
                     img#logo(src="img/diresa3.png", alt="")
                     h1 MESA DE PARTES - DIRESA MADRE DE DIOS
-                div.buscador
-                    input.campoBuscar(placeholder=" Escriba algo...")
-                    button(type="submit").buscar Buscar 
+                
+                //- div.buscador
+                //-     input.campoBuscar(placeholder=" Escriba algo...")
+                //-     button(type="submit").buscar Buscar 
+                form.buscador(method="GET")                    
+                    input.campoBuscar(name="buscarPalabra" placeholder=" Escriba algo...")                    
+                    input(class="buscar" type="submit" value="Buscar") 
+
             div.medio
                 div.lateral
                     div#menuLateral   
