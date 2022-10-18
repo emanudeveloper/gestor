@@ -13,11 +13,20 @@ reciente.mostrarVista =  async (req, res)=>{
     // res.render('recientes.pug', {documento:new Date(Date.now())});
 }
 
-reciente.buscarDocumentos = async (req, res)=>{
-    console.log(req.params);
-    console.log(req.body);
-    const documentos = await documentoModel.find(req.params.buscarPalabra);
-    res.render('recientes.pug', {documentos, tamanio: documentos.length});
+reciente.buscarDocumentos =  (req, res)=>{
+    
+    // console.log(await documentoModel.find({titulo:req.params['buscar']}));
+    const buscar = req.params.id;
+    console.log("parametros: ", req.params);
+
+    // const documentos =  documentoModel.find({titulo:palabraClave}).then(
+    //     data =>{res.render('recientes.pug', {documentos, tamanio: documentos.length});}
+    // ).catch(e=>{console.log("error: ", e)});
+
+    
+    // const documentos =  documentoModel.find({autor: 'Luis'});
+    res.send(`palabra clave:  ${buscar}`);
+    // res.render('recientes.pug', {documentos, tamanio: documentos.length});
 }
 
 module.exports = reciente;

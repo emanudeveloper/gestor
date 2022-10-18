@@ -17,8 +17,8 @@ html(lang="es")
                 //- div.buscador
                 //-     input.campoBuscar(placeholder=" Escriba algo...")
                 //-     button(type="submit").buscar Buscar 
-                form.buscador(method="GET")                    
-                    input.campoBuscar(name="buscarPalabra" placeholder=" Escriba algo...")                    
+                form.buscador(action="/buscar/:id" method="get")                    
+                    input.campoBuscar(name="id" placeholder=" Escriba algo...")                    
                     input(class="buscar" type="submit" value="Buscar") 
 
             div.medio

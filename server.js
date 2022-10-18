@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const bParser = require('body-parser');
+// const bParser = require('body-parser');
 
 const port = process.env.PORT || 3000;
 
@@ -25,7 +25,8 @@ app.use(recientesRoute);
 app.use(registrarRoute);
 
 // app.use(express.bodyParser());
-// app.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 // app.use(express.urlencoded({extended: true}));//{extended:false}

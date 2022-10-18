@@ -1,7 +1,7 @@
 const {Router} = require('express');
-const route = Router();
+const router = Router();
 const recientesController = require("../controladores/recientesController")
-route.get('/', recientesController.mostrarVista);
-route.get('/:id', recientesController.buscarDocumentos);
+router.get('/', recientesController.mostrarVista);
+router.get('/buscar/:id', recientesController.buscarDocumentos);
 
-module.exports = route;
+module.exports = router;
