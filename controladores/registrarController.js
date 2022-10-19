@@ -37,7 +37,9 @@ registrarController.registrarDocumento =  (req, res)=>{
     
     // const {oficina, f_doc, pdf} =  req.body;
     const {oficina, f_doc} =  req.body;
-    // console.log(req.body.f_doc);
+    // console.log(nuevoDocumentoModel.f_doc);
+    // nuevoDocumentoModel.f_doc = new Date(f_doc.substring(0,10), Date.now().toLocaleTimeString());
+    console.log(nuevoDocumentoModel.f_doc);
     const anio=f_doc.substring(0,4);
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);

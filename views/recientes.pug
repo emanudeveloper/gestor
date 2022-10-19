@@ -2,7 +2,7 @@ extends layout.pug
 block content 
     h1 RECIENTES
     div.tarjetas2
-        each doc, index in documentos        
+        each doc, index in documentos                    
             div.tarjeta2Box                
                 div.tarjeta2  
                     div(class="cara detras")
@@ -16,7 +16,7 @@ block content
                         p= "Fecha de recepción: " + doc.f_recepcion
                         p= "Fecha en el documento: " + doc.f_doc
                         p= "Fecha en el remisión: " + doc.f_remision     
-
+                        
     //- form.buscador(action="" method="get")                    
     //-     div
     //-         input.campoBuscar(name="buscarPalabra" placeholder=" Escriba algo...")                    

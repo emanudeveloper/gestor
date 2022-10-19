@@ -16,9 +16,9 @@ html(lang="es")
                 
                 //- div.buscador
                 //-     input.campoBuscar(placeholder=" Escriba algo...")
-                //-     button(type="submit").buscar Buscar 
-                form.buscador(action="/buscar/:id" method="get")                    
-                    input.campoBuscar(name="id" placeholder=" Escriba algo...")                    
+                //-     button(type="submit").buscar Buscar  /          action="/:palabra"
+                form.buscador(action="/buscar" method="get")                    
+                    input.campoBuscar(id="" name="palabra" placeholder=" Escribe el título del doc...")                    
                     input(class="buscar" type="submit" value="Buscar") 
 
             div.medio
@@ -29,9 +29,9 @@ html(lang="es")
                                 img#papelera(src="/img/tramite2.png")  
 
                         div(id="menuArchivos" class="menuLateralItem")
-                            a(id = "archivos" href="/archivos") Archivos
+                            a(id = "archivos" href="/carpetas") Archivos
                                 img#archivero(src="/img/archivero.svg")
-                                //- div
+                                //- div /archivos
                                 //-     include ../public/img/archivero.svg
                                             
 

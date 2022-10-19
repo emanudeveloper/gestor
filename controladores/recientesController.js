@@ -2,7 +2,8 @@ const documentoModel = require("../modelos/documentoModel.js");
 const reciente = {}
 
 reciente.mostrarVista =  async (req, res)=>{
-    const documentos = await documentoModel.find({});
+    const documentos = await documentoModel.find({}).sort({f_recepcion:-1});
+    
     // console.log(documentos);
     // console.log(documentos[3]);
     // console.log(documentos[3].autor);
@@ -14,19 +15,32 @@ reciente.mostrarVista =  async (req, res)=>{
 }
 
 reciente.buscarDocumentos =  (req, res)=>{
-    
-    // console.log(await documentoModel.find({titulo:req.params['buscar']}));
-    const buscar = req.params.id;
-    console.log("parametros: ", req.params);
+    const palabra = req.query.palabra;
+    // documentoModel.find({titulo:palabra});
+    // const buscar = req.query.palabra;
+    // console.log("parametros: ", req.query);
+    // console.log("parametros.buscar: ", palabra);
 
-    // const documentos =  documentoModel.find({titulo:palabraClave}).then(
-    //     data =>{res.render('recientes.pug', {documentos, tamanio: documentos.length});}
-    // ).catch(e=>{console.log("error: ", e)});
+    //const documentos = 
+    
+    const busqueda = "/" + `${palabra}` + "/";
+    // console.log(busqueda);
+    // documentoModel.find({titulo:palabra}).sort({f_recepcion:-1}).then(
+        documentoModel.find({titulo:{$regex:`${palabra}`, $options:'i'}}).sort({f_recepcion:-1}).then(
+        
+        documentos =>{
+            // console.log(documentos);
+            // console.log(documentos.length);
+            res.render('recientes.pug', {documentos, tamanio: documentos.length});
+        }
+    ).catch(e=>{console.log("error: ", e)});
 
     
     // const documentos =  documentoModel.find({autor: 'Luis'});
-    res.send(`palabra clave:  ${buscar}`);
+    // res.send(`palabra clave:  ${palabra}`);
     // res.render('recientes.pug', {documentos, tamanio: documentos.length});
 }
+
+
 
 module.exports = reciente;

@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 
 //referenciamos a las rutas
-const rutaPrincipal = require('./rutas/principalRoute');
+const carpetasRoute = require('./rutas/carpetasRoute');
 const papeleraRoute = require('./rutas/papeleraRoute');
 const recientesRoute = require('./rutas/recientesRoute');
 const registrarRoute = require('./rutas/registrarRoute');
@@ -19,7 +19,7 @@ app.set('vistas', path.join(__dirname, 'views'))
 app.set('view engine', 'pug');
 
 //llamamos a las rutas
-app.use(rutaPrincipal);
+app.use(carpetasRoute);
 app.use(papeleraRoute)
 app.use(recientesRoute);
 app.use(registrarRoute);
