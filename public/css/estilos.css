@@ -34,9 +34,10 @@
 #alogo{    
     /* background-image: url('../img/diresa2.png'); */
     display: flex;
-    
+    /* background-color: white; */
     /* justify-content: left; */
     /* height: 80%; */
+    /* width: 12%; */
     height: 90%;
     /* margin: 8px; */
     margin-left: 10px;
