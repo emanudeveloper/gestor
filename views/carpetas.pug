@@ -7,11 +7,11 @@ block content
     form#carpetas(action="/carpetas", method="post") 
         div#tarjetas(class="tarjetas")    
             each val, index in carpetas  
-                if index == 8
+                if index == carpetas.length-1
                     div
                         p#agregar(class="tarjeta" onclick='agregar(this.id)')
                 else                                       
-                    a(class="tarjeta" href="archivos"+enlaces[index]) 
+                    a(class="tarjeta" href="carpetas"+enlaces[index]) 
                         div(contenteditable="true") #{index+1} #{val}
                         //- a(class="tarjeta" href="archivos"+enlaces[index])  #{index+1} #{val}
 

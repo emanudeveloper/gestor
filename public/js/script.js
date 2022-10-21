@@ -10,12 +10,9 @@ const user = {
     const stars = "⭐".repeat(data.life / 20);
     return `Nombre: ${data.name} (${data.role}) ${stars}`;
   }
+
   console.log(user);
   show(user);
-
-
-
-
 
         let input = document.getElementById("abrirArchivo");
         let imageName = document.getElementById("nombreArchivo")

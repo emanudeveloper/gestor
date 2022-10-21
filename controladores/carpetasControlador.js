@@ -1,4 +1,3 @@
-
 function llenarArbol(arbol, ruta, calback){
 
   let archivoCarpeta = fs.readdirSync(ruta, (err, files) => {
@@ -44,6 +43,7 @@ const cal = function (arb, recorrido, archCarps){
 
   console.log(arb);
 }
+
 function crearArbol(ruta) { //async 
   
     fs.readdirSync(ruta, (err, files) => { //readdir() await 
@@ -111,13 +111,10 @@ function crearArbol(ruta) { //async
      
 }
 
-
 const fs = require('fs');
 const path = require('path');
-
 var rutaArchivo ="";//path.join(__dirname,"../","documentos")
 const primeraVez = true;
-
 // var arbolCarpeta={  
 //   archivos:[]
 // };
@@ -125,11 +122,11 @@ const primeraVez = true;
 const principalControlador = {
 }
 
-const carpetas = ["Asesoría Jurídica", "Logística", "Servicios de Salud", 
+const carpetas = ["Temporal", "Asesoría Jurídica", "Logística", "Servicios de Salud", 
 "Administración", "Inteligencia Sanitaria", "Promoción de la Salud", "Control Institucional", 
 "Estadística e Informática", "Laboratorio Referencial R."];
 
-const enlaces =  ["/asesoria-juridica", "/logistica", "/servicios-salud", "/administracion", "/inteligencia-sanitaria", 
+const enlaces =  ["/temporal", "/asesoria-juridica", "/logistica", "/servicios-salud", "/administracion", "/inteligencia-sanitaria", 
 "/promocion-salud", "/control-institucional", "/estadistica-informatica", "/laboratorio-referencial-r"];
 
 
@@ -140,7 +137,6 @@ principalControlador.mostrarVista = function (req, res){
         
       res.render('carpetas.pug', {carpetas, enlaces});        
 }
-
 
 principalControlador.crearCarpeta = function(req, res){
   
