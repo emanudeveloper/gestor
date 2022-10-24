@@ -16,38 +16,51 @@ const papeleraRoute = require('./rutas/papeleraRoute');
 const recientesRoute = require('./rutas/recientesRoute');
 const registrarRoute = require('./rutas/registrarRoute');
 const iniciarSesionRoute = require('./rutas/iniciarSesionRoute');
+const registrarUsuarioRoute = require('./rutas/registrarUsuarioRoute');
 // const exp = require('constants');
 //setters
 app.set('vistas', path.join(__dirname, 'views'))
 app.set('view engine', 'pug');
-
-//llamamos a las rutas
-app.use(carpetasRoute);
-app.use(papeleraRoute)
-app.use(recientesRoute);
-app.use(registrarRoute);
-app.use(iniciarSesionRoute);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+
+
+
 app.use(sesion({
   secret:'sesion de mesa de partes',
   resave:false,
   saveUninitialized:false
 }));
+
+//llamamos a las rutas
+app.use(registrarUsuarioRoute);
+app.use(iniciarSesionRoute);
+app.use(recientesRoute)
+app.use(registrarRoute);;
+app.use(carpetasRoute);
+app.use(papeleraRoute);
+
+app.use(flash);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash);
+
 app.use((req, res, next) => {
-    res.locals.errors = req.flash("error");
-    res.locals.successes = req.flash("success");
+    app.locals.mErrors = req.flash('mError');
+    app.locals.mCorrecto = req.flash('mCorrecto');
     next();
   });
-// app.use(express.urlencoded({extended: true}));//{extended:false}
+
 app.use(express.static( path.join(__dirname, 'public')));
 app.use('/documentos', express.static( path.join(__dirname, 'documentos')));
 // app.use('/doc', express.static(path.join(__dirname, 'documentos')));
+
+//rutas
+// app.use(recientesRoute)
+// app.use(registrarRoute);;
+// app.use(carpetasRoute);
+// app.use(papeleraRoute);
+
 
 app.listen(port, ()=>{
     console.log(`escuchando desde el puerto ${port}`);
