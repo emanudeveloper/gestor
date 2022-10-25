@@ -4,14 +4,13 @@ const usuarioModel = require('../modelos/usuario')
 
 
 passport.serializeUser((usuario, done)=>{
-    done(null, usuario.usuario)} //usuario.id   
+    done(null, usuario.id)} //usuario.id   
 );
 
-passport.deserializeUser(async (usuario, done)=>{
-    const Usuario = await usuarioModel.findById(id);
-    done(null, Usuario);
+passport.deserializeUser(async (id, done)=>{
+    const usuario = await usuarioModel.findById(id);
+    done(null, usuario);
 })
-
 
 passport.use('registroUsuarioLocal', new estrategiaLocal({
     usernameField:'usuario',
@@ -20,11 +19,10 @@ passport.use('registroUsuarioLocal', new estrategiaLocal({
 }, async(req, usuario, clave, done)=>{
 
     try{
-
         const unUsuario = await usuarioModel.findOne({usuario:usuario});//usuario:usuario
         // console.log("Usuario encontrado: \n",unUsuario);
         if(unUsuario){
-            return done(null, false, null); //req.flash('mError','El usuario ya existe')
+            return done(null, false, req.flash('errorDeRegistro','El usuario ya existe')); //req.flash('mError','El usuario ya existe')
         }else{
             const nuevoUsuario = new usuarioModel();
             nuevoUsuario.usuario = usuario;
@@ -49,22 +47,23 @@ passport.use('inicioSesionLocal', new estrategiaLocal({
 }, async(req, usuario, clave, done)=>{
     try{
         const unUsuario = await usuarioModel.findOne({usuario:usuario});//usuario:usuario
-        const compararClave = unUsuario.compararClave(clave);
-        // console.log("Usuario encontrado: \n",unUsuario);
+        console.log("Usuario encontrado: \n",unUsuario);
+        // const compararClave = unUsuario.compararClave(clave);        
         // console.log("conincide clave: \n", compararClave);
 
         if(!unUsuario){
 
-            return done(null, false, (req, res)=>{
-                res.send("El usuario no ha sido encontrado");
-            })//req.flash('mError','El usuario no ha sido encontrado')            
+            return done(null, false, req.flash('errorDeInicio','El usuario no está registrado')            )//req.flash('mError','El usuario no ha sido encontrado')            
             
-        }else if(!compararClave){       
-            return done(null, false, null);//req.flash('mError','La clave es incorrecta')
-           
         }else{
-            console.log("Usuario logueado: \n", unUsuario);
-            done(null, unUsuario);
+            const compararClave = unUsuario.compararClave(clave);        
+            if(!compararClave){       // compararClave
+                return done(null, false, req.flash('errorDeInicio','La clave es incorrecta'));//req.flash('mError','La clave es incorrecta')               
+            }else{
+                console.log("Usuario logueado: \n", unUsuario);
+                 done(null, unUsuario);
+            }   
+            
         }
     }catch (e){
         console.error("Error al iniciar Sesion: ", e);

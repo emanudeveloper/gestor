@@ -11,4 +11,14 @@ router.post('/iniciarSesion', passport.authenticate('inicioSesionLocal', {
     passReqToCallback:true
 }));
 
+router.get('/cerrarSesion', (req, res, next)=>{
+    req.logout(
+        function(err){
+            if(err){return next();}            
+            res.redirect("/iniciarSesion");
+        }        
+    );
+});
+
+
 module.exports = router;

@@ -2,6 +2,7 @@ const {Router} = require("express");
 const express = require("express");
 const rutaRegistrar = Router();
 const registrarController = require("../controladores/registrarController.js");
+const {verificarInicio} = require('../passport/verficarInicioDeSesion')
 
 
 
@@ -11,7 +12,7 @@ rutaRegistrar.use(express.urlencoded({
 
   // rutaRegistrar.use(express.json());
 
-rutaRegistrar.get("/registrar", registrarController.mostrarVista);
-rutaRegistrar.post("/registrar", registrarController.documentoSingle, registrarController.registrarDocumento);//, documento.single('pdf')
+rutaRegistrar.get("/registrar", verificarInicio, registrarController.mostrarVista);
+rutaRegistrar.post("/registrar", verificarInicio, registrarController.documentoSingle, registrarController.registrarDocumento);//, documento.single('pdf')
 
 module.exports = rutaRegistrar;

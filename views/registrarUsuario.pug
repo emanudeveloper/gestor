@@ -8,20 +8,24 @@ html(lang="es")
         //- link(rel="stylesheet" type="text/css" href="css/estilos.css")
         link(rel="icon" href="img/archivero.svg")
     body
+        if errorDeRegistro
+            div #{errorDeRegistro}
+                     
+
         form(action="/registrarUsuario" method="post")
             input(type="text", name="usuario")         
             input(type="password", name="clave")
             input(type="password", name="claveConfirmacion")
             input(type="submit", value="Registrar")
 
-        script(type='text/javascript').
-            if(2>3){
-                var cuerpo = getElementByTagName('body')//#{mensaje}
-                const mensaje = document.createElement("div");
-                const texto = document.createTextNode("mensaje nuevo");
-                mensaje.appendChild(texto);
-                cuerpo.insertBefore(mensaje, cuerpo.firstChild);
-                //- cuerpo.innerHTML = `div asd`;
-            }
+        //- script(type='text/javascript').
+        //-     if(2>3){
+        //-         var cuerpo = getElementByTagName('body')//#{mensaje}
+        //-         const mensaje = document.createElement("div");
+        //-         const texto = document.createTextNode("mensaje nuevo");
+        //-         mensaje.appendChild(texto);
+        //-         cuerpo.insertBefore(mensaje, cuerpo.firstChild);
+        //-         //- cuerpo.innerHTML = `div asd`;
+        //-     }
                 
         

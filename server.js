@@ -5,10 +5,10 @@ const path = require('path');
 const morgan = require('morgan');
 const passport = require('passport');
 const sesion = require('express-session')
-
 require('./passport/autentificacionLocal');
 const app = express();
 const port = process.env.PORT || 3000;
+
 
 //referenciamos a las rutas
 const carpetasRoute = require('./rutas/carpetasRoute');
@@ -33,21 +33,15 @@ app.use(sesion({
   saveUninitialized:false
 }));
 
-//llamamos a las rutas
-app.use(registrarUsuarioRoute);
-app.use(iniciarSesionRoute);
-app.use(recientesRoute)
-app.use(registrarRoute);;
-app.use(carpetasRoute);
-app.use(papeleraRoute);
+// //llamamos a la
 
-app.use(flash);
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    app.locals.mErrors = req.flash('mError');
-    app.locals.mCorrecto = req.flash('mCorrecto');
+    app.locals.errorDeRegistro = req.flash('errorDeRegistro');
+    app.locals.errorDeInicio = req.flash('errorDeInicio');    
     next();
   });
 
@@ -55,11 +49,13 @@ app.use(express.static( path.join(__dirname, 'public')));
 app.use('/documentos', express.static( path.join(__dirname, 'documentos')));
 // app.use('/doc', express.static(path.join(__dirname, 'documentos')));
 
-//rutas
-// app.use(recientesRoute)
-// app.use(registrarRoute);;
-// app.use(carpetasRoute);
-// app.use(papeleraRoute);
+// //llamamos a las rutas
+app.use(registrarUsuarioRoute);
+app.use(iniciarSesionRoute);
+app.use(recientesRoute)
+app.use(registrarRoute);;
+app.use(carpetasRoute);
+app.use(papeleraRoute);
 
 
 app.listen(port, ()=>{
