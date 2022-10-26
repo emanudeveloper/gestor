@@ -8,7 +8,7 @@ html(lang="es")
         link(rel="stylesheet" type="text/css" href="css/estilos.css")
         link(rel="icon" href="img/archivero.svg")
     body 
-        div.principal
+        div#principal
             div.barraNavegacion 
                 a(id="alogo" href="/")               
                     img#logo(src="img/diresa3.png", alt="")
@@ -21,6 +21,9 @@ html(lang="es")
                 form.buscador(action="/buscar" method="get")                    
                     input.campoBuscar(id="" name="palabra" placeholder=" Escribe el título del doc...")                    
                     input(class="buscar" type="submit" value="Buscar") 
+
+                form.usuario(action="/cerrarSesion" method="get")    
+                    input(type="submit", value="")
 
             div.medio
                 div.lateral

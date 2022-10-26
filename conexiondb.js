@@ -5,7 +5,7 @@ var url = "mongodb://localhost:27017/mesapartes";
 //diresa-mesa
 //mA0fORQB59l5bgOk
 
-module.exports = mongoose.connect((process.env.MONGODB_URI || url), {
+module.exports = mongoose.connect((url || process.env.MONGODB_URI), {
   useNewUrlParser: true,
   useUnifiedTopology: true
 
