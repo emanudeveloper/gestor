@@ -226,6 +226,12 @@ form#carpetas{
     /* padding: 20px; */
 } 
 
+.nuevaCarpeta{
+    background-color: rgb(172, 211, 255);
+    background-repeat: no-repeat;
+    height: max-content;
+
+}
 
 /* .tarjeta a{
     padding: 10px;
