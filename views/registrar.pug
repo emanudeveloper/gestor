@@ -26,7 +26,7 @@ block content
                 div(class="datos")                     
                     h2 DATOS
                     label(for="") Fecha de Recepción 
-                    input(type="date", name="f_recepcion")                                
+                    input(type="datetime-local", name="f_recepcion")                                
                     input#titulo( type="text", name='titulo', value='', placeholder="Titulo documento")  
                     label(for="") Fecha del documento
                     input(type="date", name="f_doc")   
@@ -34,7 +34,7 @@ block content
                     input(type="text", name="autor", placeholder="Autor")            
                     textarea(name="descripcion" cols="auto" rows="3" placeholder="Descripción")
                     label(for="") Fecha de Remisión
-                    input(type="date", name="f_remision")        
+                    input(type="datetime-local", name="f_remision")        
                     input(type="text", name="oficina", placeholder="Oficina/área")                    
                     //- div(class="botonesRegistro")
                     input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")

@@ -3,15 +3,15 @@ extends layout.pug
 block content
     //- - var carpetas = [1,2,3,4,5,6];
     //- ul          
-            //- li archivo #{val} 
-    form#carpetas(action="/archivos", method="post") 
+            //- li archivo #{val}   /archivos
+    form#carpetas(action="/carpetas", method="post") 
         div#tarjetas(class="tarjetas")    
             each val, index in carpetas  
-                if index == 8
+                if index == carpetas.length-1
                     div
                         p#agregar(class="tarjeta" onclick='agregar(this.id)')
                 else                                       
-                    a(class="tarjeta" href="archivos"+enlaces[index]) 
+                    a(class="tarjeta" href="carpetas"+enlaces[index]) 
                         div(contenteditable="true") #{index+1} #{val}
                         //- a(class="tarjeta" href="archivos"+enlaces[index])  #{index+1} #{val}
 

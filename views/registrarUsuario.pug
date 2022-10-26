@@ -1,0 +1,22 @@
+doctype html
+html(lang="es")
+    head 
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title REGISTRAR USUARIO
+        //- link(rel="stylesheet" type="text/css" href="css/estilos.css")
+        link(rel="icon" href="img/archivero.svg")
+        link(rel="stylesheet", href="css/inicioRegistro.css")
+    body
+        if errorDeRegistro
+            div #{errorDeRegistro}
+                     
+        div 
+            h1 REGISTRO DE USUARIO 
+        form(action="/registrarUsuario" method="post")
+            img(src="img/usuario.svg", alt="")
+            input(type="text", name="usuario" placeholder="Usuario")         
+            input(type="password", name="clave" placeholder="contraseña")
+            input(type="password", name="claveConfirmacion" placeholder="repite la contraseña")
+            input(type="submit", value="Registrar")

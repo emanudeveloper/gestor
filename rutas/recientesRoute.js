@@ -1,6 +1,25 @@
 const {Router} = require('express');
-const route = Router();
-const recientesController = require("../controladores/recientesController")
-route.get('/', recientesController.mostrarVista);
+const router = Router();
+const recientesController = require("../controladores/recientesController");
+const {verificarInicio} = require('../passport/verficarInicioDeSesion')
 
-module.exports = route;
+// router.use((req, res, next)=>{
+//     verificarInicio(req, res, next);
+//     next();
+// });
+
+router.get('/', verificarInicio, recientesController.mostrarVista);
+router.get('/buscar', verificarInicio, recientesController.buscarDocumentos);
+// router.get('/:palabra', recientesController.buscarDocumentos);
+
+// function verificarInicio(req, res, next){
+
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
+//     res.redirect('/iniciarSesion');    
+// }
+
+
+
+module.exports = router;

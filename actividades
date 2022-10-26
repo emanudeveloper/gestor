@@ -1,3 +1,47 @@
+- DIRESA Lunes 25/10/2022 8:31am
+    - login con paassport, express-session
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA Lunes 24/10/2022 7:41am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA VIERNES 21/10/2022 9:54am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA JUEVES 20/10/2022 8:20am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA MIERCOLES 19/10/2022 7:44am
+    - Mostrar documentos recientes, ordenados por hora /cumplido
+    
+    - Buscar y filtrar documentos /cumplido
+    - mostrar archivos subidos en carpeta temporal     
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    
+- 
+
+
+DIRESA MARTES 18/10/2022
+- registrar archivo pdf de la vista al servidor con multer
+- mostrar archivo registrado en recientes
+
+
 DIRESA Lunes 17/10/2022
 
 - Guardar nuevo documento en la BD

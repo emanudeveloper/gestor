@@ -1,17 +1,31 @@
 
 *, body{    
+    
     box-sizing: border-box;    
     margin: 0px;
 }
 
-.principal{
+.usuario{
+    /* display: flex; */
+    /* background-size: contain; */
+    width: 5%;    
+}
 
-    /* width:100%;
-    height:100%;    */
-    /* position: static; */
-    /* display: block; */
-    /* overflow: hidden; */
-    /* flex-direction: column;     */
+.usuario input{
+    
+    background-image: url("../img/usuario.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    /* width: min-content; */
+}
+
+.usuario input:hover{
+     cursor: pointer;
 }
 
 /* BARRA DE NAVEGACION */
@@ -34,9 +48,10 @@
 #alogo{    
     /* background-image: url('../img/diresa2.png'); */
     display: flex;
-    
+    /* background-color: white; */
     /* justify-content: left; */
     /* height: 80%; */
+    /* width: 12%; */
     height: 90%;
     /* margin: 8px; */
     margin-left: 10px;
@@ -108,9 +123,7 @@
     width: 92%;
     /* height: 100vh; */
     height: 100%;
-    float: left;
-    
-    
+    float: left;    
     /*Ocultamos las barras del overflow  */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;
@@ -199,6 +212,7 @@ form#carpetas{
     height: 100%;
     width: 100%;
     margin:5px 5px 0px 5px;
+    padding-top:30px
     /* scale: (1.5); */
     /* transition: 0.2s; */
     
@@ -206,12 +220,18 @@ form#carpetas{
 .tarjeta:hover{
     background-image: url("../img/folderAbierto.png"); 
     
-    transform: scale(1.3);
+    transform: scale(1.2);
     /* transition: 0.1s; */
     /* scale: (1.4); */
     /* padding: 20px; */
 } 
 
+.nuevaCarpeta{
+    background-color: rgb(172, 211, 255);
+    background-repeat: no-repeat;
+    height: max-content;
+
+}
 
 /* .tarjeta a{
     padding: 10px;
@@ -383,7 +403,7 @@ embed{
     display: flex;
     flex-direction: column;
     width: 60%;
-    height: 70%;    
+    height: 72%;    
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
@@ -395,7 +415,6 @@ embed{
     flex-direction: row;
     width: 100%;
     height: 100%;
-
 }
 
 .pdf{
@@ -476,6 +495,7 @@ embed{
     align-items: center;
     /* align-content: center */ 
     margin:0px;
+    padding:8px 3px 14px 3px;
     height: 100%;
     width: 65%;
     /* padding: 2px 0px; */
