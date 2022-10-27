@@ -35,17 +35,14 @@ registrarController.registrarDocumento =  (req, res)=>{
     
     let nuevoDocumentoModel = new documento(req.body);
     
-    // const {oficina, f_doc, pdf} =  req.body;
+    
     const {oficina, f_doc} =  req.body;
-    // console.log(nuevoDocumentoModel.f_doc);
-    // nuevoDocumentoModel.f_doc = new Date(f_doc.substring(0,10), Date.now().toLocaleTimeString());
+    
     console.log(nuevoDocumentoModel.f_doc);
     const anio=f_doc.substring(0,4);
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);
-    // console.log(oficina, anio, mes, dia, req.file.filename);
-    // const ruta = path.join(oficina, anio, mes, dia, req.file.filename);
-    // const ruta = path.join("documentos", "temporal", req.file.filename);
+    
     const ruta = path.join("documentos", "temporal", req.file.filename);
     console.log(ruta)
     nuevoDocumentoModel.url = ruta;
@@ -53,7 +50,7 @@ registrarController.registrarDocumento =  (req, res)=>{
     nuevoDocumentoModel
         .save(nuevoDocumentoModel)
         .then(data=>{
-            console.log(data);
+            // console.log(data);
             res.render('registrar.pug');
         })
         .catch(err=>{
@@ -62,13 +59,20 @@ registrarController.registrarDocumento =  (req, res)=>{
                   err.message || "No se pudo registrar el documento"
         })});
 
-    // const files = req.file;
+    // const {oficina, f_doc, pdf} =  req.body;
+    // console.log(nuevoDocumentoModel.f_doc);
+    // nuevoDocumentoModel.f_doc = new Date(f_doc.substring(0,10), Date.now().toLocaleTimeString());
+    // console.log(oficina, anio, mes, dia, req.file.filename);
+    // const ruta = path.join(oficina, anio, mes, dia, req.file.filename);
+    // const ruta = path.join("documentos", "temporal", req.file.filename);
+}
 
-
-    
-    //{dest: 'documentos/' }
-
-    // res.send(req.file);
+registrarController.rellenar = (req, res)=>{
+    console.log("Cuerpo: \n", req.body);
+    console.log("Cuerpo: \n", req.query);
+    console.log("Cuerpo: \n", req.params);
+    // console.log("Cuerpo: \n", req.files.archivoPdf);
+    // console.log("Cuerpo: \n", req.body.rellenar);
 }
 
 module.exports = registrarController;

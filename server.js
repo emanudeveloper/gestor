@@ -4,7 +4,9 @@ const flash = require('connect-flash');
 const path = require('path');
 const morgan = require('morgan');
 const passport = require('passport');
-const sesion = require('express-session')
+const sesion = require('express-session');
+const pdfParsee = require('pdf-parse');
+
 require('./passport/autentificacionLocal');
 const app = express();
 const port = process.env.PORT || 3000;

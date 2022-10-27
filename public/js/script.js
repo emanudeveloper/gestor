@@ -56,6 +56,38 @@ function agregar(id){
 };
 
 
+// Autorellenado de formulario
+
+// const btnAbrirArchivo = document.getElementById("abrirArchivo");
+
+
+input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change',()=>{
+    const url = "/registrar/rellenar";
+    const datoFormulario = new FormData();
+    // datoFormulario.append('archivoPdf', input.files[0]);
+    datoFormulario.append('rellenar', "true");
+
+    try{
+        if(input.files[0]){//btnAbrirArchivo.files[0]
+            console.log("se cargo 1 archivo");
+            fetch(url, {
+                method:"post",
+                body:datoFormulario
+            }).then(respuesta=> {return respuesta.text()}).then(respuesta=>console.log(respuesta))
+                // .catch(e=>console.log("error: ", e));
+        }
+    }catch (e){
+        console.log("error: ", e);
+    }    
+    
+});
+
+
+
+
+
+
+
 
 // var directorio = document.getElementById('tarjetas');
 // var directorios = ["Asesoría Jurídica", "Logística", "Servicios de Salud",
