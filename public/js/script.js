@@ -63,18 +63,30 @@ function agregar(id){
 
 input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change',()=>{
     const url = "/registrar/rellenar";
-    const datoFormulario = new FormData();
-    // datoFormulario.append('archivoPdf', input.files[0]);
-    datoFormulario.append('rellenar', "true");
+    const datoFormulario = new FormData();    
 
+    datoFormulario.append('rellenar', true);
+    datoFormulario.append('pdf', input.files[0]);
+    // console.log(datoFormulario.get("rellenar"));
+    // console.log(datoFormulario.get("pdf"));
+    
+    
     try{
         if(input.files[0]){//btnAbrirArchivo.files[0]
-            console.log("se cargo 1 archivo");
+            // console.log("se cargo 1 archivo");
             fetch(url, {
                 method:"post",
                 body:datoFormulario
-            }).then(respuesta=> {return respuesta.text()}).then(respuesta=>console.log(respuesta))
-                // .catch(e=>console.log("error: ", e));
+            }).then(respuesta=> {
+                return respuesta.text();
+            }).then(texto =>{
+                // document.getElementById("numHojas").value = texto.charAt(12);
+                document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
+                console.log("numpages: ", texto.indexOf("numpages"));
+                console.log("\ncaracter : ", texto.charAt(12));
+                console.log("\nla respuesta se convierte en texto en el frontend", texto)
+                
+            }).catch(e=>{console.log("error: ", e)});
         }
     }catch (e){
         console.log("error: ", e);

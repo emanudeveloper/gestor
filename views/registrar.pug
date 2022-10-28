@@ -4,7 +4,7 @@ block content
     
     div(class="contenedorForm") 
         //- h1 REGISTRAR
-        form(action="/registrar", method="POST" class="formulario" enctype="multipart/form-data") 
+        form#fRegistrarDoc(action="/registrar", method="POST" class="formulario" enctype="multipart/form-data") 
             div(class="cuerpoFormulario")
                 div(class="pdf") 
                     h2 SELECCIONAR ARCHIVO 
@@ -30,7 +30,7 @@ block content
                     input#titulo( type="text", name='titulo', value='', placeholder="Titulo documento")  
                     label(for="") Fecha del documento
                     input(type="date", name="f_doc")   
-                    input(type="number", name="hojas", placeholder="Número de hojas")                      
+                    input#numHojas(type="number", name="hojas", value=0, placeholder="Número de hojas")                      
                     input(type="text", name="autor", placeholder="Autor")            
                     textarea(name="descripcion" cols="auto" rows="3" placeholder="Descripción")
                     label(for="") Fecha de Remisión
@@ -38,4 +38,5 @@ block content
                     input(type="text", name="oficina", placeholder="Oficina/área")                    
                     //- div(class="botonesRegistro")
                     input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")
+                    label#rellenar(hidden) no
             

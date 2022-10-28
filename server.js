@@ -5,7 +5,7 @@ const path = require('path');
 const morgan = require('morgan');
 const passport = require('passport');
 const sesion = require('express-session');
-const pdfParsee = require('pdf-parse');
+const pdfParse = require('pdf-parse');
 
 require('./passport/autentificacionLocal');
 const app = express();
@@ -19,6 +19,7 @@ const recientesRoute = require('./rutas/recientesRoute');
 const registrarRoute = require('./rutas/registrarRoute');
 const iniciarSesionRoute = require('./rutas/iniciarSesionRoute');
 const registrarUsuarioRoute = require('./rutas/registrarUsuarioRoute');
+
 // const exp = require('constants');
 //setters
 app.set('vistas', path.join(__dirname, 'views'))
@@ -26,7 +27,6 @@ app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
 
 
 app.use(sesion({

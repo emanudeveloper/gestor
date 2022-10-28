@@ -14,6 +14,6 @@ rutaRegistrar.use(express.urlencoded({
 
 rutaRegistrar.get("/registrar", verificarInicio, registrarController.mostrarVista);
 rutaRegistrar.post("/registrar", verificarInicio, registrarController.documentoSingle, registrarController.registrarDocumento);//, documento.single('pdf')
-rutaRegistrar.post("/registrar/rellenar", registrarController.rellenar);//, documento.single('pdf')
+rutaRegistrar.post("/registrar/rellenar", registrarController.documentoSingleBuffer, registrarController.rellenar);//, documento.single('pdf')
 
 module.exports = rutaRegistrar;
