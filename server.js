@@ -4,7 +4,9 @@ const flash = require('connect-flash');
 const path = require('path');
 const morgan = require('morgan');
 const passport = require('passport');
-const sesion = require('express-session')
+const sesion = require('express-session');
+const pdfParse = require('pdf-parse');
+
 require('./passport/autentificacionLocal');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +19,7 @@ const recientesRoute = require('./rutas/recientesRoute');
 const registrarRoute = require('./rutas/registrarRoute');
 const iniciarSesionRoute = require('./rutas/iniciarSesionRoute');
 const registrarUsuarioRoute = require('./rutas/registrarUsuarioRoute');
+
 // const exp = require('constants');
 //setters
 app.set('vistas', path.join(__dirname, 'views'))
@@ -24,7 +27,6 @@ app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
 
 
 app.use(sesion({
