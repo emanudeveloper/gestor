@@ -2,6 +2,9 @@ const documento = require("../modelos/documentoModel");
 const path = require('path');
 const multer = require("multer");
 const pdfParse = require('pdf-parse');
+const PdfExtractor = require('pdf-extractor').PdfExtractor;
+const Tesseract = require('tesseract.js')
+fs = require('fs');
 const registrarController = {}
 
 //para guardar en buffer
@@ -87,13 +90,63 @@ registrarController.rellenar = (req, res)=>{
     }
     
     const buffer = req.file.buffer;
-    console.log("buffer en el servidor", buffer);
+    // console.log("buffer en el servidor", buffer);
+    
+    // buffer.forEach((valor, clave, an
+    // console.log("buffer [25]", buffer.toJSON());
+    // console.log("buffer [25]", buffer.toString('utf-8'));
+    
+    
+    fs.writeFile('documentos/BUFFER.pdf', buffer, function (err) {
+        if (err) return console.log(err);
+        extraerImagenPdf();
+        
+        
+        console.log('Buffer Almacenado > BUFFER.pdf');
+    });
+
+    // const message = Buffer.from(buffer, 'base64').toString('utf-8');
+    // let parsedMessage = JSON.parse(message);
+    // console.log(message);
+
     //req.file.buffer
     
     const pdfparseado = pdfParse(buffer).then(resultado=>{
         // console.log("Resultado en el pdf parseado", resultado);    
-        res.send(resultado);}).catch(e=>console.log("error: ", e));
+    res.send(resultado);}).catch(e=>console.log("error: ", e));
         // res.json(JSON.stringify(resultado));}).catch(e=>console.log("error: ", e));
+}
+
+function extraerImagenPdf(){
+    
+    let outputDir = 'documentos',
+
+    pdfExtractor = new PdfExtractor(outputDir, {
+        pageRange: [1,1]
+        
+    });
+
+    pdfExtractor.parse('documentos/BUFFER.pdf').then(function () {//'documentos/BUFFER.pdf'
+        console.log('Datos extraidos, ahora iniciando tesseract');
+        //  await iniciar();        
+        //  convertir();
+        const ruta = path.join(__dirname,"../", "documentos/page-1.png");
+        console.log("Ruta Imagen: ", ruta);
+        
+        Tesseract.recognize(
+            ruta,//'https://tesseract.projectnaptha.com/img/eng_bw.png'
+            'spa'
+            // ,
+            // { 
+            //     logger: m => console.log(m)
+            //  }
+          ).then(({ data: { text } }) => {
+            console.log(text);
+          });        
+        
+    }).catch(function (err) {
+        console.error('Error: ' + err);
+    });
 }
 
 module.exports = registrarController;
