@@ -99,7 +99,7 @@ registrarController.rellenar = (req, res)=>{
     
     fs.writeFile('documentos/BUFFER.pdf', buffer, function (err) {
         if (err) return console.log(err);
-        extraerImagenPdf();
+        extraerImagenPdf(res);
         
         console.log('Buffer Almacenado > BUFFER.pdf');
     });
@@ -116,7 +116,7 @@ registrarController.rellenar = (req, res)=>{
         // res.json(JSON.stringify(resultado));}).catch(e=>console.log("error: ", e));
 }
 
-function extraerImagenPdf(){
+function extraerImagenPdf(res){
     
     let outputDir = 'documentos',
 
@@ -134,7 +134,7 @@ function extraerImagenPdf(){
         });
 }
 
-function convertirImagenATexto(){
+function convertirImagenATexto(res){
     const ruta = path.join(__dirname,"../", "documentos/page-1.png");
     console.log("Ruta Imagen: ", ruta);
     
@@ -146,6 +146,23 @@ function convertirImagenATexto(){
         //     logger: m => console.log(m)
         // }
     ).then(({ data: { text } }) => {
+
+        const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+        meses.forEach((valor, indice, arreglo)=>{
+
+            const index = text.indexOf(valor);
+
+            if(index !=-1){
+                
+                console.log(index, ": ", valor);
+                const fecha = text.substring(index-4, index+10).trim();
+                fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                console.log(index, ": ", fecha);
+                // return;
+            }
+        });
+
         console.log(text);
     });  
 }

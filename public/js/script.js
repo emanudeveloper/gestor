@@ -78,6 +78,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 method:"post",
                 body:datoFormulario
             }).then(respuesta=> {
+                console.log(respuesta);
                 return respuesta.text();
             }).then(texto =>{
                 // document.getElementById("numHojas").value = texto.charAt(12);
