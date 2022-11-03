@@ -27,9 +27,9 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
         
     }
-    });
+});
 
-    const docMulter = multer({storage:storage});
+const docMulter = multer({storage:storage});
 
 registrarController.documentoSingle=docMulter.single('pdf');
 registrarController.documentoSingleBuffer = docBuffer.single('pdf');
@@ -101,7 +101,6 @@ registrarController.rellenar = (req, res)=>{
         if (err) return console.log(err);
         extraerImagenPdf();
         
-        
         console.log('Buffer Almacenado > BUFFER.pdf');
     });
 
@@ -126,27 +125,29 @@ function extraerImagenPdf(){
         
     });
 
-    pdfExtractor.parse('documentos/BUFFER.pdf').then(function () {//'documentos/BUFFER.pdf'
-        console.log('Datos extraidos, ahora iniciando tesseract');
-        //  await iniciar();        
-        //  convertir();
-        const ruta = path.join(__dirname,"../", "documentos/page-1.png");
-        console.log("Ruta Imagen: ", ruta);
-        
-        Tesseract.recognize(
-            ruta,//'https://tesseract.projectnaptha.com/img/eng_bw.png'
-            'spa'
-            // ,
-            // { 
-            //     logger: m => console.log(m)
-            //  }
-          ).then(({ data: { text } }) => {
-            console.log(text);
-          });        
-        
-    }).catch(function (err) {
-        console.error('Error: ' + err);
-    });
+    pdfExtractor.parse('documentos/BUFFER.pdf')
+        .then(function () {//'documentos/BUFFER.pdf'
+            console.log('Recursos extraidos, ahora iniciando tesseract');
+            convertirImagenATexto();
+        }).catch(function (err) {
+            console.error('Error: ' + err);
+        });
+}
+
+function convertirImagenATexto(){
+    const ruta = path.join(__dirname,"../", "documentos/page-1.png");
+    console.log("Ruta Imagen: ", ruta);
+    
+    Tesseract.recognize(
+        ruta,//'https://tesseract.projectnaptha.com/img/eng_bw.png'
+        'spa'
+        // ,
+        // { 
+        //     logger: m => console.log(m)
+        // }
+    ).then(({ data: { text } }) => {
+        console.log(text);
+    });  
 }
 
 module.exports = registrarController;
