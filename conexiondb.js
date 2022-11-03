@@ -7,8 +7,7 @@ var url = "mongodb+srv://diresa-mesa:mA0fORQB59l5bgOk@mesadepartes.qqsmout.mongo
 
 module.exports = mongoose.connect((url || process.env.MONGODB_URI), {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify:flase
+  useUnifiedTopology: true
 
 }).then((ans)=>{  
   console.log(`Conectado`);
