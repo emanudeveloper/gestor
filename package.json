@@ -35,8 +35,10 @@
     "multer": "^1.4.5-lts.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "pdf-extractor": "^2.2.0",
     "pdf-parse": "^1.1.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "tesseract.js": "^3.0.3"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

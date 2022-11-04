@@ -78,20 +78,22 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 method:"post",
                 body:datoFormulario
             }).then(respuesta=> {
-                return respuesta.text();
+                // console.log(respuesta.text());
+                const texto = respuesta.text();
+                return texto;
             }).then(texto =>{
-                // document.getElementById("numHojas").value = texto.charAt(12);
-                document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
-                console.log("numpages: ", texto.indexOf("numpages"));
-                console.log("\ncaracter : ", texto.charAt(12));
-                console.log("\nla respuesta se convierte en texto en el frontend", texto)
+                console.log("texto: ", texto);
+                
+                // document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
+                // console.log("numpages: ", texto.indexOf("numpages"));
+                // console.log("\ncaracter : ", texto.charAt(12));
+                // console.log("\nla respuesta se convierte en texto en el frontend", texto)
                 
             }).catch(e=>{console.log("error: ", e)});
         }
     }catch (e){
         console.log("error: ", e);
-    }    
-    
+    }        
 });
 
 

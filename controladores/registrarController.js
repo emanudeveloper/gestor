@@ -2,6 +2,9 @@ const documento = require("../modelos/documentoModel");
 const path = require('path');
 const multer = require("multer");
 const pdfParse = require('pdf-parse');
+const PdfExtractor = require('pdf-extractor').PdfExtractor;
+const Tesseract = require('tesseract.js')
+fs = require('fs');
 const registrarController = {}
 
 //para guardar en buffer
@@ -24,9 +27,9 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
         
     }
-    });
+});
 
-    const docMulter = multer({storage:storage});
+const docMulter = multer({storage:storage});
 
 registrarController.documentoSingle=docMulter.single('pdf');
 registrarController.documentoSingleBuffer = docBuffer.single('pdf');
@@ -78,23 +81,100 @@ registrarController.mostrarVista = (req, res)=>{
 }
 
 registrarController.rellenar = (req, res)=>{
-    // console.log("Cuerpo recibido en el servidor: \n", req.body);    
-    // console.log("Archivo recibido en el servidor: \n", req.file);    
-   
+       
     if(!req.file){
         res.status(400);
         res.end();
     }
     
     const buffer = req.file.buffer;
-    console.log("buffer en el servidor", buffer);
+    // console.log("buffer en el servidor", buffer);
+    
+    // buffer.forEach((valor, clave, an
+    // console.log("buffer [25]", buffer.toJSON());
+    // console.log("buffer [25]", buffer.toString('utf-8'));
+    
+    
+    fs.writeFile('documentos/BUFFER.pdf', buffer,  function (err) {
+        if (err) return console.log(err);
+        console.log('Buffer Almacenado > BUFFER.pdf');
+        
+        // const promesa = new Promise((resolve, reject) => {
+        //     resolve(extraerImagenPdf());
+        //   });
+
+        // promesa.then((texto)=>{
+        //     // const texto = convertirImagenATexto();
+        //     console.log(texto);
+        //     res.send("datos devueltos del servidor"); }
+        // );
+        
+        //.then(()=>{res.send("datos devueltos del servidor"); });
+          
+          //.then(()=>{res.send("respuesta enviada")})
+         
+        // console.log("fecha: ", fecha);
+        let outputDir = 'documentos',
+
+        pdfExtractor = new PdfExtractor(outputDir, {
+            pageRange: [1,1]        
+        });
+
+        pdfExtractor.parse('documentos/BUFFER.pdf')
+            .then(function () {//'documentos/BUFFER.pdf'
+                console.log('Imagen extraida');  
+                const ruta = path.join(__dirname,"../", "documentos/page-1.png");
+        console.log("Ruta Imagen: ", ruta);
+    
+    Tesseract.recognize(
+        ruta,
+        'spa'
+        // ,
+        // { 
+        //     logger: m => console.log(m)
+        // }
+    ).then(({ data: { text } }) => {
+
+        const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+        meses.forEach((valor, indice, arreglo)=>{
+
+            const index = text.indexOf(valor);
+
+            if(index !=-1){
+                
+                const fecha = text.substring(index-4, index+10).trim();
+                fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                console.log(index, ": ", fecha);
+                text=fecha;                
+            }
+            // 
+        });
+        
+        console.log("3 Texto extraido de imagen: ", text);
+        return text;
+    }).then(texto=>{res.send(texto)});  
+
+
+        }).catch(function (err) {
+            console.error('Error: ' + err);
+        });
+    });
+
+    // const message = Buffer.from(buffer, 'base64').toString('utf-8');
+    // let parsedMessage = JSON.parse(message);
+    // console.log(message);
     //req.file.buffer
     
-    const pdfparseado = pdfParse(buffer).then(resultado=>{
-        // console.log("Resultado en el pdf parseado", resultado);    
-        res.send(resultado);}).catch(e=>console.log("error: ", e));
-        // res.json(JSON.stringify(resultado));}).catch(e=>console.log("error: ", e));
+    //No eliminar
+    // const pdfparseado = pdfParse(buffer).then( resultado=>{        
+    //     // console.log("Resultado en el pdf parseado", resultado);    
+    // res.send(resultado);}).catch(e=>console.log("error: ", e));
+    
+
+    // res.json(JSON.stringify(resultado));}).catch(e=>console.log("error: ", e));
 }
+
 
 module.exports = registrarController;
 
@@ -102,6 +182,55 @@ module.exports = registrarController;
 
 
 
+// function extraerImagenPdf(){
+    
+//     let outputDir = 'documentos',
+
+//     pdfExtractor = new PdfExtractor(outputDir, {
+//         pageRange: [1,1]        
+//     });
+
+//     pdfExtractor.parse('documentos/BUFFER.pdf')
+//         .then(function () {//'documentos/BUFFER.pdf'
+//             console.log('Imagen extraida');            
+//             return convertirImagenATexto();
+//         }).catch(function (err) {
+//             console.error('Error: ' + err);
+//         });
+// }
+
+// function convertirImagenATexto(){
+//     const ruta = path.join(__dirname,"../", "documentos/page-1.png");
+//     console.log("Ruta Imagen: ", ruta);
+    
+//     Tesseract.recognize(
+//         ruta,
+//         'spa'
+//         // ,
+//         // { 
+//         //     logger: m => console.log(m)
+//         // }
+//     ).then(({ data: { text } }) => {
+
+//         const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+//         meses.forEach((valor, indice, arreglo)=>{
+
+//             const index = text.indexOf(valor);
+
+//             if(index !=-1){
+                
+//                 // console.log(index, ": ", valor);
+//                 const fecha = text.substring(index-4, index+10).trim();
+//                 fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+//                 console.log(index, ": ", fecha);
+//             }
+//         });
+        
+//         console.log("Texto extraido de imagen: ", text);
+//         return text;
+//     });  
+// }
 
 
 
