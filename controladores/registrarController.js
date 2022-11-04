@@ -135,21 +135,21 @@ registrarController.rellenar = (req, res)=>{
         // }
     ).then(({ data: { text } }) => {
 
-        const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+        // const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 
-        meses.forEach((valor, indice, arreglo)=>{
+        // meses.forEach((valor, indice, arreglo)=>{
 
-            const index = text.indexOf(valor);
+        //     const index = text.indexOf(valor);
 
-            if(index !=-1){
+        //     if(index !=-1){
                 
-                const fecha = text.substring(index-4, index+10).trim();
-                fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                console.log(index, ": ", fecha);
-                text=fecha;                
-            }
-            // 
-        });
+        //         const fecha = text.substring(index-4, index+10).trim();
+        //         fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+        //         console.log(index, ": ", fecha);
+        //         text=fecha;                
+        //     }
+        //     // 
+        // });
         
         console.log("3 Texto extraido de imagen: ", text);
         return text;

@@ -26,16 +26,16 @@ block content
                 div(class="datos")                     
                     h2 DATOS
                     label(for="") Fecha de Recepción 
-                    input(type="datetime-local", name="f_recepcion")                                
+                    input#f_recepcion(type="datetime-local", name="f_recepcion")                                
                     input#titulo( type="text", name='titulo', value='', placeholder="Titulo documento")  
                     label(for="") Fecha del documento
-                    input(type="date", name="f_doc")   
+                    input#f_doc(type="date", name="f_doc")   
                     input#numHojas(type="number", name="hojas", value=0, placeholder="Número de hojas")                      
-                    input(type="text", name="autor", placeholder="Autor")            
+                    input#autor(type="text", name="autor", placeholder="Autor")            
                     textarea(name="descripcion" cols="auto" rows="3" placeholder="Descripción")
                     label(for="") Fecha de Remisión
-                    input(type="datetime-local", name="f_remision")        
-                    input(type="text", name="oficina", placeholder="Oficina/área")                    
+                    input#f_remision(type="datetime-local", name="f_remision")        
+                    input#oficina(type="text", name="oficina", placeholder="Oficina/área")                    
                     //- div(class="botonesRegistro")
                     input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")
                     label#rellenar(hidden) no

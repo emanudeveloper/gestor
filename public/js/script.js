@@ -27,8 +27,6 @@ var carpetas={};
 //                     // a(class="tarjeta" href="archivos"+enlaces[index]) 
 // }
 
-
-
 function agregar(id){
  
     //- var tarjeta = '<a class="tarjeta"> Carpeta Nueva </a>';
@@ -80,10 +78,36 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
             }).then(respuesta=> {
                 // console.log(respuesta.text());
                 const texto = respuesta.text();
-                return texto;
-            }).then(texto =>{
-                console.log("texto: ", texto);
                 
+                return texto;
+            }).then(text =>{
+                var fecha = text;
+                fecha = fecha.toLowerCase();
+                console.log("texto: ", fecha);                
+
+                const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "SET", "OCT", "NOV", "DIC",
+            "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "SETIEMBRE",
+        "OCTUBRE", "NOVIEMBRE", "DICIEMBRE", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+    "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
+
+                // const meses = ["ene","feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "set", "oct", "nov", "dic",
+                // "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+                // "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
+
+                meses.forEach((valor, indice, arreglo)=>{
+
+                    let index = fecha.indexOf(valor);
+
+                    if(index !=-1){
+                        
+                        fecha = fecha.substring(index-4, index+10).trim();
+                        fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                        console.log("fecha:  ", fecha);
+                        return true;
+                    }                    
+                });
+
+
                 // document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
                 // console.log("numpages: ", texto.indexOf("numpages"));
                 // console.log("\ncaracter : ", texto.charAt(12));
