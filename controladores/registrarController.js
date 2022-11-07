@@ -4,6 +4,7 @@ const multer = require("multer");
 const pdfParse = require('pdf-parse');
 const PdfExtractor = require('pdf-extractor').PdfExtractor;
 const Tesseract = require('tesseract.js')
+const pdfjsLib = require('pdfjs-dist');
 fs = require('fs');
 const registrarController = {}
 
@@ -24,8 +25,7 @@ const storage = multer.diskStorage({
         // console.log(nombreArchivo);
         // cb(null, nombreArchivo);
         // cb(null, `${Date.now()}-${file.originalname}`);
-        cb(null, file.originalname);
-        
+        cb(null, file.originalname);        
     }
 });
 
@@ -81,7 +81,9 @@ registrarController.mostrarVista = (req, res)=>{
 }
 
 registrarController.rellenar = (req, res)=>{
-       
+    const datos={};
+    // let numPaginas;
+
     if(!req.file){
         res.status(400);
         res.end();
@@ -125,36 +127,48 @@ registrarController.rellenar = (req, res)=>{
                 console.log('Imagen extraida');  
                 const ruta = path.join(__dirname,"../", "documentos/page-1.png");
         console.log("Ruta Imagen: ", ruta);
-    
-    Tesseract.recognize(
-        ruta,
-        'spa'
-        // ,
-        // { 
-        //     logger: m => console.log(m)
-        // }
-    ).then(({ data: { text } }) => {
-
-        const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
-
-        meses.forEach((valor, indice, arreglo)=>{
-
-            const index = text.indexOf(valor);
-
-            if(index !=-1){
-                
-                const fecha = text.substring(index-4, index+10).trim();
-                fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                console.log(index, ": ", fecha);
-                text=fecha;                
-            }
-            // 
+ 
+        pdfjsLib.getDocument(buffer).promise.then(function (doc) {
+            numPaginas = doc.numPages;
+            datos.numPaginas = doc.numPages;
+            // var numPages = doc.numPages;
+            console.log('Numero de paginas: ' + datos.numPaginas);
         });
-        
-        console.log("3 Texto extraido de imagen: ", text);
-        return text;
-    }).then(texto=>{res.send(texto)});  
 
+        Tesseract.recognize(
+            ruta,
+            'spa'
+            // ,
+            // { 
+            //     logger: m => console.log(m)
+            // }
+        ).then(({ data: { text } }) => {
+
+            // const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+            // meses.forEach((valor, indice, arreglo)=>{
+
+            //     const index = text.indexOf(valor);
+
+            //     if(index !=-1){
+                    
+            //         const fecha = text.substring(index-4, index+10).trim();
+            //         fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+            //         console.log(index, ": ", fecha);
+            //         // text=fecha;                
+            //         datos.fecha = fecha;
+            //         // return JSON.stringify(datos);
+            //         return datos;
+            //     }
+            //     // 
+            datos.texto = text;
+            // text.concat(numPaginas);
+            // console.log("3 Texto extraido de imagen: ", text);
+            return datos;
+            
+            // return JSON.stringify(datos);
+        }).then(texto=>{res.send(texto)});
+        
 
         }).catch(function (err) {
             console.error('Error: ' + err);

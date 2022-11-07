@@ -82,8 +82,9 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 const texto = respuesta.text();
                 return texto;
             }).then(texto =>{
-                console.log("texto: ", texto);
-                
+                console.log("texto: ", texto.trim());
+                // const datos = JSON.parse(texto);
+                // console.log("Fecha: ", datos.fecha);
                 // document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
                 // console.log("numpages: ", texto.indexOf("numpages"));
                 // console.log("\ncaracter : ", texto.charAt(12));
