@@ -122,14 +122,24 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
 
                     if(index !=-1){
                         
-                        fecha = nueTexto.substring(index-5, index+10).trim();
+                        fecha = nueTexto.substring(index-6, index+15).trim();
                         fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                        fecha.replace("de", " ");
+                        fecha.replace("del", " ");
                         console.log("fecha:  ", fecha);
-                        var fDoc = new Date(fecha);
-                        fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
-                        fDoc = fDoc.toISOString().slice(0,10);
-                        console.log("f doc: ", fDoc);
-                        f_doc.value = fDoc;
+
+                        try{
+                            var fDoc = new Date(fecha);                            
+                            console.log("Fecha input: ", fDoc);
+                            fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
+                            fDoc = fDoc.toISOString().slice(0,10);
+                            console.log("f doc: ", fDoc);
+                            f_doc.value = fDoc;
+                        }catch(e){
+                            console.log("Error en fecha del Documento: ", e);
+                        }
+
+                        
                         // fechas.push(fecha);
                         // console.log("Nº fechas encontradas: ", fechas.length)
                         return true;
