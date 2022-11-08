@@ -2,6 +2,9 @@ var carpetas={};
 
     let input = document.getElementById("abrirArchivo");
     let imageName = document.getElementById("nombreArchivo")
+    const numHojas = document.getElementById("numHojas");
+    const fRecepcion = document.getElementById("f_recepcion");
+    const f_doc = document.getElementById("f_doc");
 
     input.addEventListener("change", ()=>{
         let inputImage = document.querySelector("input[type=file]").files[0];
@@ -26,8 +29,6 @@ var carpetas={};
 //                     // div(contenteditable="true") #{index+1} #{val}
 //                     // a(class="tarjeta" href="archivos"+enlaces[index]) 
 // }
-
-
 
 function agregar(id){
  
@@ -78,13 +79,77 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 method:"post",
                 body:datoFormulario
             }).then(respuesta=> {
-                // console.log(respuesta.text());
-                const texto = respuesta.text();
+                const texto = respuesta.text();                       
                 return texto;
+
             }).then(texto =>{
-                console.log("texto: ", texto.trim());
-                // const datos = JSON.parse(texto);
-                // console.log("Fecha: ", datos.fecha);
+                const datos = JSON.parse(texto);
+                numHojas.value= datos['numPaginas'];
+                
+                var date = new Date();
+                date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+                
+                // console.log(date);
+                var fechaHora = date.toISOString().slice(0,16);
+                // console.log(fechaHora);
+                fRecepcion.value = fechaHora;                
+                // var nueTexto = texto.substring(0,320);
+                var nueTexto = texto;
+                // nueTexto =  nueTexto.toLowerCase();
+                console.log("Nuevo Texto: ", nueTexto);
+
+    //             const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "SET", "OCT", "NOV", "DIC",
+    //         "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "SETIEMBRE",
+    //     "OCTUBRE", "NOVIEMBRE", "DICIEMBRE", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+    // "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
+
+                const meses = ["ene","feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "set", "oct", "nov", "dic",
+                "ene.","feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sep.", "set.", "oct.", "nov.", "dic.",
+                "enero de", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+                "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
+                // const fecha=[];
+                // var fecha = nueTexto.substring(0,320);
+                var fecha;// = nueTexto;
+                // console .log("Texto fecha: ", fecha);
+                // const fechas =[];
+                
+                // const palabra = `/\s${valor}\s(?=20|10|70|\s|de|del)/mg`;
+                meses.forEach((valor)=>{
+
+                    // let index = nueTexto.indexOf(valor);
+                    const palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
+                    let index = nueTexto.search(palabra);//valor
+
+                    if(index !=-1){
+                        
+                        fecha = nueTexto.substring(index-5, index+10).trim();
+                        fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                        console.log("fecha:  ", fecha);
+                        var fDoc = new Date(fecha);
+                        fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
+                        fDoc = fDoc.toISOString().slice(0,10);
+                        console.log("f doc: ", fDoc);
+                        f_doc.value = fDoc;
+                        // fechas.push(fecha);
+                        // console.log("Nº fechas encontradas: ", fechas.length)
+                        return true;
+                    }                    
+                });
+
+                // meses.forEach((valor, indice, arreglo)=>{
+
+                //     let index = fecha.indexOf(valor);
+
+                //     if(index !=-1){
+                        
+                //         fecha = fecha.substring(index-4, index+10).trim();
+                //         fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                //         console.log("fecha:  ", fecha);
+                //         return true;
+                //     }                    
+                // });
+
+
                 // document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
                 // console.log("numpages: ", texto.indexOf("numpages"));
                 // console.log("\ncaracter : ", texto.charAt(12));
@@ -96,11 +161,6 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
         console.log("error: ", e);
     }        
 });
-
-
-
-
-
 
 
 
@@ -139,18 +199,6 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
     // doc.style="color:black";
 // }
 //insertarDirectorio();
-
-
-
-
-
-
-
-
-
-
-
-
 
 // arreglo.push(idNum);
         // html += `<a id=${idNum} href="/papelera" onclick=abrirCarpeta(this.id)><div class="tarjeta">${index+1}  ${carpeta} </div></a>`;

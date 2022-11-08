@@ -1,8 +1,10 @@
+- DIRESA Lunes 08/11/2022 07:58am
+    -enviar texto PARA RELLENAR FORMULARIO. 
+    
+
 - DIRESA Lunes 04/11/2022 07:40am
     -enviar texto PARA RELLENAR FORMULARIO. 
-
-    - UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
-
+    
 
 - DIRESA Lunes 03/11/2022 07:46am
     - CONVERTIR PDF A IMAGEN, LA IMAGEN EXTRAER TEXTO PARA RELLENAR FORMULARIO, usar OCR https://gist.github.com/stekhn/04711e12425b0aa10c0502ae8ca8e661
@@ -90,3 +92,9 @@ miercoles 12/10/2022
 - arrrastrar archivos dentro de las carpetas, 
 - ventana emergente para registrar datos de archivo
 - 
+
+
+
+
+TAREAS EN COLA:
+- UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
