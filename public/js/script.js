@@ -93,8 +93,8 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 var fechaHora = date.toISOString().slice(0,16);
                 // console.log(fechaHora);
                 fRecepcion.value = fechaHora;                
-                // var nueTexto = texto.substring(0,320);
-                var nueTexto = texto;
+                var nueTexto = texto.substring(0,400);
+                // var nueTexto = texto;
                 // nueTexto =  nueTexto.toLowerCase();
                 console.log("Nuevo Texto: ", nueTexto);
 
@@ -114,18 +114,20 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 // const fechas =[];
                 
                 // const palabra = `/\s${valor}\s(?=20|10|70|\s|de|del)/mg`;
-                meses.forEach((valor)=>{
+                meses.some((valor)=>{
 
                     // let index = nueTexto.indexOf(valor);
-                    const palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
+                    var palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
                     let index = nueTexto.search(palabra);//valor
 
                     if(index !=-1){
                         
-                        fecha = nueTexto.substring(index-6, index+15).trim();
-                        fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                        fecha.replace("de", " ");
-                        fecha.replace("del", " ");
+                        fecha = nueTexto.substring(index-4, index+14).trim();
+                        palabra = new RegExp(`[^a-zA-Z0-9 ]`, 'mi')
+                        // fecha.replace(/[^a-zA-Z0-9 ]/g, "")
+                        fecha.replace(palabra,"");
+                        // fecha.replace(/(de)|(del)/gmi, " ");
+                        // fecha.replace("del", " ");
                         console.log("fecha:  ", fecha);
 
                         try{
@@ -135,6 +137,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                             fDoc = fDoc.toISOString().slice(0,10);
                             console.log("f doc: ", fDoc);
                             f_doc.value = fDoc;
+                            return true;
                         }catch(e){
                             console.log("Error en fecha del Documento: ", e);
                         }
@@ -142,7 +145,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                         
                         // fechas.push(fecha);
                         // console.log("Nº fechas encontradas: ", fechas.length)
-                        return true;
+                        
                     }                    
                 });
 
