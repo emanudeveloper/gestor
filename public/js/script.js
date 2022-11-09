@@ -5,7 +5,9 @@ var carpetas={};
     const numHojas = document.getElementById("numHojas");
     const fRecepcion = document.getElementById("f_recepcion");
     const f_doc = document.getElementById("f_doc");
-
+    const titulo = document.getElementById("titulo");
+    const descripcion = document.getElementById("descripcion");
+    
     input.addEventListener("change", ()=>{
         let inputImage = document.querySelector("input[type=file]").files[0];
 
@@ -63,6 +65,11 @@ function agregar(id){
 
 
 input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change',()=>{
+    var date = new Date();
+    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());                
+    var fechaHora = date.toISOString().slice(0,16);
+    fRecepcion.value = fechaHora;                
+    
     const url = "/registrar/rellenar";
     const datoFormulario = new FormData();    
 
@@ -86,58 +93,69 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 const datos = JSON.parse(texto);
                 numHojas.value= datos['numPaginas'];
                 
-                var date = new Date();
-                date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-                
-                // console.log(date);
-                var fechaHora = date.toISOString().slice(0,16);
-                // console.log(fechaHora);
-                fRecepcion.value = fechaHora;                
-                var nueTexto = texto.substring(0,400);
-                // var nueTexto = texto;
+
+                // var nueTexto = texto.substring(0,450);
+                var nueTexto = texto;
                 // nueTexto =  nueTexto.toLowerCase();
                 console.log("Nuevo Texto: ", nueTexto);
-
-    //             const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "SET", "OCT", "NOV", "DIC",
-    //         "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "SETIEMBRE",
-    //     "OCTUBRE", "NOVIEMBRE", "DICIEMBRE", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
-    // "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
 
                 const meses = ["ene","feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "set", "oct", "nov", "dic",
                 "ene.","feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sep.", "set.", "oct.", "nov.", "dic.",
                 "enero de", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
                 "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
+                
                 // const fecha=[];
                 // var fecha = nueTexto.substring(0,320);
-                var fecha;// = nueTexto;
+                let fecha;// = nueTexto;
+                let nuevaFecha;
+                let descripcionValor="";
+                let tituloValor="";
+                let index;
+
                 // console .log("Texto fecha: ", fecha);
                 // const fechas =[];
                 
                 // const palabra = `/\s${valor}\s(?=20|10|70|\s|de|del)/mg`;
-                meses.some((valor)=>{
+
+                index = nueTexto.search(/(visto|considerando|asunto|asuntos|vistos|asuntos.|asunto.)/i);
+                descripcionValor = descripcionValor.concat(nueTexto.substring(index, index+350),'...');
+                descripcionValor = descripcionValor.replace(/[^\w\s\%\/\-\.\u00D1\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00DC\u00E1\u00E9\u00ED\u00F3\u00FA\u00FC|\n|-]+/gi,'');
+                console.log("titulo: ", descripcionValor);
+                descripcion.value = descripcionValor;
+
+                tituloValor = nueTexto.substring(index-110, index-32);
+                tituloValor = tituloValor.replace(/[^\w\s\/\-\.\u00D1\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00DC\u00E1\u00E9\u00ED\u00F3\u00FA\u00FC|\n|-]+/gi,'');
+                titulo.value = tituloValor;
+                
+
+                meses.forEach((valor)=>{
 
                     // let index = nueTexto.indexOf(valor);
-                    var palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
-                    let index = nueTexto.search(palabra);//valor
+                    // var palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
+                    // var palabra = new RegExp(`\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')
+                    var palabra = new RegExp(`\\s${valor}\\s`, 'mi')
+                    index = nueTexto.search(palabra);//valor
 
                     if(index !=-1){
                         
-                        fecha = nueTexto.substring(index-4, index+14).trim();
-                        palabra = new RegExp(`[^a-zA-Z0-9 ]`, 'mi')
+                        fecha = nueTexto.substring(index-5, index+14).trim();
+                        // palabra = new RegExp(`[^a-zA-Z0-9 ]`, 'mi')
                         // fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                        fecha.replace(palabra,"");
+                        // nuevaFecha = fecha.replace(palabra,"");
                         // fecha.replace(/(de)|(del)/gmi, " ");
                         // fecha.replace("del", " ");
-                        console.log("fecha:  ", fecha);
+                        
+                        nuevaFecha = fecha.replace(/ ([^a-zA-Z0-9 ]|de|del) /gi, ' ');
+                        console.log("fecha sin de/del:  ", nuevaFecha);                    
 
                         try{
-                            var fDoc = new Date(fecha);                            
-                            console.log("Fecha input: ", fDoc);
+                            var fDoc = new Date(nuevaFecha);                            
+                            console.log("1. Fecha Doc: ", fDoc);
                             fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
                             fDoc = fDoc.toISOString().slice(0,10);
-                            console.log("f doc: ", fDoc);
+                            console.log("2. fecha doc: ", fDoc);
                             f_doc.value = fDoc;
-                            return true;
+                            // return true;
                         }catch(e){
                             console.log("Error en fecha del Documento: ", e);
                         }
