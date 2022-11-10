@@ -129,7 +129,7 @@ registrarController.rellenar = (req, res)=>{
         console.log("Ruta Imagen: ", ruta);
  
         pdfjsLib.getDocument(buffer).promise.then(function (doc) {
-            numPaginas = doc.numPages;
+            // numPaginas = doc.numPages;
             datos.numPaginas = doc.numPages;
             // var numPages = doc.numPages;
             console.log('Numero de paginas: ' + datos.numPaginas);

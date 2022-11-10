@@ -69,7 +69,11 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
     date.setMinutes(date.getMinutes() - date.getTimezoneOffset());                
     var fechaHora = date.toISOString().slice(0,16);
     fRecepcion.value = fechaHora;                
-    
+    titulo.value = "";
+    descripcion.value = "";
+    numHojas.value=0;
+    f_doc.value="";
+
     const url = "/registrar/rellenar";
     const datoFormulario = new FormData();    
 
@@ -94,30 +98,21 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 numHojas.value= datos['numPaginas'];
                 
 
-                // var nueTexto = texto.substring(0,450);
-                var nueTexto = texto;
+                var nueTexto = texto.substring(0,500);
+                // var nueTexto = texto;
+                nueTexto = nueTexto.toLowerCase();
                 // nueTexto =  nueTexto.toLowerCase();
                 console.log("Nuevo Texto: ", nueTexto);
-
-                const meses = ["ene","feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "set", "oct", "nov", "dic",
-                "ene.","feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sep.", "set.", "oct.", "nov.", "dic.",
-                "enero de", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
-                "setiembre", "septiembre", "octubre", "noviembre", "diciembre"];
                 
-                // const fecha=[];
-                // var fecha = nueTexto.substring(0,320);
                 let fecha;// = nueTexto;
                 let nuevaFecha;
                 let descripcionValor="";
                 let tituloValor="";
                 let index;
-
-                // console .log("Texto fecha: ", fecha);
-                // const fechas =[];
-                
-                // const palabra = `/\s${valor}\s(?=20|10|70|\s|de|del)/mg`;
-
-                index = nueTexto.search(/(visto|considerando|asunto|asuntos|vistos|asuntos.|asunto.)/i);
+                let regex;
+       
+                regex = /(visto|considerando|asunto|asuntos|vistos|asuntos.|asunto.)/i;
+                index = nueTexto.search(regex);
                 descripcionValor = descripcionValor.concat(nueTexto.substring(index, index+350),'...');
                 descripcionValor = descripcionValor.replace(/[^\w\s\%\/\-\.\u00D1\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00DC\u00E1\u00E9\u00ED\u00F3\u00FA\u00FC|\n|-]+/gi,'');
                 console.log("titulo: ", descripcionValor);
@@ -127,65 +122,54 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 tituloValor = tituloValor.replace(/[^\w\s\/\-\.\u00D1\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00DC\u00E1\u00E9\u00ED\u00F3\u00FA\u00FC|\n|-]+/gi,'');
                 titulo.value = tituloValor;
                 
-
-                meses.forEach((valor)=>{
-
-                    // let index = nueTexto.indexOf(valor);
-                    // var palabra = new RegExp(`\\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')    //'mg' segundo parametro
-                    // var palabra = new RegExp(`\s${valor}(?=20|10|70|\\s|de|del)`, 'mi')
-                    var palabra = new RegExp(`\\s${valor}\\s`, 'mi')
-                    index = nueTexto.search(palabra);//valor
-
-                    if(index !=-1){
+                regex = /(ene|feb|mar|abr|may|jun|jul|ago|sep|set|oct|nov|dic|ene.|feb.|mar.|abr.|may.|jun.|jul.|ago.|sep.|set.|oct.|nov.|dic.|enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)/i; 
+                index = nueTexto.search(regex);
+     
+                if(index !=-1){
                         
-                        fecha = nueTexto.substring(index-5, index+14).trim();
-                        // palabra = new RegExp(`[^a-zA-Z0-9 ]`, 'mi')
-                        // fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                        // nuevaFecha = fecha.replace(palabra,"");
-                        // fecha.replace(/(de)|(del)/gmi, " ");
-                        // fecha.replace("del", " ");
-                        
-                        nuevaFecha = fecha.replace(/ ([^a-zA-Z0-9 ]|de|del) /gi, ' ');
-                        console.log("fecha sin de/del:  ", nuevaFecha);                    
+                            fecha = nueTexto.substring(index-10, index+20).trim();// -5   +14
+                            console.log("fecha: ", fecha);
 
-                        try{
-                            var fDoc = new Date(nuevaFecha);                            
-                            console.log("1. Fecha Doc: ", fDoc);
-                            fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
-                            fDoc = fDoc.toISOString().slice(0,10);
-                            console.log("2. fecha doc: ", fDoc);
-                            f_doc.value = fDoc;
-                            // return true;
-                        }catch(e){
-                            console.log("Error en fecha del Documento: ", e);
-                        }
+                            nuevaFecha = fecha.replace(/([^a-z0-9]|de|del)/gi, '');
+                            console.log("Nueva fecha:  ", nuevaFecha);              
 
-                        
-                        // fechas.push(fecha);
-                        // console.log("Nº fechas encontradas: ", fechas.length)
-                        
-                    }                    
-                });
+                            nuevaFecha = nuevaFecha.match(/[0-9]{1,2}[a-z]+[0-9]{2,4}/gi)[0];
+                            console.log("Nueva fecha:  ", nuevaFecha);   
 
-                // meses.forEach((valor, indice, arreglo)=>{
+                            nuevaFecha = nuevaFecha.replace(/[a-z]+/i, function(mes){
+                                console.log("mes: ", mes);
+                                
+                                if(mes.includes("ene")){
+                                    return " january ";
+                                }else if(mes.includes("abr")){
+                                    return " april ";
+                                }else if(mes.includes("ago")){
+                                    return " august ";
+                                }else if(mes.includes("set")){
+                                    return " september ";
+                                }else if(mes.includes("dic")){
+                                    return " december ";
+                                }
+                                
+                                return " " + mes + " ";
+                                
 
-                //     let index = fecha.indexOf(valor);
+                            });
+                            
+                            try{
+                                var fDoc = new Date(nuevaFecha);                            
+                                console.log("1. Fecha Doc: ", fDoc);
+                                fDoc.setMinutes(fDoc.getMinutes()-fDoc.getTimezoneOffset());
+                                fDoc = fDoc.toISOString().slice(0,10);
+                                console.log("2. fecha doc: ", fDoc);
+                                f_doc.value = fDoc;
+                                // return true;
+                            }catch(e){
+                                console.log("Error en fecha del Documento: ", e);
+                            }
+        
+                        }   
 
-                //     if(index !=-1){
-                        
-                //         fecha = fecha.substring(index-4, index+10).trim();
-                //         fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-                //         console.log("fecha:  ", fecha);
-                //         return true;
-                //     }                    
-                // });
-
-
-                // document.getElementById("numHojas").value = texto.substring(12, texto.indexOf(","));
-                // console.log("numpages: ", texto.indexOf("numpages"));
-                // console.log("\ncaracter : ", texto.charAt(12));
-                // console.log("\nla respuesta se convierte en texto en el frontend", texto)
-                
             }).catch(e=>{console.log("error: ", e)});
         }
     }catch (e){

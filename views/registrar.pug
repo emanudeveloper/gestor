@@ -30,13 +30,21 @@ block content
                     input#titulo(spellcheck="true" type="text", name='titulo', value='', placeholder="Titulo documento")  
                     label(for="") Fecha del documento
                     input#f_doc(type="date", name="f_doc")   
-                    input#numHojas(type="number", name="hojas", value=0, placeholder="Número de hojas")                      
+                    input#numHojas(type="number", name="hojas", min=1, placeholder="Número de hojas")                      
                     input#autor(type="text", name="autor", placeholder="Autor")            
-                    textarea#descripcion(spellcheck="true" name="descripcion" cols="auto" rows="3" placeholder="Descripción")
+                    textarea#descripcion(spellcheck="true" name="descripcion" cols="auto" rows="5" placeholder="Descripción")
                     label(for="") Fecha de Remisión
                     input#f_remision(type="datetime-local", name="f_remision")        
-                    input#oficina(type="text", name="oficina", placeholder="Oficina/área")                    
+                    //- input#oficina(type="text", name="oficina", placeholder="Oficina/área")                    
+                    //- label(for="idOficina") OFICINA
+                    select(name="oficina" placeholder="Elegir")
+                        option(value="" ) Elegir Oficina
+                        option(value="epidemilogia") Epidemilogia
+                        option(value="archivo general") Archivo General
+                        option(value="personal") Personal
+                        option(value="") 
+                        option(value="") 
                     //- div(class="botonesRegistro")
                     input#bRegistrarDatos(class="botonesRegistro" type="submit" value="ENVIAR")
-                    label#rellenar(hidden) no
+                    //- label#rellenar(hidden) no
             
