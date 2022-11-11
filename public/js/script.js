@@ -86,7 +86,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
     try{
         if(input.files[0]){//btnAbrirArchivo.files[0]
             // console.log("se cargo 1 archivo");
-            fetch(url, {
+            remoteFetchAsync(url, {//fetch
                 method:"post",
                 host:"https://registro-mesa-partes.herokuapp.com/registrar/rellenar",
                 body:datoFormulario
