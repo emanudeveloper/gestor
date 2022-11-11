@@ -94,6 +94,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
                 return texto;
 
             }).then(texto =>{
+                console.log("texto: ", texto);
                 const datos = JSON.parse(texto);
                 numHojas.value= datos['numPaginas'];
                 
