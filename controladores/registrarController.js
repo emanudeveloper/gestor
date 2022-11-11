@@ -164,7 +164,7 @@ registrarController.rellenar = (req, res)=>{
             datos.texto = text;
             // text.concat(numPaginas);
             console.log("Texto extraido de imagen: ", text);
-            return datos;
+            return text;//return datos;
             
             // return JSON.stringify(datos);
         }).then(texto=>{res.send(texto)});
