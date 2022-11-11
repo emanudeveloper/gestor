@@ -32,6 +32,16 @@ var carpetas={};
 //                     // a(class="tarjeta" href="archivos"+enlaces[index]) 
 // }
 
+function iniciarComponentes(){
+    let date = new Date();
+    date = date.toISOString().slice(0,10);
+    console.log("fecha maxima", date);    
+    // fRecepcion.setAttribute('max', date);
+    f_doc.setAttribute('max', date);
+}
+
+iniciarComponentes();
+
 function agregar(id){
  
     //- var tarjeta = '<a class="tarjeta"> Carpeta Nueva </a>';
@@ -87,8 +97,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
         if(input.files[0]){//btnAbrirArchivo.files[0]
             // console.log("se cargo 1 archivo");
             fetch(url, {//fetch
-                method:"post",
-                host:"https://registro-mesa-partes.herokuapp.com",
+                method:"post", // host:"https://registro-mesa-partes.herokuapp.com",
                 body:datoFormulario
             }).then(respuesta=> {
                 const texto = respuesta.text();                       
