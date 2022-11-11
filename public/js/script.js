@@ -74,7 +74,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
     numHojas.value=0;
     f_doc.value="";
 
-    const url = "https://registro-mesa-partes.herokuapp.com/registrar/rellenar";
+    const url = "/registrar/rellenar";
     const datoFormulario = new FormData();    
 
     datoFormulario.append('rellenar', true);
