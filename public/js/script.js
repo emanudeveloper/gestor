@@ -88,6 +88,7 @@ input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change
             // console.log("se cargo 1 archivo");
             fetch(url, {
                 method:"post",
+                host:"https://registro-mesa-partes.herokuapp.com/",
                 body:datoFormulario
             }).then(respuesta=> {
                 const texto = respuesta.text();                       
