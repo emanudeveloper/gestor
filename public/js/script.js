@@ -38,6 +38,14 @@ function iniciarComponentes(){
     console.log("fecha maxima", date);    
     // fRecepcion.setAttribute('max', date);
     f_doc.setAttribute('max', date);
+    
+    // console.log(window.location.href);
+    // console.log(window.location.protocol);
+    // console.log(window.location.host);
+    // console.log(window.location.hostname);
+    // console.log(window.location.port);
+    // console.log(window.location.pathname);
+    // console.log(window.location.origin);        
 }
 
 iniciarComponentes();
@@ -59,7 +67,7 @@ function agregar(id){
     nuevaCarpeta.setAttribute("contenteditable","true");
     // nuevaCarpeta.classList.add("nuevaCarpeta");    
     // nuevaCarpeta.appendChild(document.createTextNode('Nueva carpeta.'));
-    nuevaCarpeta.appendChild(document.createTextNode('Nueva carpeta.'));
+    nuevaCarpeta.appendChild(document.createTextNode(`${tamanio} Nueva carpeta`));
 
     //- document.getElementById('tarjetas').appendChild(parrafo);//document.getElementById('tarjetas')
     padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
@@ -68,6 +76,18 @@ function agregar(id){
     //- padre.childNodes.length-2    
 };
 
+function abrirCarpeta(rutaCarpeta){
+
+    const formulario = new FormData();
+    formulario.append("rutaCarpeta", rutaCarpeta);
+    const ruta = "/carpetas";
+
+    fetch(ruta, {
+        method:'get',            // host:'',
+        body: formulario.id
+    }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
+
+}
 
 // Autorellenado de formulario
 

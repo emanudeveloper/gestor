@@ -1,7 +1,7 @@
 const documento = require("../modelos/documentoModel");
 const path = require('path');
 const multer = require("multer");
-const pdfParse = require('pdf-parse');
+// const pdfParse = require('pdf-parse');
 const PdfExtractor = require('pdf-extractor').PdfExtractor;
 const Tesseract = require('tesseract.js')
 const pdfjsLib = require('pdfjs-dist');
@@ -48,7 +48,7 @@ registrarController.registrarDocumento =  (req, res)=>{
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);
     
-    const ruta = path.join("documentos", "temporal", req.file.filename);
+    const ruta = path.join("documentos", req.file.filename);//, "temporal"
     console.log(ruta)
     nuevoDocumentoModel.url = ruta;
     
