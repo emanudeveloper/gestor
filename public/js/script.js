@@ -7,7 +7,8 @@ var carpetas={};
     const f_doc = document.getElementById("f_doc");
     const titulo = document.getElementById("titulo");
     const descripcion = document.getElementById("descripcion");
-    
+    const ruta = document.getElementById("ruta");
+
     input.addEventListener("change", ()=>{
         let inputImage = document.querySelector("input[type=file]").files[0];
 
@@ -76,16 +77,20 @@ function agregar(id){
     //- padre.childNodes.length-2    
 };
 
-function abrirCarpeta(rutaCarpeta){
+function abrirCarpeta(elemento){
+    // console.log("diste click en la carpeta: ", elemento.class);
+    // console.log("diste click en la carpeta: ", elemento.firstChild.innerText);
+    // console.log("diste click en la carpeta: ", elemento.firstChild.innerHTML);
 
-    const formulario = new FormData();
-    formulario.append("rutaCarpeta", rutaCarpeta);
-    const ruta = "/carpetas";
+    // const formulario = new FormData();
+    // formulario.append("rutaCarpeta", elemento);
+    // const ruta = "/documentos/" + rutaCarpeta;
+    // ruta.value = "/documentos/" + elemento;
 
-    fetch(ruta, {
-        method:'get',            // host:'',
-        body: formulario.id
-    }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
+    // fetch(ruta, {
+    //     method:'get',            // host:'',
+    //     body: formulario.id
+    // }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
 
 }
 

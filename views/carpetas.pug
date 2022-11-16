@@ -4,20 +4,33 @@ block content
     //- - var carpetas = [1,2,3,4,5,6];
     //- ul          
             //- li archivo #{val}   /archivos
-    p Ruta: 
-        span                             
+    h2#ruta Ruta: 
+        span documentos                             
     br
+
     form#carpetas(action="/carpetas", method="post") 
         div#tarjetas(class="tarjetas")    
             each val, index in carpetas  
                 if index == carpetas.length-1
-                    div(class="tarjeta") 
-                        div(contenteditable="true" onclick='abrirCarpeta()') #{index+1} #{val}
+                    div(class="tarjeta" ) 
+                        div(contenteditable="true") #{index+1} #{carpetas[index]}
                     div
-                        p#agregar(class="tarjeta" onclick='agregar(this.id)')
+                        p#agregar(class="tarjeta" onclick=`agregar(this)`)
                 else                                       
                     div(class="tarjeta") 
-                        div(contenteditable="true") #{index+1} #{val}
+                        div(contenteditable="true") #{index+1} #{carpetas[index]}
+    
+    //- form#carpetas(action="/carpetas", method="post") 
+    //-     div#tarjetas(class="tarjetas")    
+    //-         each val, index in carpetas  
+    //-             if index == carpetas.length-1
+    //-                 div(class="tarjeta" ) 
+    //-                     div(contenteditable="true") #{index+1} #{val}
+    //-                 div
+    //-                     p#agregar(class="tarjeta" onclick='agregar(this.id)')
+    //-             else                                       
+    //-                 div(class="tarjeta") 
+    //-                     div(contenteditable="true") #{index+1} #{val}
                         //- a(class="tarjeta" href="archivos"+enlaces[index])  #{index+1} #{val}
 
 

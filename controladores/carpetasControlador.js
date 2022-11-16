@@ -13,7 +13,7 @@ const principalControlador = {
 // const enlaces =  ["/temporal", "/asesoria-juridica", "/logistica", "/servicios-salud", "/administracion", "/inteligencia-sanitaria", 
 // "/promocion-salud", "/control-institucional", "/estadistica-informatica", "/laboratorio-referencial-r"];
 
-const carpetas = ["Temporal", "Asesoría Jurídica"];
+const carpetas = ["Temporal"];
 // const enlaces =  ["/temporal", "/asesoria-juridica"];
 
 // principalControlador.mostrarVista = function (req, res){
@@ -22,11 +22,39 @@ const carpetas = ["Temporal", "Asesoría Jurídica"];
 // }
 
 principalControlador.mostrarVista = async function (req, res){
-      
-    const documentos = await documentoModel.find({path:"documentos"}).sort({f_recepcion:-1});  
-    console.log(documentos);
+    
+    const archivos =[];
+    const carpetas = [];
+    let splitter;
 
-    res.render('carpetas.pug', {carpetas, documentos});        
+    let rutaInicial="documentos";
+    const documentos = await documentoModel.find({path:rutaInicial}, {url:1}).sort({f_recepcion:-1});  
+    // console.log("ruta:", documentos[0].url);
+   
+    // console.log(documentos[0].url.split('\'));
+    documentos.forEach((elemento, index) => {
+        
+        splitter = elemento.url.split(/\\|\//);    
+        console.log("splits: ", splitter);
+        // console.log("pdf: ", splitter[1].search(/pdf/ig));
+        let cadena = `/${splitter[1]}/`;
+
+        if(splitter[1].search(/pdf/ig)==-1 ){
+          console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
+          if(carpetas.indexOf(splitter[1])==-1){
+              carpetas.push(splitter[1]);      
+          }          
+
+        }else{
+          archivos.push(splitter[1]);          
+        }
+    });
+    console.log("carpetas: ", carpetas);
+    console.log("Archivos: ", archivos);
+
+    res.render('carpetas.pug', {archivos, carpetas});        
+    // res.render('carpetas.pug', {documentos});        
+    // res.render('carpetas.pug', {carpetas, documentos});        
 
       // res.render('carpetas.pug', {carpetas, enlaces});        
 }
