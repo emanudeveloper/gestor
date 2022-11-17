@@ -9,13 +9,6 @@ var carpetas={};
     const descripcion = document.getElementById("descripcion");
     const ruta = document.getElementById("ruta");
 
-    input.addEventListener("change", ()=>{
-        let inputImage = document.querySelector("input[type=file]").files[0];
-
-        imageName.innerText = inputImage.name;
-        imageName.style="color:white; width:90%"
-    })
-
 
 // function agregar(){
 //     var padre = document.getElementById('tarjetas');
@@ -78,19 +71,21 @@ function agregar(id){
 };
 
 function abrirCarpeta(elemento){
-    // console.log("diste click en la carpeta: ", elemento.class);
-    // console.log("diste click en la carpeta: ", elemento.firstChild.innerText);
-    // console.log("diste click en la carpeta: ", elemento.firstChild.innerHTML);
+    console.log("diste click en la carpeta: ", elemento);
+    let rutaCarpeta = ruta.innerText.concat('/').concat(elemento);
+    ruta.innerText = rutaCarpeta;    
+    console.log("Ruta: ", rutaCarpeta);
 
-    // const formulario = new FormData();
-    // formulario.append("rutaCarpeta", elemento);
-    // const ruta = "/documentos/" + rutaCarpeta;
-    // ruta.value = "/documentos/" + elemento;
+    const formulario = new FormData();
+    formulario.append('rutaCarpeta', rutaCarpeta);    
 
-    // fetch(ruta, {
-    //     method:'get',            // host:'',
-    //     body: formulario.id
-    // }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
+    fetch("/carpetas?", {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
+        method:'post',         
+        // mode: "no-cors",
+        // headers: { "Content-Type": "application/json" },
+        // params: { rutaCarpeta: rutaCarpeta},   // host:'',
+        body:formulario
+    }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
 
 }
 
@@ -98,8 +93,19 @@ function abrirCarpeta(elemento){
 
 // const btnAbrirArchivo = document.getElementById("abrirArchivo");
 
+// input.addEventListener("change", ()=>{
+//     let inputImage = document.querySelector("input[type=file]").files[0];
+
+//     imageName.innerText = inputImage.name;
+//     imageName.style="color:white; width:90%"
+// })
+
 
 input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change',()=>{
+    let inputImage = document.querySelector("input[type=file]").files[0];
+    imageName.innerText = inputImage.name;
+    imageName.style="color:white; width:90%"
+
     var date = new Date();
     date.setMinutes(date.getMinutes() - date.getTimezoneOffset());                
     var fechaHora = date.toISOString().slice(0,16);

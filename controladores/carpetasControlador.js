@@ -40,7 +40,7 @@ principalControlador.mostrarVista = async function (req, res){
         let cadena = `/${splitter[1]}/`;
 
         if(splitter[1].search(/pdf/ig)==-1 ){
-          console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
+          // console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
           if(carpetas.indexOf(splitter[1])==-1){
               carpetas.push(splitter[1]);      
           }          
@@ -59,6 +59,15 @@ principalControlador.mostrarVista = async function (req, res){
       // res.render('carpetas.pug', {carpetas, enlaces});        
 }
 
+principalControlador.cambiarCarpeta = async (req, res)=>{
+  console.log(req.query);
+  console.log(req.params);
+  console.log(req.body);
+  let rutaInicial="documentos";
+  const documentos = await documentoModel.find({path:rutaInicial}, {url:1}).sort({f_recepcion:-1});  
+  res.redirect('/carpetas');
+}
+
 principalControlador.crearCarpeta = function(req, res){
   
 }
@@ -67,9 +76,7 @@ principalControlador.eliminarCarpeta = function(req, res){
 
 }
 
-principalControlador.cambiarCarpeta = function(req, res){
 
-}
 
 module.exports = principalControlador;
 
