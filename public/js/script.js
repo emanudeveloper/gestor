@@ -8,7 +8,7 @@ var carpetas={};
     const titulo = document.getElementById("titulo");
     const descripcion = document.getElementById("descripcion");
     const ruta = document.getElementById("ruta");
-
+    
 
 // function agregar(){
 //     var padre = document.getElementById('tarjetas');
@@ -27,11 +27,11 @@ var carpetas={};
 // }
 
 function iniciarComponentes(){
-    let date = new Date();
-    date = date.toISOString().slice(0,10);
-    console.log("fecha maxima", date);    
+    // let date = new Date();
+    // date = date.toISOString().slice(0,10);
+    // console.log("fecha maxima", date);    
     // fRecepcion.setAttribute('max', date);
-    f_doc.setAttribute('max', date);
+    // f_doc.setAttribute('max', date);
     
     // console.log(window.location.href);
     // console.log(window.location.protocol);
@@ -78,13 +78,19 @@ function abrirCarpeta(elemento){
 
     const formulario = new FormData();
     formulario.append('rutaCarpeta', rutaCarpeta);    
+    var parametro = encodeURIComponent(rutaCarpeta);
+    // var url = new URL('/carpetas/');
+    // url.searchParams.append("ruta", nuevaCarpeta);
+    // console.log("ruta solicitada: ", url);
 
-    fetch("/carpetas?", {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
-        method:'post',         
+    //`/carpetas?ruta=${parametro}`
+    fetch(`/carpetas?ruta=${rutaCarpeta}`, {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
+        method:'get',
+        // headers:{rutaCarpeta}
         // mode: "no-cors",
         // headers: { "Content-Type": "application/json" },
         // params: { rutaCarpeta: rutaCarpeta},   // host:'',
-        body:formulario
+        // body:formulario
     }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
 
 }
@@ -101,7 +107,7 @@ function abrirCarpeta(elemento){
 // })
 
 
-input.addEventListener('change',()=>{ //btnAbrirArchivo.addEventListener('change',()=>{
+input.addEventListener('change',()=>{ 
     let inputImage = document.querySelector("input[type=file]").files[0];
     imageName.innerText = inputImage.name;
     imageName.style="color:white; width:90%"
