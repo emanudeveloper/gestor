@@ -9,67 +9,36 @@ const principalControlador = {
 
 principalControlador.mostrarVista = async function (req, res){
 
-  var ruta //= JSON.stringify(req.query.ruta);
+  var ruta = "documentos";
   const archivos =[];
   const carpetas = [];
   let splitter;
     
-  // if(ruta){
-  //   console.log("query: ", ruta)
-  //   // rutaInicial = req.query.ruta;
-  //   // console.log(ruta);
-    
-  //   const documentos = await documentoModel.find({url:{$regex:ruta}}, {url:1}).sort({f_recepcion:-1});  
-  //   // console.log("ruta:", documentos[0].url);
-   
-  //   // console.log(documentos[0].url.split('\'));
-  //   documentos.forEach((elemento, index) => {
-        
-  //       splitter = elemento.url.split(/\\|\//);    
-  //       // console.log("splits: ", splitter);
-  //       // console.log("pdf: ", splitter[1].search(/pdf/ig));
-  //       // let cadena = `/${splitter[1]}/`;
+  
+  console.log("query: documentos")
 
-  //       if(splitter[1].search(/pdf/ig)==-1 ){
-  //         // console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
-  //         if(carpetas.indexOf(splitter[1])==-1){
-  //             carpetas.push(splitter[1]);      
-  //         }          
+  const documentos = await documentoModel.find({url:{$regex:ruta}}, {url:1}).sort({f_recepcion:-1});  //path
+  
+  documentos.forEach((elemento, index) => {
+      
+      splitter = elemento.url.split(/\\|\//);    
+      console.log("splits: ", splitter);
+      // console.log("pdf: ", splitter[1].search(/pdf/ig));
+      let cadena = `/${splitter[1]}/`;
 
-  //       }else{
-  //         archivos.push(splitter[1]);          
-  //       }
-  //   });
-  // }else{
-    // console.log("F: ")
-    ruta = "documentos"
-    console.log("query: documentos")
+      if(splitter[1].search(/pdf/ig)==-1 ){
+        // console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
+        if(carpetas.indexOf(splitter[1])==-1){
+            carpetas.push(splitter[1]);      
+        }          
 
-    const documentos = await documentoModel.find({url:{$regex:ruta}}, {url:1}).sort({f_recepcion:-1});  //path
-    
-    documentos.forEach((elemento, index) => {
-        
-        splitter = elemento.url.split(/\\|\//);    
-        console.log("splits: ", splitter);
-        // console.log("pdf: ", splitter[1].search(/pdf/ig));
-        let cadena = `/${splitter[1]}/`;
-
-        if(splitter[1].search(/pdf/ig)==-1 ){
-          // console.log("indice: ", carpetas.find(elemento=>{ elemento == splitter[1]}));
-          if(carpetas.indexOf(splitter[1])==-1){
-              carpetas.push(splitter[1]);      
-          }          
-
-        }else{
-          archivos.push(splitter[1]);          
-        }
-    });
-  // }
-    console.log("carpetas: ", carpetas);
-    console.log("Archivos: ", archivos);
-
-    
-    res.render('carpetas.pug', {archivos, carpetas});      
+      }else{
+        archivos.push(splitter[1]);          
+      }
+  });
+  console.log("carpetas: ", carpetas);
+  console.log("Archivos: ", archivos);    
+  res.render('carpetas.pug', {archivos, carpetas});      
   
 }
 

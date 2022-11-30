@@ -86,13 +86,23 @@ function abrirCarpeta(elemento){
     //`/carpetas?ruta=${parametro}`
     // fetch(`/carpetas?ruta=${rutaCarpeta}`,
     fetch(`/carpetas/:nuevaRuta?ruta=${rutaCarpeta}`, {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
-        method:'get',
-        // headers:{rutaCarpeta}
-        // mode: "no-cors",
-        // headers: { "Content-Type": "application/json" },
-        // params: { rutaCarpeta: rutaCarpeta},   // host:'',
-        // body:formulario
-    }).then((data)=>{return data.text()}).then((datos)=>{console.log("datos: ", datos)}).catch(e=>console.log("error: ", e));
+        method:'get'
+    }).then((data)=>{return data.json()})
+    .then((datos)=>{
+        const archivos =[];
+        const carpetas = [];
+        
+        datos.forEach((el, ind)=>{
+            console.log(ind + ": " + el.url.replace("documentos/temporal/", ""))
+            
+            if(el.url.indexOf('/')!=-1){
+                
+                
+            }   
+
+        })
+    })
+    .catch(e=>console.log("error: ", e));
 
 }
 
