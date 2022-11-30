@@ -78,13 +78,14 @@ function abrirCarpeta(elemento){
 
     const formulario = new FormData();
     formulario.append('rutaCarpeta', rutaCarpeta);    
-    var parametro = encodeURIComponent(rutaCarpeta);
+    // var parametro = encodeURIComponent(rutaCarpeta);
     // var url = new URL('/carpetas/');
     // url.searchParams.append("ruta", nuevaCarpeta);
     // console.log("ruta solicitada: ", url);
 
     //`/carpetas?ruta=${parametro}`
-    fetch(`/carpetas?ruta=${rutaCarpeta}`, {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
+    // fetch(`/carpetas?ruta=${rutaCarpeta}`,
+    fetch(`/carpetas/:nuevaRuta?ruta=${rutaCarpeta}`, {// + new URLSearchParams({rutaCarpeta:rutaCarpeta}).toString()
         method:'get',
         // headers:{rutaCarpeta}
         // mode: "no-cors",

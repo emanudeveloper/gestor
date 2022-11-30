@@ -8,19 +8,25 @@ block content
         span#ruta documentos                             
     br
 
-    form#carpetas(action="/carpetas", method="post") 
-        div#tarjetas(class="tarjetas")    
-            each val, index in carpetas 
-                //- -var nombre = `abrirCarpeta(${val})`
-                if index == carpetas.length-1
-                    div(class="tarjeta" onclick=`abrirCarpeta('${val}')`) 
-                        div(contenteditable="true") #{index+1} #{val}
-                    div
-                        p#agregar(class="tarjeta" onclick=`agregar(this)`)
-                else                                       
-                    div(class="tarjeta" onclick=`abrirCarpeta(${val})`) 
-                        div(contenteditable="true") #{index+1} #{val}
+    //- form#carpetas(action="/carpetas", method="post") 
+    div#tarjetas(class="tarjetas")    
+        each val, index in carpetas 
+            //- -var nombre = `abrirCarpeta(${val})`
+            if index == carpetas.length-1
+                div(class="tarjeta" onclick=`abrirCarpeta('${val}')`) 
+                    div(contenteditable="true") #{index+1} #{val}
+                div
+                    p#agregar(class="tarjeta" onclick=`agregar(this)`)
+            else                                       
+                div(class="tarjeta" onclick=`abrirCarpeta(${val})`) 
+                    div(contenteditable="true") #{index+1} #{val}
     
+
+
+
+
+
+
     //- form#carpetas(action="/carpetas", method="post")  "abrirCarpeta(this)"
     //-     div#tarjetas(class="tarjetas")    
     //-         each val, index in carpetas  
