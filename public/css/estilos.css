@@ -225,6 +225,31 @@ form#carpetas{
     /* padding: 20px; */
 } 
 
+.tarjetaPDF{
+    /* margin-left: 70px; */
+    box-sizing: border-box;
+    background-image: url("../img/pdf.svg");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    color: black;
+    cursor: pointer;
+    grid-gap:50px;
+    height: 100%;/*100%*/
+    width: 100%;/*100%*/
+    margin:5px 5px 0px 5px;
+    padding-top:30px
+    /* scale: (1.5); */
+    /* transition: 0.2s; */
+    
+}
+
+.tarjetaPDF:hover{
+    
+    
+    transform: scale(1.2);   
+} 
+
 .nuevaCarpeta{
     background-color: rgb(172, 211, 255);
     background-repeat: no-repeat;
