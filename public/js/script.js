@@ -10,21 +10,30 @@ var carpetas={};
     const ruta = document.getElementById("ruta");
     
 
-// function agregar(){
-//     var padre = document.getElementById('tarjetas');
-//     var tamanio = padre.childNodes.length-1;
-//     var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta' });
-//     nuevaCarpeta.appendChild(document.createTextNode('Nueva carpeta.'));
-//     padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
-//     var nombreCarpeta = Object.assign(document.createElement('div'),{contenteditable:'true'});
-//     nombreCarpeta.appendChild(document.createTextNode("nuevo"));
-//     var imagen = Objecto.assing(document.createElement('a'),{className:'tarjeta'});
+function mostrarArchivos(archivos, carpetas){
 
-//     padre.appendChild(nombreCarpeta);
-//                     //- a(class="tarjeta" href="archivos"+enlaces[index]) #{index+1} #{val}
-//                     // div(contenteditable="true") #{index+1} #{val}
-//                     // a(class="tarjeta" href="archivos"+enlaces[index]) 
-// }
+    var padre = document.getElementById('tarjetas');
+    var tamanio = padre.childNodes.length;//-1
+    var nuevaCarpeta;
+    console.log("-----------------Imprimiendo Elementos: ----------------");
+    archivos.forEach((el, index)=>{
+        
+        console.log(el);
+        nuevaCarpeta=null;
+        nuevaCarpeta = Object.assign(document.createElement('div'), { className: 'tarjeta'});
+        // nuevaCarpeta.setAttribute("contenteditable","true");
+        nuevaCarpeta.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
+        
+        // padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
+
+    });
+    padre.appendChild(nuevaCarpeta);
+    
+    
+        //- a(class="tarjeta" href="archivos"+enlaces[index]) #{index+1} #{val}
+        // div(contenteditable="true") #{index+1} #{val}
+        // a(class="tarjeta" href="archivos"+enlaces[index]) 
+}
 
 function iniciarComponentes(){
     // let date = new Date();
@@ -58,12 +67,14 @@ function agregar(id){
     
     // var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta' });
     var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta'});
-    nuevaCarpeta.setAttribute("contenteditable","true");
+    // nuevaCarpeta.setAttribute("contenteditable","true");
+    
     // nuevaCarpeta.classList.add("nuevaCarpeta");    
     // nuevaCarpeta.appendChild(document.createTextNode('Nueva carpeta.'));
-    nuevaCarpeta.appendChild(document.createTextNode(`${tamanio} Nueva carpeta`));
+    
 
     //- document.getElementById('tarjetas').appendChild(parrafo);//document.getElementById('tarjetas')
+    nuevaCarpeta.appendChild(document.createTextNode(`${tamanio} Nueva carpeta`));
     padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
     
     //- alert(nuevaCarpeta.getAttribute('class'));
@@ -92,14 +103,20 @@ function abrirCarpeta(elemento){
         const archivos =[];
         const carpetas = [];
         
+        const tarjetas = document.getElementById("tarjetas");
+        tarjetas.innerHTML="";
         datos.forEach((el, ind)=>{
+            el.url = el.url.replace("documentos/temporal/", "");
             console.log(ind + ": " + el.url.replace("documentos/temporal/", ""))
             
-            if(el.url.indexOf('/')!=-1){
-                
-                
+            if(el.url.indexOf('/')==-1){
+                archivos.push(el.url);
+                console.log("Archivo: " + el.url);
+            }else{
+                carpetas.push(el.url.substring(el.url.indexOf("/")));
+                console.log("carpeta: " + el.url.substring(el.url.indexOf("/")));
             }   
-
+            mostrarArchivos(archivos, carpetas);
         })
     })
     .catch(e=>console.log("error: ", e));
