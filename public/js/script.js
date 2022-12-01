@@ -20,21 +20,25 @@ function mostrarArchivos(archivos, carpetas){
         
         console.log(el);
         // nuevaCarpeta=null;
-        nuevaCarpeta = Object.assign(document.createElement('div'), { className: 'tarjetaPDF'});
+        nuevoArchivo = Object.assign(document.createElement('div'), { className: 'tarjetaPDF'});
         // nuevaCarpeta.onclick=`abrirCarpeta("${el}")`
         // console.log(nuevaCarpeta.onclick)
         // nuevaCarpeta.setAttribute("contenteditable","true");
-        nuevaCarpeta.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
-        
+        nuevoArchivo.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
+        let rutaCarpeta = ruta.innerText.concat('/').concat(el);
+        // console.log("descargar ruta: ", rutaCarpeta);
+        nuevoArchivo.setAttribute("onclick", `descargar("${rutaCarpeta}")`);
         // padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
 
     });
-    padre.appendChild(nuevaCarpeta);
-    
-    
-        //- a(class="tarjeta" href="archivos"+enlaces[index]) #{index+1} #{val}
-        // div(contenteditable="true") #{index+1} #{val}
-        // a(class="tarjeta" href="archivos"+enlaces[index]) 
+    padre.appendChild(nuevoArchivo);   
+}
+
+function descargar(ruta){
+    console.log("funcion descargar: ", ruta);
+    fetch(`/carpetas/descargar/?ruta=${ruta}`,{method:'post'})
+    .then((datos)=>{return datos.text()})
+    .then((texto)=>{console.log(texto)}).catch(err=>console.log(err));
 }
 
 function iniciarComponentes(){
@@ -68,7 +72,7 @@ function agregar(id){
     //- var parrafo = document.createElement('a').appendChild(document.createTextNode('Nuevo párrafo.'));
     
     // var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta' });
-    var nuevaCarpeta = Object.assign(document.createElement('a'), { className: 'tarjeta'});
+    var nuevaCarpeta = Object.assign(document.createElement('div'), { className: 'tarjeta'});
     // nuevaCarpeta.setAttribute("contenteditable","true");
 
     // nuevaCarpeta.classList.add("nuevaCarpeta");    
@@ -76,7 +80,8 @@ function agregar(id){
     
 
     //- document.getElementById('tarjetas').appendChild(parrafo);//document.getElementById('tarjetas')
-    nuevaCarpeta.appendChild(document.createTextNode(`${tamanio} Nueva carpeta`));
+    nuevaCarpeta.appendChild(document.createTextNode(`nueva carpeta (${tamanio} )`));
+    nuevaCarpeta.setAttribute("onclick", `abrirCarpeta("nueva narpeta (${tamanio} )")`);
     padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
     
     //- alert(nuevaCarpeta.getAttribute('class'));

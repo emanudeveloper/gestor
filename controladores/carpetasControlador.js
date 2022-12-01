@@ -53,8 +53,12 @@ principalControlador.abrirCarpeta = async (req, res)=>{
   
 }
 
-principalControlador.crearCarpeta = function(req, res){
+principalControlador.descargar = function(req, res){
   
+  var ruta = req.query.ruta;
+  console.log("descargar archivo: ", ruta);
+  // res.download(ruta);
+  res.send("descargando")
 }
 
 principalControlador.eliminarCarpeta = function(req, res){
