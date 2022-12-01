@@ -19,8 +19,10 @@ function mostrarArchivos(archivos, carpetas){
     archivos.forEach((el, index)=>{
         
         console.log(el);
-        nuevaCarpeta=null;
+        // nuevaCarpeta=null;
         nuevaCarpeta = Object.assign(document.createElement('div'), { className: 'tarjetaPDF'});
+        // nuevaCarpeta.onclick=`abrirCarpeta("${el}")`
+        // console.log(nuevaCarpeta.onclick)
         // nuevaCarpeta.setAttribute("contenteditable","true");
         nuevaCarpeta.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
         
