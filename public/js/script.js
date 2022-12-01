@@ -20,11 +20,13 @@ function mostrarArchivos(archivos, carpetas){
         
         console.log(el);
         // nuevaCarpeta=null;
-        nuevoArchivo = Object.assign(document.createElement('div'), { className: 'tarjetaPDF'});
+        nuevoArchivo = Object.assign(document.createElement('a'), { className: 'tarjetaPDF'});
         // nuevaCarpeta.onclick=`abrirCarpeta("${el}")`
         // console.log(nuevaCarpeta.onclick)
         // nuevaCarpeta.setAttribute("contenteditable","true");
+        // nuevoArchivo.setAttribute("href", `/documentos/descargar?ruta=${ruta}/${el}`);
         nuevoArchivo.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
+
         let rutaCarpeta = ruta.innerText.concat('/').concat(el);
         // console.log("descargar ruta: ", rutaCarpeta);
         nuevoArchivo.setAttribute("onclick", `descargar("${rutaCarpeta}")`);
