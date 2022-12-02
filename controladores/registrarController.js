@@ -34,7 +34,7 @@ const docMulter = multer({storage:storage});
 registrarController.documentoSingle=docMulter.single('pdf');
 registrarController.documentoSingleBuffer = docBuffer.single('pdf');
 
-registrarController.registrarDocumento =  (req, res)=>{
+registrarController.registrarDocumento =  async (req, res)=>{
     console.log(req.body);
     console.log(req.file);
 
@@ -48,8 +48,9 @@ registrarController.registrarDocumento =  (req, res)=>{
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);
     
-    const ruta = path.join("documentos", req.file.filename);//, "temporal"
-    console.log(ruta)
+    const ruta = path.join("documentos/temporal", req.file.filename);//, "temporal"
+    await ruta.replace("/\\/g", "/");
+    console.log("cambiando \\ por \/    ", ruta)
     nuevoDocumentoModel.url = ruta;
     
     nuevoDocumentoModel

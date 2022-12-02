@@ -37,12 +37,12 @@ function mostrarArchivos(archivos, carpetas){
     padre.appendChild(nuevoArchivo);   
 }
 
-function descargar(ruta){
-    console.log("funcion descargar: ", ruta);
-    fetch(`/carpetas/descargar/ruta?ruta=${ruta.innerText}`,{method:'get'})
-    .then((datos)=>{return datos.text()})
-    .then((texto)=>{console.log(texto)}).catch(err=>console.log(err));
-}
+// function descargar(ruta){
+//     console.log("funcion descargar: ", ruta);
+//     fetch(`/carpetas/descargar/ruta?ruta=${ruta.innerText}`,{method:'get'})
+//     .then((datos)=>{return datos.text()})
+//     .then((texto)=>{console.log(texto)}).catch(err=>console.log(err));
+// }
 
 function iniciarComponentes(){
     // let date = new Date();

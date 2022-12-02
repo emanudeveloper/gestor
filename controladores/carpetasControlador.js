@@ -44,7 +44,7 @@ principalControlador.mostrarVista = async function (req, res){
 
 principalControlador.abrirCarpeta = async (req, res)=>{
   console.log("abrir carpeta: ");
-  console.log(JSON.stringify(req.query));
+  // console.log(JSON.stringify(req.query));
   console.log(JSON.stringify(req.query.ruta));
 
   var ruta = req.query.ruta;
