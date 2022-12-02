@@ -5,7 +5,7 @@ const {verificarInicio} = require('../passport/verficarInicioDeSesion')
 
 route.get('/carpetas', verificarInicio, controladorPrincipal.mostrarVista);//archivos
 route.get('/carpetas/:nuevaRuta', verificarInicio, controladorPrincipal.abrirCarpeta);// /archivos
-route.post('/carpetas/descargar', verificarInicio, controladorPrincipal.descargar);
+route.get('/carpetas/descargar/ruta', verificarInicio, controladorPrincipal.descargar);
 
 
 

@@ -24,12 +24,13 @@ function mostrarArchivos(archivos, carpetas){
         // nuevaCarpeta.onclick=`abrirCarpeta("${el}")`
         // console.log(nuevaCarpeta.onclick)
         // nuevaCarpeta.setAttribute("contenteditable","true");
-        // nuevoArchivo.setAttribute("href", `/documentos/descargar?ruta=${ruta}/${el}`);
+        nuevoArchivo.setAttribute("href", `/carpetas/descargar/ruta?ruta=${ruta.innerText}/${el}`);
         nuevoArchivo.appendChild(document.createTextNode(`${tamanio+1} ${el}`));
 
         let rutaCarpeta = ruta.innerText.concat('/').concat(el);
         // console.log("descargar ruta: ", rutaCarpeta);
-        nuevoArchivo.setAttribute("onclick", `descargar("${rutaCarpeta}")`);
+        // nuevoArchivo.setAttribute("onclick", `descargar("${rutaCarpeta}")`);
+        // nuevoArchivo.onclick= `descargar("${rutaCarpeta}`;
         // padre.insertBefore(nuevaCarpeta, padre.childNodes[tamanio]); 
 
     });
@@ -38,7 +39,7 @@ function mostrarArchivos(archivos, carpetas){
 
 function descargar(ruta){
     console.log("funcion descargar: ", ruta);
-    fetch(`/carpetas/descargar/?ruta=${ruta}`,{method:'post'})
+    fetch(`/carpetas/descargar/ruta?ruta=${ruta.innerText}`,{method:'get'})
     .then((datos)=>{return datos.text()})
     .then((texto)=>{console.log(texto)}).catch(err=>console.log(err));
 }
