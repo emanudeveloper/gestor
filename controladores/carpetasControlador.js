@@ -45,9 +45,13 @@ principalControlador.mostrarVista = async function (req, res){
 principalControlador.abrirCarpeta = async (req, res)=>{
   console.log("abrir carpeta: ");
   // console.log(JSON.stringify(req.query));
-  console.log(JSON.stringify(req.query.ruta));
+  console.log("Ruta 1", JSON.stringify(req.query.ruta));
 
   var ruta = req.query.ruta;
+
+  // var ruta2 = req.query.ruta.replace("/", "\\");
+  //||{$regex:ruta2}
+  // console.log("Ruta 2: ", ruta2);
   const documentos = await documentoModel.find({url:{$regex:ruta}}, {url:1}).sort({f_recepcion:-1});  
   res.send(documentos);
   

@@ -48,11 +48,12 @@ registrarController.registrarDocumento =  async (req, res)=>{
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);
     
-    const ruta = path.join("documentos/temporal", req.file.filename);//, "temporal"
-    await ruta.replace("/\\/g", "/");
-    console.log("cambiando \\ por \/    ", ruta)
-    nuevoDocumentoModel.url = ruta;
+    const ruta = await path.join("documentos/temporal", req.file.filename);//, "temporal"
     
+    //await ruta.replace("/\\/g", "/");
+    //console.log("cambiando \\ por \/    ", ruta)
+    nuevoDocumentoModel.url = await (ruta.replace("\\", "\/"));
+    console.log("Insertando DOC: ", nuevoDocumentoModel.url);
     nuevoDocumentoModel
         .save(nuevoDocumentoModel)
         .then(data=>{
