@@ -43,16 +43,37 @@ principalControlador.mostrarVista = async function (req, res){
 }
 
 principalControlador.abrirCarpeta = async (req, res)=>{
+  console.log("Ruta Actual: ", __dirname);
+  var rutaAbrir= path.join(__dirname,"../", req.query.ruta);
+
+  fs.readdir(" C:\\xampp\\htdocs\\misPaginas\\Gestor\\documentos", { withFileTypes: true }, (el)=>{
+    el.forEach((el)=>{
+      console.log("elemento: ", el);
+    });
+  })
+  
+  
+  console.log("ruta a abrir: ", rutaAbrir);
+  
+  
   console.log("abrir carpeta: ");
   // console.log(JSON.stringify(req.query));
   console.log("Ruta 1", JSON.stringify(req.query.ruta));
+  
 
   var ruta = req.query.ruta;
 
   // var ruta2 = req.query.ruta.replace("/", "\\");
   //||{$regex:ruta2}
   // console.log("Ruta 2: ", ruta2);
+  //const ruta2 = await ruta.replace(/\//g, "\\").then();
+  // const ruta2 = "documentos\\temporal";
+  // console.log("ruta2 :", ruta2);//{$regex:ruta}||
   const documentos = await documentoModel.find({url:{$regex:ruta}}, {url:1}).sort({f_recepcion:-1});  
+  // documentos.forEach((el, ind)=>{
+  //   console.log(el);
+  //   console.log("------------------------------");
+  // })
   res.send(documentos);
   
 }

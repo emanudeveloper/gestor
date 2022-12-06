@@ -1,12 +1,14 @@
 Actividades
 
-1	front Crear Carp (debe guardarse un archivo para que la carpeta persista en la BD) 	     
-2	front preticion abrir Carp -) Back envia carpetas y archivos -) F. redibuja la vista, F. actualiza la ruta
+1	front Crear Carpeta y guardar en el servidor de archivos
+
+2	front preticion abrir Carp -) Back envia carpetas y archivos -) F. redibuja la vista, F. actualiza la ruta // CUMPLIDO
+ 
 3	front Eliminar Carp. 	   -) Back eliminar todos los archivos y sub archivos -) F. redibuja la vista
 4	front Cambiar Nombre Carp. -) Back actualiza las rutas de los archivos
 5	front Descargar Carp.      -) Back comprime archivos, envia -) F. descarga 
 6	front Mover Carp.	   -) Back Actualiza las rutas -) F. redibuja la vista
-
+7   
 -------------------------------------------------------------------------------------------------------------------
 
 - crear menu carpeta

@@ -116,8 +116,8 @@ function abrirCarpeta(elemento){
         const tarjetas = document.getElementById("tarjetas");
         tarjetas.innerHTML="";
         datos.forEach((el, ind)=>{
-            el.url = el.url.replace("documentos/temporal/", "");
-            console.log(ind + ": " + el.url.replace("documentos/temporal/", ""))
+            el.url = el.url.replace("documentos/temporal/", "");// documentos/temporal/
+            // console.log(ind + ": " + el.url.replace("documentos/temporal/", ""))
             
             if(el.url.indexOf('/')==-1){
                 archivos.push(el.url);

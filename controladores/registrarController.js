@@ -35,9 +35,9 @@ registrarController.documentoSingle=docMulter.single('pdf');
 registrarController.documentoSingleBuffer = docBuffer.single('pdf');
 
 registrarController.registrarDocumento =  async (req, res)=>{
-    console.log(req.body);
-    console.log(req.file);
-
+    // console.log(req.body);
+    // console.log(req.file);
+    const ruta = path.join("documentos/temporal", req.file.filename).replace("\\", "/");
     let nuevoDocumentoModel = new documento(req.body);
     
     
@@ -48,12 +48,15 @@ registrarController.registrarDocumento =  async (req, res)=>{
     const mes = f_doc.substring(5,7);
     const dia = f_doc.substring(8,10);
     
-    const ruta = await path.join("documentos/temporal", req.file.filename);//, "temporal"
     
+    // console.log("Abrir ruta: ",ruta)
     //await ruta.replace("/\\/g", "/");
     //console.log("cambiando \\ por \/    ", ruta)
-    nuevoDocumentoModel.url = await (ruta.replace("\\", "\/"));
-    console.log("Insertando DOC: ", nuevoDocumentoModel.url);
+    // console.log("\\"); 
+    // console.log("/");
+    nuevoDocumentoModel.url = ruta.replace("\\", "/");
+
+    // console.log("Insertando DOC: ", nuevoDocumentoModel.url);
     nuevoDocumentoModel
         .save(nuevoDocumentoModel)
         .then(data=>{
@@ -175,109 +178,8 @@ registrarController.rellenar = (req, res)=>{
         }).catch(function (err) {
             console.error('Error: ' + err);
         });
-    });
-
-    // const message = Buffer.from(buffer, 'base64').toString('utf-8');
-    // let parsedMessage = JSON.parse(message);
-    // console.log(message);
-    //req.file.buffer
-    
-    //No eliminar
-    // const pdfparseado = pdfParse(buffer).then( resultado=>{        
-    //     // console.log("Resultado en el pdf parseado", resultado);    
-    // res.send(resultado);}).catch(e=>console.log("error: ", e));
-    
-
-    // res.json(JSON.stringify(resultado));}).catch(e=>console.log("error: ", e));
+    });    
 }
 
 
 module.exports = registrarController;
-
-
-
-
-
-// function extraerImagenPdf(){
-    
-//     let outputDir = 'documentos',
-
-//     pdfExtractor = new PdfExtractor(outputDir, {
-//         pageRange: [1,1]        
-//     });
-
-//     pdfExtractor.parse('documentos/BUFFER.pdf')
-//         .then(function () {//'documentos/BUFFER.pdf'
-//             console.log('Imagen extraida');            
-//             return convertirImagenATexto();
-//         }).catch(function (err) {
-//             console.error('Error: ' + err);
-//         });
-// }
-
-// function convertirImagenATexto(){
-//     const ruta = path.join(__dirname,"../", "documentos/page-1.png");
-//     console.log("Ruta Imagen: ", ruta);
-    
-//     Tesseract.recognize(
-//         ruta,
-//         'spa'
-//         // ,
-//         // { 
-//         //     logger: m => console.log(m)
-//         // }
-//     ).then(({ data: { text } }) => {
-
-//         const meses = ["ENE","FEB", "MAR", "ABR", "MAY", , "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
-
-//         meses.forEach((valor, indice, arreglo)=>{
-
-//             const index = text.indexOf(valor);
-
-//             if(index !=-1){
-                
-//                 // console.log(index, ": ", valor);
-//                 const fecha = text.substring(index-4, index+10).trim();
-//                 fecha.replace(/[^a-zA-Z0-9 ]/g, "")
-//                 console.log(index, ": ", fecha);
-//             }
-//         });
-        
-//         console.log("Texto extraido de imagen: ", text);
-//         return text;
-//     });  
-// }
-
-
-
-// registrarController.registrarDocumento =  (req, res)=>{
-//     console.log(req.body);
-//     console.log(req.file);
-    
-//     let nuevoDocumentoModel = new documento(req.body);
-    
-    
-//     const {oficina, f_doc} =  req.body;
-    
-//     console.log(nuevoDocumentoModel.f_doc);
-//     const anio=f_doc.substring(0,4);
-//     const mes = f_doc.substring(5,7);
-//     const dia = f_doc.substring(8,10);
-    
-//     const ruta = path.join("documentos", "temporal", req.file.filename);
-//     console.log(ruta)
-//     nuevoDocumentoModel.url = ruta;
-    
-//     nuevoDocumentoModel
-//         .save(nuevoDocumentoModel)
-//         .then(data=>{
-//             // console.log(data);
-//             res.render('registrar.pug');
-//         })
-//         .catch(err=>{
-//             res.status(500).send({
-//                 message:
-//                   err.message || "No se pudo registrar el documento"
-//         })});
-
-// }
