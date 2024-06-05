@@ -1,0 +1,123 @@
+Actividades
+
+1	front Crear Carpeta y guardar en el servidor de archivos
+
+2	front preticion abrir Carp -) Back envia carpetas y archivos -) F. redibuja la vista, F. actualiza la ruta // CUMPLIDO
+ 
+3	front Eliminar Carp. 	   -) Back eliminar todos los archivos y sub archivos -) F. redibuja la vista
+4	front Cambiar Nombre Carp. -) Back actualiza las rutas de los archivos
+5	front Descargar Carp.      -) Back comprime archivos, envia -) F. descarga 
+6	front Mover Carp.	   -) Back Actualiza las rutas -) F. redibuja la vista
+7   
+-------------------------------------------------------------------------------------------------------------------
+
+- crear menu carpeta
+        - funcion abrir Carpeta
+        - DIRESA jueves 10/11/2022 07:58am 
+
+    ----------------------------------------------------------------------
+- DIRESA jueves 10/11/2022 07:58am
+- - -enviar texto PARA RELLENAR FORMULARIO. / completado
+
+- DIRESA jueves 09/11/2022 07:58am
+- - -enviar texto PARA RELLENAR FORMULARIO. 
+
+- DIRESA Lunes 08/11/2022 07:58am
+    -enviar texto PARA RELLENAR FORMULARIO. 
+    
+- DIRESA Lunes 04/11/2022 07:40am
+    -enviar texto PARA RELLENAR FORMULARIO. 
+    
+
+- DIRESA Lunes 03/11/2022 07:46am
+    - CONVERTIR PDF A IMAGEN, LA IMAGEN EXTRAER TEXTO PARA RELLENAR FORMULARIO, usar OCR https://gist.github.com/stekhn/04711e12425b0aa10c0502ae8ca8e661
+
+    - UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
+
+
+- DIRESA Lunes 02/11/2022 07:46am
+    - CONVERTIR PDF A IMAGEN, LA IMAGEN EXTRAER TEXTO PARA RELLENAR FORMULARIO, usar OCR https://gist.github.com/stekhn/04711e12425b0aa10c0502ae8ca8e661
+
+    - UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
+
+
+- DIRESA Lunes 28/10/2022 12:39am
+    - CONVERTIR PDF A IMAGEN, LA IMAGEN EXTRAER TEXTO PARA RELLENAR FORMULARIO, usar OCR https://gist.github.com/stekhn/04711e12425b0aa10c0502ae8ca8e661
+
+    - UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
+
+
+- DIRESA Lunes 25/10/2022 8:31am
+    - login con paassport, express-session
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA Lunes 24/10/2022 7:41am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA VIERNES 21/10/2022 9:54am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA JUEVES 20/10/2022 8:20am
+    - login
+    - Crear vista tabla para mostrar archivos recientes  
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    - mostrar archivos dentro de carpetas 
+
+- DIRESA MIERCOLES 19/10/2022 7:44am
+    - Mostrar documentos recientes, ordenados por hora /cumplido
+    
+    - Buscar y filtrar documentos /cumplido
+    - mostrar archivos subidos en carpeta temporal     
+    - crear carpeta fisicamente 
+    - borrar carpetas
+    
+- 
+
+
+DIRESA MARTES 18/10/2022
+- registrar archivo pdf de la vista al servidor con multer
+- mostrar archivo registrado en recientes
+
+
+DIRESA Lunes 17/10/2022
+
+- Guardar nuevo documento en la BD
+- Recuperar documento
+- enviar y guardar pdf con MULTER
+- https://www.youtube.com/watch?v=U-Nbjphc29U
+
+viernes 14/10/2022
+
+- ventana emergente  de seleccion de archivo
+- validar campos
+- enviar datos del registro
+- guardar datos de documento en la base de datos,
+- si paso anterior OK, crear carpeta si no existe
+- si paso anterior ok, devolver mensaje de exito caso contrario enviar -m error
+
+https://www.educative.io/answers/how-you-can-style-the-input-file-type-in-forms-using-css
+
+miercoles 12/10/2022
+- crear, editar, eliminar carpetas
+- persistir la estructura de carpetas creada por el usuario
+- arrrastrar archivos dentro de las carpetas, 
+- ventana emergente para registrar datos de archivo
+- 
+
+
+
+
+TAREAS EN COLA:
+- UBICAR CODIGO QR EN PDF https://stackoverflow.com/questions/70402095/how-to-place-image-on-right-corner-of-pdf-using-node-js
