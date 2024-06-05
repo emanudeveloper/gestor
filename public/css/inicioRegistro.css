@@ -1,0 +1,29 @@
+body{
+    align-items: center;
+    align-content: center;
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    background-color: cornflowerblue;
+    align-items: center;
+    width: min-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+form input{
+    margin-top: 15px;
+}
+
+form img{
+    width: 85%;
+}
+
+form img:hover, input[type="submit"]:hover{
+    cursor: pointer;
+}

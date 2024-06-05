@@ -1,0 +1,585 @@
+*, body{    
+    font-size: 100%;    
+    box-sizing: border-box;    
+    margin: 0px;
+}
+
+.usuario{
+    /* display: flex; */
+    /* background-size: contain; */
+    width: 5%;    
+}
+
+.usuario input{
+    
+    background-image: url("../img/usuario.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    /* width: min-content; */
+}
+
+.usuario input:hover{
+     cursor: pointer;
+}
+
+/* BARRA DE NAVEGACION */
+
+.barraNavegacion{
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    /* background-color: rgba(13,110,253,1);     */
+    background-color: rgb(44, 52, 116); 
+    padding-top: 0.125rem;
+    /* margin-left: auto;
+    margin-right:auto ; */
+    margin:0px;
+    display: flex;    
+    justify-content: space-between;   
+    z-index: 1;
+}
+
+#alogo{    
+    /* background-image: url('../img/diresa2.png'); */
+    display: flex;
+    /* background-color: white; */
+    /* justify-content: left; */
+    /* height: 80%; */
+    /* width: 12%; */
+    height: 90%;
+    /* margin: 8px; */
+    margin-left: 0.625rem;
+     
+    margin-top:auto;
+    margin-bottom:auto; 
+    /* margin:0px; */
+    padding: 0px;
+}
+
+#alogo img{
+    /* background-image: url('../img/diresa2.png'); */
+    padding: 0px;   
+    /* background-color: transparent;  */
+}
+
+.buscador{
+    width: 30%;
+    /* margin: 0;
+    padding: 0; */
+}
+
+.campoBuscar{
+    margin: auto 1px auto 1px;
+    border-radius: 0.5rem;
+    border: none;
+    /* width: 80%; */
+    object-fit: cover;
+    height: 80%;
+    width: 70%;
+}
+
+.buscar{
+    background-color: rgba(13, 117, 29, 0.582);    
+    border: 2px solid rgba(35, 175, 35, 0.651);
+    color: white;    
+    margin: 4px;    
+    height: 80%;
+    width: 20%;
+}
+
+.buscar:hover{
+    background-color: rgb(5, 168, 5);
+    
+}
+
+/* despues de la barra de navegacion*/
+.medio{
+    position: absolute;
+    top: 8vh;
+    width: 100%;  
+    height: 100%;
+}
+
+.lateral{
+    
+    background-color: rgb(44, 52, 116);
+    width: 8%;  
+    height: 100%;
+    text-decoration: none;    
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.central{
+    overflow-y:scroll;
+    background-color: white;
+    width: 92%;
+    /* height: 100vh; */
+    height: 100%;
+    float: left;    
+    /*Ocultamos las barras del overflow  */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.central::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+#menuLateralItem a:visited{
+    margin-right: 0px;
+    /* background-color: white; */
+}
+
+
+/* li a,  */
+div a, div a img, #menuLateralItem{    
+
+    text-decoration: none;   
+    color: white;  
+    padding: 5px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;          
+}
+
+.lateral a:hover, #menuLateralItem:hover{
+    background-color: steelblue;
+    color: rgb(255, 255, 113);
+    font-size: 120%; 
+    cursor: pointer;
+}
+
+#archivero, #papelera{    
+    display: block;    
+    object-fit: cover;
+    height: 50px;    
+}
+
+
+
+/* vista carpetas */
+
+form#carpetas{
+    /* background-color: red; */
+    height: 100%;
+}
+
+
+.tarjetas{
+    /* background-color: brown; */
+    display: inline-grid;
+    /* grid-template-columns: repeat(5, 65px); */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    /* box-sizing: border-box; */
+    /* padding: 10px;     */
+    
+    /* width: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+    /* margin-left: auto;
+    margin-right: auto;     */
+    /* margin: 0 auto;     */
+    column-gap:60px;
+    /* gap:15px; */
+    /* gap:15%; */
+    /* gap: 110px;    */
+    /* gap: 100px;     */
+    /* background-color: aqua; */
+}
+
+.tarjeta{
+    /* margin-left: 70px; */
+    box-sizing: border-box;
+    background-image: url("../img/folderCerrado.png");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    color: black;
+    cursor: pointer;
+    grid-gap:50px;
+    height: 100%;/*100%*/
+    width: 100%;/*100%*/
+    margin:5px 5px 0px 5px;
+    padding-top:30px
+    /* scale: (1.5); */
+    /* transition: 0.2s; */
+    
+}
+.tarjeta:hover{
+    background-image: url("../img/folderAbierto.png"); 
+    
+    transform: scale(1.2);
+    /* transition: 0.1s; */
+    /* scale: (1.4); */
+    /* padding: 20px; */
+} 
+
+.tarjetaPDF{
+    /* margin-left: 70px; */
+    box-sizing: border-box;
+    background-image: url("../img/pdf.svg");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    color: black;
+    cursor: pointer;
+    grid-gap:50px;
+    height: 100%;/*100%*/
+    width: 100%;/*100%*/
+    margin:5px 5px 0px 5px;
+    padding-top:30px
+    /* scale: (1.5); */
+    /* transition: 0.2s; */
+    
+}
+
+.tarjetaPDF:hover{
+        
+    transform: scale(1.2);   
+} 
+
+.nuevaCarpeta{
+    background-color: rgb(172, 211, 255);
+    background-repeat: no-repeat;
+    height: max-content;
+
+}
+
+/* .tarjeta a{
+    padding: 10px;
+    background-image: url("../img/folderCerrado.png");    
+    background-position: center;   
+    background-repeat: no-repeat; 
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+} */
+/* 
+.tarjeta a:hover{
+    background-image: url("../img/folderAbierto.png");
+    transition: 0.2s;
+    /* padding: 2px; 
+}  */
+
+
+
+/* .tarjetas2{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    box-sizing: border-box;
+    padding: 3px;        
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    gap:20px;
+    
+} */
+
+.tarjetas2{
+    box-sizing: border-box;
+    /* overflow-y: scroll; */
+    /* background-color: green; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    padding: 10px;
+    margin: 0px;        
+    width: 100%;
+    height: 100%;
+    /* justify-content: center; */
+    /* margin-left: auto;
+    margin-right: auto; */
+    gap:15px;
+    
+}
+
+.tarjeta2Box{
+  /* overflow-y: hidden; */
+  /* justify-content: center;
+  justify-items: center; */
+  /* background-color: yellow; */
+  margin: 20px; /*30px*/
+  width: auto;
+  height: 250px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.tarjeta2Box:hover .tarjeta2{
+    transform: rotateY(180deg);
+    
+}
+
+.tarjeta2:hover{
+    cursor: pointer;
+}
+
+
+/* .cara:hover, .detras:hover, .tarjeta2Box:hover, .tarjeta2:hover{
+    cursor: pointer;
+} */
+/* .tarjeta2{
+   
+    display: flex;
+    background-color: rgb(159, 191, 240);   
+    border-radius: 25px;
+    overflow-y: scroll;   
+    cursor: default;
+    height: 40%;  
+
+} */
+
+.tarjeta2{
+    /* background-color: blue; */
+    /* overflow: hidden; */
+   /* display: flex; */
+   /* width: 100%; */
+   padding: 4px; /*5px*/
+   width: 96%;
+     transform-style: preserve-3d;
+    transition: all 0.5s linear;
+
+}
+
+.cara{
+   
+    /* width: 100%; */
+    width: auto;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 10px; /*5px*/
+    /* margin-bottom: 10px; */
+    /* padding-left: auto;
+    padding-right: auto; */
+    
+    border-radius: 25px 0px 45px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cara.detras{
+    transform: rotateY(180deg);
+    border-radius: 0px;
+    padding: 0px;
+}
+
+embed{
+    width: 550px;
+    height: 280px;
+}
+
+#agregar{
+    /* background-color: yellow; */
+    box-sizing: border-box;
+    
+    background-image: url("../img/agregar.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;/*100%*/
+    height: 100%;
+    /* margin-left: 100%; */
+    /* padding:3px; */
+    transition: transform 1s;
+}
+
+#agregar:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+
+
+/* IMPLEMENTAMOS EL FORMULARIO DE REGISTRO */
+
+.contenedorForm{
+
+    /* background-color: tomato; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;  
+    margin-top: 3%;  
+    /* justify-content: center; */
+    align-items: center;
+    /* padding: 0px; */
+    /* align-content: center; */
+
+}
+
+/* .contenedorForm  h1{
+    margin-bottom: 1rem;
+    
+} */
+
+.formulario{
+
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 80%;    
+    /* padding: 0px;
+    margin: 0px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+.cuerpoFormulario{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.pdf{
+    
+    background:linear-gradient(-45deg, rgb(44, 52, 116) 50%, rgb(109, 126, 236) 95%);    
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.pdf label{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;     */
+    cursor: pointer;
+    width:35%;
+}
+
+.pdf h2{
+    
+    color: white;
+    /* margin-right: auto;
+    margin-left: auto; */
+    /* margin: 25px; */
+    padding-bottom: 10px;
+    /* size: 2rem; */
+}
+
+
+.pdf input{
+    display: none;
+    /* background-color: transparent; */
+    /* display: flex; */
+    /* margin: 5px 0;
+    border: none;
+     */
+    /* backgro */
+    /* height: auto; */
+    /* background-image: url('/img/pdf.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+.pdf input:hover{
+    transform: scale(1.2);
+    transition: 1.2S;
+    /* cursor: pointer; */
+    /* border: 0px; */
+}
+/*  */
+
+/* .pdf img{
+    margin: 30px 0;
+    width: 30%;
+}
+
+.pdf img:hover{
+    transform: scale(1.3);
+    transition: 1.2S;
+    cursor: pointer;
+} */
+
+.datos{
+    /* background: rgba(68, 92, 226, 0.897); */
+    /* background: linear-gradient(135deg, rgb(199, 199, 248) 20%,rgba(101, 101, 219, 0.938) 95%); */
+    display: flex;
+    flex-direction: column;
+    color: rgb(44, 52, 116);
+    padding: 1.5rem 0px;
+    justify-content: space-around;
+    /* justify-items: center; */
+    align-items: center;
+    /* align-content: center */ 
+    /* margin-bottom:35px; */
+    /* padding:8px 3px 14px 3px; */
+    
+    height: 100%;
+    width: 65%;
+    /* padding: 2px 0px; */
+}
+
+/* .datos input{
+    padding: 4px;
+} */
+/* .datos h2{
+
+    margin-top: 8px;
+} */
+
+.botonesRegistro{  /* .botonesRegistro button{ */
+    /* background-color: rgb(66,134,245);     */
+    background:linear-gradient(-4deg, rgb(44, 52, 116) 20%, rgb(126, 140, 235) 95%);    
+    align-items: center;
+    color: white;
+    padding: 8px 20px;
+    border: 0px solid;
+    /* margin-bottom: 4px; */
+    /* transition: 0.2S; */
+}
+
+.botonesRegistro:hover{
+    cursor: pointer;
+}
+
+.botonesRegistro:active{   /* .botonesRegistro button:hover{ */
+    background: rgb(44, 52, 116); 
+    /* transition: 1S; */
+    cursor: pointer;
+}
+
+.datos input, textarea{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0px;
+    width: 85%;
+    /* background-size: contain; */
+    /* border: solid 0.5px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.22) 0px 2px 2px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

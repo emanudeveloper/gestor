@@ -1,0 +1,48 @@
+doctype html
+html(lang="es")
+    head 
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title GESTOR
+        link(rel="stylesheet" type="text/css" href="css/estilos.css")
+        link(rel="icon" href="img/archivero.svg")
+    body 
+        div#principal
+            div.barraNavegacion 
+                a(id="alogo" href="/")               
+                    img#logo(src="img/diresa3.png", alt="")
+                    //- img#logo(src="img/logo-oficial-diresa.png", alt="")
+                    h1 MESA DE PARTES - DIRESA MADRE DE DIOS
+                
+                //- div.buscador
+                //-     input.campoBuscar(placeholder=" Escriba algo...")
+                //-     button(type="submit").buscar Buscar  /          action="/:palabra"
+                form.buscador(action="/buscar" method="get")                    
+                    input.campoBuscar(id="" name="palabra" placeholder=" Escribe el título del doc...")                    
+                    input(class="buscar" type="submit" value="Buscar") 
+
+                form.usuario(action="/cerrarSesion" method="get")    
+                    input(type="submit", value="")
+
+            div.medio
+                div.lateral
+                    div#menuLateral   
+                        div(id="menuInsertar" class="menuLateralItem")
+                            a(href="/registrar") Registrar
+                                img#papelera(src="/img/tramite2.png")  
+
+                        div(id="menuArchivos" class="menuLateralItem")
+                            a(id = "archivos" href="/carpetas") Archivos
+                                img#archivero(src="/img/archivero.svg")
+                                //- div /archivos
+                                //-     include ../public/img/archivero.svg
+                                            
+
+                        div(id="menuPapelera" class="menuLateralItem")
+                            a(href="/papelera") Papelera
+                                img#papelera(src="/img/papelera.svg")   
+                div.central
+                    block content
+        script(src="js/script.js")     
+                    //- <!-- <script type="module" src="script.js"></script> -->
